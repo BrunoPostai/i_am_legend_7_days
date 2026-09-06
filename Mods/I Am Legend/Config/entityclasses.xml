@@ -1,0 +1,1038 @@
+<HellsJanitor>
+	
+	<append xpath="/entity_classes">
+		<!-- *** DARKSEEKERS SLIM -->
+		<!-- *** MALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerSlimMale" extends="zombieTemplateMale">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Censor" value="1,2"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseeker"/>
+			<property name="PhysicsBody" value="mixamoConvertedStandardZombie"/>
+			<property name="LookAtAngle" value="0"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="5"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+
+			<!-- Gameplay zombieDarkseekerSlimMale -->
+			<property name="HandItem" value="meleeHandZombieShort"/>
+			<property name="ExperienceGain" value="^xpSlim01"/><!-- Slim -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/><!-- Slim -->
+		</entity_class>
+		
+		<!-- *** MALE FERAL DARKSEEKER -->
+		<entity_class name="zombieDarkseekerSlimMaleFeral" extends="zombieDarkseekerSlimMale">
+			<property name="PreviousTier" value="zombieDarkseekerSlimMale"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerFeral"/>
+
+			<!-- Gameplay zombieDarkseekerSlimMaleFeral -->
+			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+			<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+			<property name="MoveSpeedAggro" value="0.6, 1.45"/><!-- Slim Feral -->
+			<property name="JumpMaxDistance" value="4.6, 5"/>
+			<property name="HandItem" value="meleeHandZombieShortFeral"/>
+			<property name="ExperienceGain" value="^xpSlimFeral01"/><!-- zombieDarkseekerSlimMaleFeral -->
+			<property name="LootDropProb" value=".04"/><!-- Feral -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimFeral"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** MALE RADIATED DARKSEEKER -->
+		<entity_class name="zombieDarkseekerSlimMaleRadiated" extends="zombieDarkseekerSlimMaleFeral">
+			<property name="MatColor" value="radiated"/>
+			<property name="PreviousTier" value="zombieDarkseekerSlimMaleFeral"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,radiated"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerRad"/> -->
+			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
+
+			<!-- Gameplay zombieDarkseekerSlimMaleRadiated -->
+			<property name="DismemberMultiplierHead" value=".4"/><property name="DismemberMultiplierArms" value=".4"/><property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="ExperienceGain" value="^xpSlimRadiated01"/><!-- zombieDarkseekerSlimMaleRadiated -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimRadiated"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="4"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** MALE CHARGED DARKSEEKER -->
+		<entity_class name="zombieDarkseekerSlimMaleCharged" extends="zombieDarkseekerSlimMaleRadiated">
+			<property name="MatColor" value="charged"/>
+			<property name="PreviousTier" value="zombieDarkseekerSlimMaleRadiated"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,charged"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerCharged"/> -->
+			<property name="ExperienceGain" value="^xpSlimCharged01"/><!-- Charged -->
+			<property name="HandItem" value="meleeHandZombieCharged"/>
+			<property name="MoveSpeedPattern" value="^chargedMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Charged -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimCharged"/>
+			</effect_group>
+		</entity_class>
+		
+		<entity_class name="zombieDarkseekerSlimMaleInfernal" extends="zombieDarkseekerSlimMaleRadiated">
+			<property name="MatColor" value="infernal"/>
+			<property name="PreviousTier" value="zombieDarkseekerSlimMaleRadiated"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,infernal"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerInfernal"/> -->
+			<property name="ExperienceGain" value="^xpSlimInfernal01"/><!-- Infernal -->
+			<property name="HandItem" value="meleeHandZombieInfernal"/>
+			<property name="MoveSpeedPattern" value="^infernalMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Infernal -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimInfernal"/>
+				<passive_effect name="BuffResistance" operation="base_set" value=".75" tags="buffInjuryKnockdown01,buffInjuryKnockdown02"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** FEMALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerSlimFemale" extends="zombieTemplateShort">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Censor" value="1,2"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseeker"/>
+			<property name="PhysicsBody" value="mixamoConvertedStandardZombie"/>
+			<property name="LookAtAngle" value="0"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0"/>
+			<property name="DanceType" value="2"/>
+			
+			<property name="SoundRandom" value="zombiefemaleroam"/>
+			<property name="SoundAlert" value="zombiefemalealert"/>
+			<property name="SoundAttack" value="zombiefemaleattack"/>
+			<property name="SoundHurt" value="zombiefemalepain"/>
+			<property name="SoundDeath" value="zombiefemaledeath"/>
+			<property name="SoundSense" value="zombiefemalesense"/>
+			<property name="SoundStepType" value="barestep"/>
+
+			<!-- Gameplay zombieDarkseekerSlimFemale -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/><!-- Slim -->
+			
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlim"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** FEMALE FERAL DARKSEEKER -->
+		<entity_class name="zombieDarkseekerSlimFemaleFeral" extends="zombieDarkseekerSlimFemale">
+			<property name="PreviousTier" value="zombieDarkseekerSlimFemale"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerFeral"/>
+
+			<!-- Gameplay zombieDarkseekerSlimFemaleFeral -->
+			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+			<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+			<property name="MoveSpeedAggro" value="0.6, 1.45"/><!-- Slim Feral -->
+			<property name="JumpMaxDistance" value="4.6, 5"/>
+			<property name="HandItem" value="meleeHandZombieShortFeral"/>
+			<property name="ExperienceGain" value="^xpSlimFeral01"/><!-- Slim Feral -->
+			<property name="LootDropProb" value=".04"/><!-- Feral -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimFeral"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** FEMALE RADIATED DARKSEEKER -->
+		<entity_class name="zombieDarkseekerSlimFemaleRadiated" extends="zombieDarkseekerSlimFemaleFeral">
+			<property name="MatColor" value="radiated"/>
+			<property name="PreviousTier" value="zombieDarkseekerSlimFemaleFeral"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,radiated"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerRad"/> -->
+
+			<!-- Gameplay zombieDarkseekerSlimFemaleRadiated -->
+			<property name="DismemberMultiplierHead" value=".4"/><property name="DismemberMultiplierArms" value=".4"/><property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="ExperienceGain" value="^xpSlimRadiated01"/><!-- Radiated -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimRadiated"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="4"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** FEMALE CHARGED DARKSEEKER -->
+		<entity_class name="zombieDarkseekerSlimFemaleCharged" extends="zombieDarkseekerSlimFemaleRadiated">
+			<property name="MatColor" value="charged"/>
+			<property name="PreviousTier" value="zombieArleneRadiated"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,charged"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerCharged"/> -->
+			<property name="ExperienceGain" value="^xpSlimCharged01"/><!-- Charged -->
+			<property name="HandItem" value="meleeHandZombieCharged"/>
+			<property name="MoveSpeedPattern" value="^chargedMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Charged -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimCharged"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** NORMAL DARKSEEKERS -->
+		<!-- *** NORMAL MALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalMale" extends="zombieTemplateMale">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Censor" value="1,3"/>
+			<property name="SizeScale" value="1.08"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseeker"/>
+			<property name="PhysicsBody" value="mixamoConvertedStandardZombie"/>
+			<property name="LookAtAngle" value="0"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="2"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			
+			<property name="SoundRandom" value="zombiemale2roam"/>
+			<property name="SoundAlert" value="zombiemale2alert"/>
+			<property name="SoundAttack" value="zombiemale2attack"/>
+			<property name="SoundHurt" value="zombiemale2pain"/>
+			<property name="SoundDeath" value="zombiemale2death"/>
+			<property name="SoundSense" value="zombiemale2sense"/>
+
+			<!-- Gameplay zombieDarkseekerSlimMale -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormal"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** NORMAL FERAL MALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalMaleFeral" extends="zombieDarkseekerNormalMale">
+			<property name="PreviousTier" value="zombieDarkseekerNormalMale"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerFeral"/>
+
+			<!-- Gameplay zombieDarkseekerNormalMaleFeral -->
+			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+			<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+			<property name="MoveSpeedAggro" value=".5, 1.35"/>
+			<property name="HandItem" value="meleeHandZombieFeral"/>
+			<property name="ExperienceGain" value="^xpNormalFeral01"/><!-- Feral -->
+			<property name="LootDropProb" value=".04"/><!-- Feral -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormalFeral"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** NORMAL RADIATED MALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalMaleRadiated" extends="zombieDarkseekerNormalMaleFeral">
+			<property name="PreviousTier" value="zombieDarkseekerNormalMaleFeral"/>
+			<property name="MatColor" value="radiated"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,radiated"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerRad"/> -->
+			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
+
+			<!-- Gameplay zombieDarkseekerNormalMaleRadiated -->
+			<property name="DismemberMultiplierHead" value=".4"/><property name="DismemberMultiplierArms" value=".4"/><property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="ExperienceGain" value="^xpNormalRadiated01"/><!-- Radiated -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormalRadiated"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="4.5"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** NORMAL MALE CHARGED DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalMaleCharged" extends="zombieDarkseekerNormalMaleRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerNormalMaleRadiated"/>
+			<property name="MatColor" value="charged"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,charged"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerCharged"/> -->
+			<property name="ExperienceGain" value="^xpNormalCharged01"/><!-- Charged -->
+			<property name="HandItem" value="meleeHandZombieCharged"/>
+			<property name="MoveSpeedPattern" value="^chargedMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Charged -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormalCharged"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** NORMAL MALE INFERNAL DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalMaleInfernal" extends="zombieDarkseekerNormalMaleRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerNormalMaleRadiated"/>
+			<property name="MatColor" value="infernal"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,infernal"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerInfernal"/> -->
+			<property name="ExperienceGain" value="^xpNormalInfernal01"/><!-- Infernal -->
+			<property name="HandItem" value="meleeHandZombieInfernal"/>
+			<property name="MoveSpeedPattern" value="^infernalMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Infernal -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormalInfernal"/>
+				<passive_effect name="BuffResistance" operation="base_set" value=".75" tags="buffInjuryKnockdown01,buffInjuryKnockdown02"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** NORMAL FEMALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalFemale" extends="zombieTemplateMale">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Censor" value="1,3"/>
+			<property name="SizeScale" value="1.08"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseeker"/>
+			<property name="PhysicsBody" value="mixamoConvertedStandardZombie"/>
+			<property name="LookAtAngle" value="0"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="DanceType" value="2"/>
+			
+			<property name="SoundRandom" value="zombiefemale2roam"/>
+			<property name="SoundAlert" value="zombiefemale2alert"/>
+			<property name="SoundAttack" value="zombiefemale2attack"/>
+			<property name="SoundHurt" value="zombiefemale2pain"/>
+			<property name="SoundDeath" value="zombiefemale2death"/>
+			<property name="SoundSense" value="zombiefemale2sense"/>
+			<property name="SoundStepType" value="barestep"/>
+
+			<!-- Gameplay zombieDarkseekerNormalFemale -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormal"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** NORMAL FERAL FEMALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalFemaleFeral" extends="zombieDarkseekerNormalFemale">
+			<property name="PreviousTier" value="zombieDarkseekerNormalFemale"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerFeral"/>
+
+			<!-- Gameplay zombieDarkseekerNormalFemaleFeral -->
+			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+			<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+			<property name="MoveSpeedAggro" value=".5, 1.35"/>
+			<property name="HandItem" value="meleeHandZombieFeral"/>
+			<property name="ExperienceGain" value="^xpNormalFeral01"/><!-- Feral -->
+			<property name="LootDropProb" value=".04"/><!-- Feral -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormalFeral"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** NORMAL RADIATED FEMALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalFemaleRadiated" extends="zombieDarkseekerNormalFemaleFeral">
+			<property name="PreviousTier" value="zombieDarkseekerNormalFemaleFeral"/>
+			<property name="MatColor" value="radiated"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,radiated"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerRad"/> -->
+			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
+
+			<!-- Gameplay zombieDarkseekerNormalFemaleRadiated -->
+			<property name="DismemberMultiplierHead" value=".4"/><property name="DismemberMultiplierArms" value=".4"/><property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="ExperienceGain" value="^xpNormalRadiated01"/><!-- Radiated -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormalRadiated"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="4"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** NORMAL CHARGED FEMALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalFemaleCharged" extends="zombieDarkseekerNormalFemaleRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerNormalFemaleRadiated"/>
+			<property name="MatColor" value="charged"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,charged"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerCharged"/> -->
+			<property name="ExperienceGain" value="^xpNormalCharged01"/><!-- Charged -->
+			<property name="HandItem" value="meleeHandZombieCharged"/>
+			<property name="MoveSpeedPattern" value="^chargedMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Charged -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormalCharged"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** NORMAL INFERNAL FEMALE DARKSEEKER -->
+		<entity_class name="zombieDarkseekerNormalFemaleInfernal" extends="zombieDarkseekerNormalFemaleRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerNormalFemaleRadiated"/>
+			<property name="MatColor" value="infernal"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,infernal"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerInfernal"/> -->
+			<property name="ExperienceGain" value="^xpNormalInfernal01"/><!-- Infernal -->
+			<property name="HandItem" value="meleeHandZombieInfernal"/>
+			<property name="MoveSpeedPattern" value="^infernalMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Infernal -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthNormalInfernal"/>
+				<passive_effect name="BuffResistance" operation="base_set" value=".75" tags="buffInjuryKnockdown01,buffInjuryKnockdown02"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** DARKSEEKERS ALPHA -->
+		<!-- *** ALPHA DARKSEEKER -->
+		<entity_class name="zombieDarkseekerAlpha" extends="zombieTemplateMale">
+			<property name="PreviousTier" value="zombieDarkseekerSlimMale"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="SoundStepType" value="largestep"/>
+			<property name="SizeScale" value="1.08"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?AlphaDarkseeker"/>
+			<property name="PhysicsBody" value="mixamoConvertedStandardZombie"/>
+			<property name="LookAtAngle" value="0"/>
+			<property name="Mass" value="230"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="7"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="PainResistPerHit" value=".65"/>
+			<property name="LootDropProb" value=".04"/><!-- Alpha -->
+			<property name="LootDropEntityClass" value="EntityLootContainerThug"/>
+
+			<!-- Gameplay zombieDarkseekerAlpha -->
+			<property name="MoveSpeedAggro" value="0.2, 1.2"/><!-- Alpha -->
+			<property name="JumpMaxDistance" value=".8, 1.1"/>
+			<property name="HandItem" value="meleeHandZombieStrong"/>
+			<property name="ExperienceGain" value="^xpStrong03"/><!-- Alpha -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSturdy"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="5"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** ALPHA FERAL DARKSEEKER -->
+		<entity_class name="zombieDarkseekerAlphaFeral" extends="zombieDarkseekerAlpha">
+			<property name="PreviousTier" value="zombieDarkseekerAlpha"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?AlphaDarkseekerFeral"/>
+
+			<!-- Gameplay zombieDarkseekerAlphaFeral -->
+			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+			<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+			<property name="MoveSpeedAggro" value="0.45, 1.3"/><!-- Sturdy Feral -->
+			<property name="JumpMaxDistance" value="1.8, 2.5"/>
+			<property name="HandItem" value="meleeHandZombieStrongFeral"/>
+			<property name="ExperienceGain" value="^xpStrongFeral01"/><!-- Feral -->
+			<property name="LootDropProb" value=".04"/><!-- Feral -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSturdyFeral"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** ALPHA RADIATED DARKSEEKER -->
+		<entity_class name="zombieDarkseekerAlphaRadiated" extends="zombieDarkseekerAlphaFeral">
+			<property name="PreviousTier" value="zombieDarkseekerAlphaFeral"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="MatColor" value="radiated"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,radiated"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?AlphaDarkseekerFeral"/> -->
+			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
+
+			<!-- Gameplay zombieDarkseekerAlphaRadiated -->
+			<property name="DismemberMultiplierHead" value=".4"/><property name="DismemberMultiplierArms" value=".4"/><property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="ExperienceGain" value="^xpStrongRadiated01"/><!-- Radiated -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSturdyRadiated"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="9"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** ALPHA CHARGED DARKSEEKER -->
+		<entity_class name="zombieDarkseekerAlphaCharged" extends="zombieDarkseekerAlphaRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerAlphaRadiated"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,charged"/>
+			<property name="MatColor" value="charged"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?AlphaDarkseekerCharged"/> -->
+			<property name="ExperienceGain" value="^xpStrongCharged02"/><!-- Charged -->
+			<property name="HandItem" value="meleeHandZombieCharged"/>
+			<property name="MoveSpeedPattern" value="^chargedMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Charged -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSturdyCharged"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** ALPHA INFERNAL DARKSEEKER -->
+		<entity_class name="zombieDarkseekerAlphaInfernal" extends="zombieDarkseekerAlphaRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerAlphaRadiated"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,infernal"/>
+			<property name="MatColor" value="infernal"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?AlphaDarkseekerInfernal"/> -->
+			<property name="ExperienceGain" value="^xpStrongInfernal01"/><!-- Infernal -->
+			<property name="HandItem" value="meleeHandZombieInfernal"/>
+			<property name="MoveSpeedPattern" value="^infernalMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Infernal -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSturdyInfernal"/>
+				<passive_effect name="BuffResistance" operation="base_set" value=".75" tags="buffInjuryKnockdown01,buffInjuryKnockdown02"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** DARKSEEKERS SPITTERS -->
+		<!-- *** DARKSEEKER SPITTER -->
+		<entity_class name="zombieDarkseekerSpitter" extends="zombieTemplateMale">
+			<property name="PreviousTier" value="zombieBusinessMan,zombieJoe,zombieSteve,zombieBoe,zombieMoe,zombieYo"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Censor" value="1,2"/>
+			<property name="Class" value="EntityZombieCop"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,zombieCop,special,coverWorthy"/>
+			<property name="Mesh" value="@:Entities/Zombies/Spider/ZSpider.prefab"/>
+			<property name="WalkType" value="1"/>
+			<property name="Mass" value="320"/>
+			<property name="Weight" value="70"/>
+			<property name="PhysicsBody" value="zombieFat"/>
+			<property name="RightHandJointName" value="Jaw"/>
+			<property name="PushFactor" value="20"/>
+
+			<property name="AITask" value="
+			BreakBlock|
+			ApproachDistraction|
+			RangedAttackTarget itemType=1;cooldown=4;duration=5|
+			ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal,0,EntityAnimal|
+			ApproachSpot|
+			Look|
+			Wander|
+			"/>
+
+			<property name="SoundRandom" value="spiderroam"/>
+			<property name="SoundAlert" value="spideralert"/>
+			<property name="SoundAttack" value="spiderattack"/>
+			<property name="SoundDeath" value="spiderdeath"/>
+			<property name="SoundHurt" value="spiderpain"/>
+			<property name="SoundSense" value="spidersense"/>
+			<property name="SoundStepType" value="barestep"/>
+			<property name="SoundExplodeWarn" value="hulkexplodewarning"/>
+
+			<property name="DismemberMultiplierLegs" value="0"/>
+			<property name="LegCrawlerThreshold" value="0"/>
+			<property name="LegCrippleThreshold" value="0"/>
+			<property name="KnockdownProneDamageThreshold" value="0"/>
+			<property name="KnockdownKneelDamageThreshold" value="0"/>
+			<property name="LegsExplosionDamageMultiplier" value="2"/><!-- volatile so vulnerable to land mines/explosives -->
+			<property name="ArmsExplosionDamageMultiplier" value="2"/>
+			<property name="HeadExplosionDamageMultiplier" value="2"/>
+			<property name="ChestExplosionDamageMultiplier" value="2"/>
+
+			<!-- Dismemberment -->
+			<property name="DismemberTag_L_HeadGore" value="Spider/Dismemberment/Blade/Head;Spider/Dismemberment/Blunt/Head" data="type=blade+target=neck+atp=true+detach=true;type=blunt+target=neck+atp=true"/>
+			<property name="DismemberTag_L_LeftLowerArmGore" value="Spider/Dismemberment/Blade/LeftLowerArm" data="type=blade+target=leftforearmroll+atp=true+detach=true+mask=true"/>
+			<property name="DismemberTag_L_LeftLowerLegGore" value="Spider/Dismemberment/Blade/LeftLowerLeg" data="type=blade+target=leftleg+detach=true+mask=true"/>
+			<property name="DismemberTag_L_LeftUpperArmGore" value="Spider/Dismemberment/Blade/LeftUpperArm" data="type=blade+target=leftarmroll+atp=true+detach=true+mask=true"/>
+			<property name="DismemberTag_L_RightLowerArmGore" value="Spider/Dismemberment/Blade/RightLowerArm" data="type=blade+target=rightforearmroll+atp=true+detach=true+mask=true"/>
+			<property name="DismemberTag_L_RightLowerLegGore" value="Spider/Dismemberment/Blade/RightLowerLeg" data="type=blade+target=rightleg+detach=true+mask=true"/>
+			<property name="DismemberTag_L_RightUpperArmGore" value="Spider/Dismemberment/Blade/RightUpperArm" data="type=blade+target=rightarmroll+atp=true+detach=true+mask=true"/>
+			<property name="DismemberTag_L_LeftUpperLegGore" value="linked" data="DismemberTag_L_LeftLowerLegGore"/>
+			<property name="DismemberTag_L_RightUpperLegGore" value="linked" data="DismemberTag_L_RightLowerLegGore"/>
+
+			<!-- Gameplay zombieDarkseekerSpitter -->
+			<property name="MoveSpeedAggro" value="0.2, 1.2"/>
+			<property name="JumpMaxDistance" value=".8, 1.1"/>
+			<property name="HandItem" value="meleeHandZombieCop"/>
+			<property name="ExperienceGain" value="^xpStrong02"/><!-- spitter -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<property class="Explosion">
+				<property name="ParticleIndex" value="8"/>
+				<property name="RadiusBlocks" value="5"/>
+				<property name="RadiusEntities" value="6"/>
+				<property name="BlockDamage" value="500"/>
+				<property name="EntityDamage" value="150"/>
+				<property class="DamageBonus">
+					<property name="earth" value="0"/>
+				</property>
+			</property>
+			
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthStrong"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** DARKSEEKER FERAL SPITTER -->
+		<entity_class name="zombieDarkseekerSpitterFeral" extends="zombieDarkseekerSpitter">
+			<property name="PreviousTier" value="zombieDarkseekerSpitter"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,zombieCop"/>
+			<property name="Mesh" value="@:Entities/Zombies/Spider/ZSpiderFeral.prefab"/>
+			<!-- Gameplay zombieFatCopFeral -->
+			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+			<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+			<property name="MoveSpeedAggro" value="0.45, 1.3"/><!-- Strong Feral -->
+			<property name="JumpMaxDistance" value="1.8, 2.5"/>
+			<property name="HandItem" value="meleeHandZombieCopFeral"/>
+			<property name="ExperienceGain" value="^xpStrongFeral02"/><!-- Feral -->
+			<property name="LootDropProb" value=".04"/><!-- Feral -->
+			
+			<property name="SoundRandom" value="spiderroam"/>
+			<property name="SoundAlert" value="spideralert"/>
+			<property name="SoundAttack" value="spiderattack"/>
+			<property name="SoundDeath" value="spiderdeath"/>
+			<property name="SoundHurt" value="spiderpain"/>
+			<property name="SoundSense" value="spidersense"/>
+			<property name="SoundStepType" value="barestep"/>
+			<property name="SoundExplodeWarn" value="hulkexplodewarning"/>
+
+			<property class="Explosion">
+				<property name="BlockDamage" value="650"/>
+				<property name="EntityDamage" value="200"/>
+			</property>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthStrongFeral"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** DARKSEEKER RADIATED SPITTER -->
+		<entity_class name="zombieDarkseekerSpitterRadiated" extends="zombieDarkseekerSpitterFeral">
+			<property name="PreviousTier" value="zombieDarkseekerSpitterFeral"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,radiated,zombieCop"/>
+			<property name="Mesh" value="@:Entities/Zombies/Spider/ZSpiderRadiated.prefab"/>
+			<property name="MatColor" value="radiated"/>
+			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
+			
+			<property name="SoundRandom" value="spiderroam"/>
+			<property name="SoundAlert" value="spideralert"/>
+			<property name="SoundAttack" value="spiderattack"/>
+			<property name="SoundDeath" value="spiderdeath"/>
+			<property name="SoundHurt" value="spiderpain"/>
+			<property name="SoundSense" value="spidersense"/>
+			<property name="SoundStepType" value="barestep"/>
+			<property name="SoundExplodeWarn" value="hulkexplodewarning"/>
+
+			<!-- Gameplay zombieFatCopRadiated -->
+			<property name="DismemberMultiplierHead" value=".4"/><property name="DismemberMultiplierArms" value=".4"/><property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="HandItem" value="meleeHandZombieCopRadiated"/>
+			<property name="ExperienceGain" value="^xpStrongRadiated02"/><!-- Radiated -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthStrongRadiated"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="9"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+
+			<property class="Explosion">
+				<property name="ParticleIndex" value="80"/>
+				<property name="BlockDamage" value="750"/>
+				<property name="EntityDamage" value="250"/>
+			</property>
+		</entity_class>
+
+		<!-- *** DARKSEEKER INFERNAL SPITTER -->
+		<entity_class name="zombieDarkseekerSpitterInfernal" extends="zombieDarkseekerSpitterRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerSpitterRadiated"/>
+			<property name="MatColor" value="infernal"/>
+			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,infernal,zombieCop"/>
+			<property name="ExperienceGain" value="^xpStrongInfernal02"/><!-- zombieFatCopInfernal -->
+			<property name="PainResistPerHit" value="3, .5, .5"/><!-- normal, at low health, health% -->
+			<property class="Explosion">
+				<property name="BlockDamage" value="1000"/>
+			</property>
+			<property name="MoveSpeedPattern" value="^infernalMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/><!-- Infernal -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+			
+			<property name="SoundRandom" value="spiderroam"/>
+			<property name="SoundAlert" value="spideralert"/>
+			<property name="SoundAttack" value="spiderattack"/>
+			<property name="SoundDeath" value="spiderdeath"/>
+			<property name="SoundHurt" value="spiderpain"/>
+			<property name="SoundSense" value="spidersense"/>
+			<property name="SoundStepType" value="barestep"/>
+			<property name="SoundExplodeWarn" value="hulkexplodewarning"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthStrongInfernal"/>
+				<passive_effect name="BuffResistance" operation="base_set" value=".75" tags="buffInjuryKnockdown01,buffInjuryKnockdown02"/>
+			</effect_group>
+
+			<property class="Explosion">
+				<property name="ParticleIndex" value="81"/>
+			</property>
+		</entity_class>
+		
+		<!-- *** DARKSEEKER CRAWLER -->
+		<entity_class name="zombieDarkseekerCrawler" extends="zombieTemplateMale">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Censor" value="1,3"/>
+			<property name="Tags" value="entity,zombie,darkseeker,crawler,allbiome"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseeker"/>
+			<property name="Mass" value="140"/>
+			<property name="WalkType" value="21"/>
+			<property name="RotateToGround" value="true"/>
+			<property name="RootMotion" value="true"/>
+			<property name="SoundRandomTime" value="20"/>
+			<property name="SoundRandom" value="crawler_roam"/>
+			<property name="SoundAlertTime" value="15"/>
+			<property name="SoundAlert" value="crawler_alert"/>
+			<property name="SoundSense" value="crawler_sense"/>
+			<property name="SoundHurt" value="crawler_pain"/>
+			<property name="SoundDeath" value="crawler_death"/>
+			<property name="SoundAttack" value="crawler_attack"/>
+			<property name="SoundSleeperSense" value="sleepersense"/>
+			<property name="SoundSleeperBackToSleep" value="sleeperbacktosleep"/>
+			<property name="SoundStepType" value="crawlerstep"/>
+			<property name="DanceType" value="0"/>
+
+			<!-- Gameplay zombieDarkseekerCrawler -->
+			<property name="MoveSpeed" value="0.25"/>
+			<property name="MoveSpeedAggro" value=".7, 1"/>
+			<property name="CanClimbLadders" value="false"/>
+			<property name="HandItem" value="meleeHandZombie02"/>
+			<property name="ExperienceGain" value="^xpNormal02"/><!-- zombieDarkseekerCrawler -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthCrawler"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** DARKSEEKER CRAWLER FERAL -->
+		<entity_class name="zombieDarkseekerCrawlerFeral" extends="zombieDarkseekerCrawler">
+			<property name="PreviousTier" value="zombieDarkseekerCrawler"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,crawler,allbiome,feral,strong"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerFeral"/>
+
+			<!-- Gameplay zombieDarkseekerCrawlerFeral -->
+			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+			<property name="MoveSpeedAggro" value="1.2, 1.4"/>
+			<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+			<property name="HandItem" value="meleeHandZombie02Feral"/>
+			<property name="ExperienceGain" value="^xpStrong00"/><!-- Feral -->
+			<property name="LootDropProb" value=".04"/><!-- Feral -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthCrawlerFeral"/>
+			</effect_group>
+		</entity_class>
+		
+		<!-- *** DARKSEEKER SPIDER -->
+		<entity_class name="zombieDarkseekerSpider" extends="zombieTemplateMale">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Censor" value="1,2"/>
+			<property name="SizeScale" value=".94"/>
+			<property name="Tags" value="entity,zombie,spider,allbiome"/>
+			<property name="Prefab" value="ZLong"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseeker"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="22"/>
+			<property name="Mass" value="150"/>
+			<property name="LookAtAngle" value="0"/>
+
+			<property name="SoundRandom" value="spiderroam"/>
+			<property name="SoundAlert" value="spideralert"/>
+			<property name="SoundAttack" value="spiderattack"/>
+			<property name="SoundDeath" value="spiderdeath"/>
+			<property name="SoundHurt" value="spiderpain"/>
+			<property name="SoundSense" value="spidersense"/>
+			<property name="SoundStepType" value="barestep"/>
+
+			<property name="DismemberMultiplierHead" value="0"/>
+			<property name="DismemberMultiplierArms" value="0"/>
+			<property name="DismemberMultiplierLegs" value="0"/>
+			<property name="LegCrawlerThreshold" value="0"/>
+			<property name="LegCrippleThreshold" value="0"/>
+			<property name="KnockdownProneDamageThreshold" value="0"/>
+			<property name="KnockdownKneelDamageThreshold" value="0"/>
+
+			<property name="AINoiseSeekDist" value="3"/>
+			<property name="AIPathCostScale" value=".6, 1"/>
+			<property name="AITask" value="
+			Leap|
+			BreakBlock|
+			DestroyArea|
+			Territorial|
+			ApproachDistraction|
+			ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal,0,EntityAnimal|
+			ApproachSpot|
+			Look|
+			Wander|
+			"/>
+
+			<!-- Gameplay zombieDarkseekerSpider -->
+			<property name="MoveSpeed" value="0.08"/>
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- Slim -->
+			<property name="MoveSpeedPanic" value="1.2"/>
+			<property name="SwimSpeed" value="1.3"/>
+			<property name="SwimStrokeRate" value="1.5,1.7"/>
+			<property name="CanClimbVertical" value="true"/>
+			<property name="JumpMaxDistance" value="7, 9"/>
+			<property name="ExperienceGain" value="^xpSlim02"/><!-- zombieSpider -->
+			
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlim"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** DARKSEEKER SPIDER FERAL -->
+		<entity_class name="zombieDarkseekerSpiderFeral" extends="zombieDarkseekerSpider">
+			<property name="PreviousTier" value="zombieDarkseekerSpider"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,spider,allbiome,feral"/>
+			<property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerFeral"/>
+			<!-- Gameplay zombieDarkseekerSpiderFeral -->
+			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+			<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+			<property name="MoveSpeedAggro" value="0.6, 1.45"/> <!-- Slim Feral -->
+			<property name="JumpMaxDistance" value="11, 13"/>
+			<property name="HandItem" value="meleeHandZombie02Feral"/>
+			<property name="ExperienceGain" value="^xpSlimFeral02"/><!-- Feral -->
+			<property name="LootDropProb" value=".04"/> <!-- Feral -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimFeral"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** DARKSEEKER SPIDER RADIATED -->
+		<entity_class name="zombieDarkseekerSpiderRadiated" extends="zombieDarkseekerSpiderFeral">
+			<property name="PreviousTier" value="zombieDarkseekerSpiderFeral"/>
+			<property name="MatColor" value="radiated"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,spider,allbiome,feral,radiated"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerRad"/> -->
+			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
+
+			<!-- Gameplay zombieDarkseekerSpiderRadiated -->
+			<property name="DismemberMultiplierHead" value=".4"/><property name="DismemberMultiplierArms" value=".4"/><property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="ExperienceGain" value="^xpSlimRadiated02"/><!-- Radiated -->
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimRadiated"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="5"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** DARKSEEKER SPIDER CHARGED -->
+		<entity_class name="zombieDarkseekerSpiderCharged" extends="zombieDarkseekerSpiderRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerSpiderRadiated"/>
+			<property name="MatColor" value="charged"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerCharged"/> -->
+			<property name="Tags" value="entity,zombie,spider,allbiome,feral,charged"/>
+			<property name="ExperienceGain" value="^xpSlimCharged02"/><!-- zombieSpiderCharged -->
+			<property name="HandItem" value="meleeHandZombieCharged"/>
+			<property name="MoveSpeedPattern" value="^chargedMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/> <!-- Charged -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimCharged"/>
+			</effect_group>
+		</entity_class>
+
+		<!-- *** DARKSEEKER SPIDER INFERNAL -->
+		<entity_class name="zombieDarkseekerSpiderInfernal" extends="zombieDarkseekerSpiderRadiated">
+			<property name="PreviousTier" value="zombieDarkseekerSpiderRadiated"/>
+			<property name="MatColor" value="infernal"/>
+			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?MaleDarkseekerInfernal"/> -->
+			<property name="Tags" value="entity,zombie,spider,allbiome,feral,infernal"/>
+			<property name="ExperienceGain" value="^xpSlimInfernal01"/><!-- zombieSpiderInfernal -->
+			<property name="HandItem" value="meleeHandZombieInfernal"/>
+			<property name="MoveSpeedPattern" value="^infernalMoveSpeedPattern"/>
+			<property name="LootDropProb" value=".1"/> <!-- Infernal -->
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="^healthSlimInfernal"/>
+				<passive_effect name="BuffResistance" operation="base_set" value=".75" tags="buffInjuryKnockdown01,buffInjuryKnockdown02"/>
+			</effect_group>
+		</entity_class>
+	</append>
+	
+	<!-- *** SAMANTHA -->
+	<conditional>
+		<if cond="mod_loaded('0-XNPCCore')">
+			<set xpath="/entity_classes/entity_class[@name='playerMale']/property[@class='ItemsOnEnterGame']/property[@name='GameModeSurvival']/@value">drinkJarBoiledWater=2,foodCanChili,medicalFirstAidBandage=2,meleeToolTorch,noteDuke01,germanShepherdSpawnCube</set>
+			<set xpath="/entity_classes/entity_class[@name='playerMale']/property[@class='ItemsOnEnterGame']/property[@name='GameModeSurvivalSP']/@value">drinkJarBoiledWater=2,foodCanChili,medicalFirstAidBandage=2,meleeToolTorch,noteDuke01,germanShepherdSpawnCube</set>
+			<set xpath="/entity_classes/entity_class[@name='playerMale']/property[@class='ItemsOnEnterGame']/property[@name='GameModeSurvivalMP']/@value">drinkJarBoiledWater=2,foodCanChili,medicalFirstAidBandage=2,meleeToolTorch,noteDuke01,germanShepherdSpawnCube</set>
+
+			<append xpath="/entity_classes">
+				<entity_class name="animalGermanShepherdCompanion" extends="npcAnimalMeleeTemplate">
+					<property name="UserSpawnType" value="Menu"/>
+					<property name="Mesh" value="#@modfolder:Resources/germanshepherd.unity3d?GermanShepherd"/>
+					<property name="AvatarController" value="AvatarAnimalController"/>
+					<property name="RootMotion" value="false"/>
+					<property name="HasRagdoll" value="false"/>
+					<property name="HasDeathAnim" value="false"/>
+					<property name="RagdollOnDeathChance" value="1"/>
+					<property name="Faction" value="companionanimals"/>
+					<property name="NPCID" value="NPCAnimalGeneric"/>
+					<property name="Hirable" value="true"/>
+					<property name="Names" value="Sam"/>
+					<property name="HireCurrency" value="foodRawMeat"/>
+					<property name="HireCost" value="20"/>
+					<property name="LootList" value="animalNPC"/>
+					<property name="HandItem" value="meleeHandAnimalCoyote"/>
+					<property name="MoveSpeed" value=".3"/>
+					<property name="MoveSpeedAggro" value="1.5,1.5"/>
+					<property name="MoveSpeedPanic" value="1.5"/>
+					<property name="Mass" value="40"/>
+					<property name="Weight" value="40"/>
+					<property name="SoundRandom" value="wolfroam"/>
+					<property name="SoundAlert" value="wolfalert"/>
+					<property name="SoundHurt" value="wolfpain"/>
+					<property name="SoundDeath" value="wolfdeath"/>
+					<property name="SoundAttack" value="wolfattack"/>
+					<property name="SoundSense" value="wolfsense"/>
+					<property name="SoundGiveUp" value="wolfgiveup"/>
+
+					<effect_group name="German Shepherd Stats">
+						<passive_effect name="HealthMax" operation="base_set" value="800"/>
+						<passive_effect name="PhysicalDamageResist" operation="base_set" value="10"/>
+					</effect_group>
+				</entity_class>
+			</append>
+		</if>
+	</conditional>
+	
+	<conditional>
+		<if cond="mod_loaded('Companions')">
+			<append xpath="/entity_classes">
+				<entity_class name="animalGermanShepherd" extends="animalTemplateHostile">
+					<property name="UserSpawnType" value="Menu"/>
+					<property name="Mesh" value="#@modfolder:Resources/germanshepherd.unity3d?GermanShepherd"/>
+					<property name="AvatarController" value="AvatarAnimalController"/>
+					<property name="LookAtAngle" value="0"/>
+					<property name="ModelType" value="Standard"/>
+					<property name="HasRagdoll" value="false"/>
+					<property name="HasDeathAnim" value="false"/>
+					<property name="RootMotion" value="false"/>
+					<property name="RagdollOnDeathChance" value="0"/>
+					<property name="HandItem" value="meleeHandAnimalCoyote"/>
+					
+					<property name="MoveSpeed" value=".3"/>
+					<property name="MoveSpeedAggro" value="1.5,1.5"/>
+					<property name="MoveSpeedPanic" value="1.5"/>
+					<property name="SoundRandom" value="wolfroam"/>
+					<property name="SoundAlert" value="wolfalert"/>
+					<property name="SoundHurt" value="wolfpain"/>
+					<property name="SoundDeath" value="wolfdeath"/>
+					<property name="SoundAttack" value="wolfattack"/>
+					<property name="SoundSense" value="wolfsense"/>
+					<property name="SoundGiveUp" value="wolfgiveup"/>
+					
+					<property name="MaxSedation" value="150"/>
+					<property name="PetReactionSound" value="wolfroam"/>
+					<property name="CompanionProfile" value="AggressivePredator"/>
+
+					<property name="AITask-1" value="BreakBlock"/>
+					<property name="AITask-2" value="Territorial"/>
+					<property name="AITask-3" value="BreedingApproach, CHHusbandry"/>
+					<property name="AITask-4" value="TroughApproach, CHHusbandry"/>
+					<property name="AITask-5" value="FearResponse, CHHusbandry"/>
+					<property name="AITask-6" value="FollowOwner, CHHusbandry"/>
+					<property name="AITask-7"
+							  value="ApproachAndAttackTarget"
+							  data="class=EntityPlayer,15,EntityBandit,15,EntityAnimalStag,20,EntityZombie,20"/>
+					<property name="AITask-8" value="ApproachSpot"/>
+					<property name="AITask-9" value="Look"/>
+					<property name="AITask-10" value="Wander"/>
+					<property name="AITask-11" value=""/>
+
+					<property class="AnimalTamingProfile">
+						<property name="MethodMode" value="Any"/>
+
+						<property class="Method1">
+							<property name="Id" value="german_shepherd_knockout"/>
+							<property name="Type" value="knockout_feed"/>
+
+							<property name="RequiredTaming" value="100"/>
+							<property name="FeedCooldownSeconds" value="0"/>
+
+							<property class="Food1">
+								<property name="Item" value="foodRawMeat"/>
+								<property name="Value" value="100"/>
+							</property>
+
+							<property class="Sedative1">
+								<property name="Item" value="itemSedativeT1"/>
+								<property name="Value" value="3"/>
+							</property>
+
+							<property class="Sedative2">
+								<property name="Item" value="itemSedativeT2"/>
+								<property name="Value" value="10"/>
+							</property>
+
+							<property class="Sedative3">
+								<property name="Item" value="itemSedativeT3"/>
+								<property name="Value" value="25"/>
+							</property>
+
+							<property class="Sedative4">
+								<property name="Item" value="itemSedativeT4"/>
+								<property name="Value" value="60"/>
+							</property>
+
+							<property class="Sedative5">
+								<property name="Item" value="itemSedativeT5"/>
+								<property name="Value" value="150"/>
+							</property>
+						</property>
+					</property>
+					
+					<effect_group name="German Shepherd Stats">
+						<passive_effect name="HealthMax" operation="base_set" value="400"/>
+
+						<passive_effect name="PhysicalDamageResist" operation="base_set" value="10"/>
+					</effect_group>
+				</entity_class>
+			</append>
+		</if>
+	</conditional>
+	
+	<!-- *** applies environmental burning when outside and daytime -->
+	<append xpath="/entity_classes/entity_class[starts-with (@name,'zombie') and not (contains(@name,'Template'))]">
+		<effect_group>
+			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="buffZombieBurnTrigger"/>
+		</effect_group>
+	</append>
+	
+	<append xpath="/entity_classes/entity_class[@name='animalZombieDog' or @name='animalZombieVulture' or @name='animalDireWolf' or @name='animalZombieBear']">
+		<effect_group>
+			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="buffZombieBurnTrigger"/>
+		</effect_group>
+	</append>
+</HellsJanitor>

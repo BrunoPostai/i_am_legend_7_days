@@ -1,0 +1,6 @@
+# Always Infested POIs
+Enabled=true
+DebugLogging=false
+PopulationMultiplier=2.0
+BiomeSpawnMultiplier=5.0
+NightBiomeFeralSenseMultiplier=2.0

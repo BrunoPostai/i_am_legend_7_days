@@ -1,0 +1,7 @@
+<HellsJanitor>
+	<conditional>
+		<if cond="mod_loaded('0-XNPCCore')">
+			<set xpath="/npc/npc_info[@id='NPCAnimalGeneric']/@trader_id">9</set>
+		</if>
+	</conditional>
+</HellsJanitor>

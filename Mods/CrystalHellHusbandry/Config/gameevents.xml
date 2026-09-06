@@ -1,0 +1,26 @@
+<configs>
+
+    <append xpath="gameevents">
+
+        <action_sequence name="action_GiveRandomItem">
+            <decision class="If">
+                <action class="RemoveItems">
+                    <property name="items_location" value="Toolbelt,Backpack" />
+                    <property name="items_tags" value="Coin" />
+                    <property name="count" value="1" />
+                </action>
+                <action class="AddRandomItem, CHHusbandry"/>
+                <action class="BeltTooltip">
+                    <property name="text" value="You have recieved a random item for 1 Casino Coin." />
+                </action>
+            </decision>
+            <decision class="If">
+                <action class="BeltTooltip">
+                    <property name="text" value="You don't have enough money to use this machine" />
+                </action>
+            </decision>
+        </action_sequence>
+
+    </append>
+
+</configs>

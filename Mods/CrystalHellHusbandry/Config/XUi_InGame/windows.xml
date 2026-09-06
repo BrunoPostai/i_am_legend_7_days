@@ -1,0 +1,831 @@
+<windows>
+
+    <remove xpath="//window[@name='chatoutput']"/>
+
+    <append xpath="windows">
+        <window name="windowAnimalName" pos="-153, 60" width="306" height="300" anchor="CenterCenter" controller="AnimalNameWindow, CHHusbandry" cursor_area="true">
+            <panel name="header" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+                <sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_pen"/>
+                <label style="header.name" text="SIGN" text_key="xuiSign" width="100" />
+            </panel>
+            <rect name="content" pos="0,-46" height="117" depth="1">
+                <sprite depth="8" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="306" height="117" color="[black]" type="sliced" fillcenter="false" />
+                <sprite color="[darkGrey]" type="sliced" />
+                <textfield name="input" pos="6,-6" width="294" height="105" font_size="30" on_return="NewLine" character_limit="50" virtual_keyboard_prompt="vkPromptSignText" open_vk_on_open="false" focus_on_open="true" close_group_on_tab="true" clear_button="true" />
+            </rect>
+            <rect name="btnClose" depth="3" pos="0, -161" height="42" >
+                <sprite depth="8" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="2" name="background" pos="3,-3" sprite="menu_empty" width="152" height="32" color="[darkGrey]" type="sliced" />
+                <rect depth="3" pos="0,0" height="42">
+                    <button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+
+                    <label depth="2" name="windowName" pos="0,-1" justify="center" text="CLOSE" text_key="xuiClose" font_size="36" />
+                </rect>
+            </rect>
+        </window>
+
+        <window name="windowAnimalStats" pos="-260, 417" width="520" height="734" anchor="CenterCenter" controller="AnimalStatsWindow, CHHusbandry" cursor_area="true">
+
+            <panel name="header" width="520" height="43" depth="1">
+                <sprite depth="1" name="headerBackgroundMain" sprite="menu_empty3px" pos="0,0" width="520" height="43" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="2" name="headerBackground" sprite="menu_empty" pos="3,-3" width="514" height="37" color="[darkGrey]" type="sliced" />
+                <sprite depth="4" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_book"/>
+                <label depth="4" style="header.name" text="ANIMAL STATS" width="300" />
+            </panel>
+
+            <rect name="content" pos="0,-46" height="628" depth="1">
+                <sprite depth="8" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="520" height="568" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="2" name="background" pos="3,-3" sprite="menu_empty" width="514" height="562" color="[darkGrey]" type="sliced" />
+
+                <rect pos="12,-10" width="496" height="36">
+                    <rect pos="0,0" width="99" height="34">
+                        <button name="tab_stats" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                        <label pos="0,-5" depth="3" text="Stats" width="99" justify="center" font_size="21" />
+                    </rect>
+
+                    <rect pos="99,0" width="99" height="34">
+                        <button name="tab_info" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                        <label pos="0,-5" depth="3" text="Info" width="99" justify="center" font_size="21" />
+                    </rect>
+
+                    <rect pos="198,0" width="99" height="34">
+                        <button name="tab_prestige" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                        <label pos="0,-5" depth="3" text="Prestige" width="99" justify="center" font_size="21" />
+                    </rect>
+
+                    <rect pos="297,0" width="99" height="34">
+                        <button name="tab_evolution" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                        <label pos="0,-5" depth="3" text="Evolution" width="99" justify="center" font_size="20" />
+                    </rect>
+
+                    <rect pos="396,0" width="100" height="34">
+                        <button name="tab_notifications" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                        <label pos="0,-5" depth="3" text="Alerts" width="100" justify="center" font_size="21" />
+                    </rect>
+                </rect>
+
+                <rect pos="14,-50" width="490" height="330" visible="{isstatstab}">
+                    <rect pos="0,0" width="490" height="30">
+                        <label depth="3" text="{animal_name}" font_size="28" justify="left" width="300" />
+                        <label depth="3" text="Lvl {level}" font_size="28" justify="right" width="190" pos="300,0" />
+                    </rect>
+
+                    <rect pos="0,-32" width="490" height="26">
+                        <label depth="3" text="Available Points: {available_skill_points}" font_size="24" justify="left" width="490" />
+                    </rect>
+
+                    <rect pos="0,-64" width="490" height="38">
+                        <label depth="3" text="Health: {currentwithmax} (+10%)" font_size="22" justify="left" width="430" />
+                        <rect pos="440,0" width="50" height="34">
+                            <button name="add_health" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" visible="{canspendstatpoint}"/>
+                            <label depth="2" text="+" justify="center" font_size="30" pos="-1,-4" visible="{canspendstatpoint}"/>
+                        </rect>
+                    </rect>
+
+                    <rect pos="0,-104" width="490" height="38">
+                        <label depth="3" text="Damage: {damagemultiplier}x (+10%, {damageperhit})" font_size="22" justify="left" width="430" />
+                        <rect pos="440,0" width="50" height="34">
+                            <button name="add_damage" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" visible="{canspendstatpoint}"/>
+                            <label depth="2" text="+" justify="center" font_size="30" pos="-1,-4" visible="{canspendstatpoint}"/>
+                        </rect>
+                    </rect>
+
+                    <rect pos="0,-144" width="490" height="38">
+                        <label depth="3" text="Speed Multiplier: {speedmultiplier}x (+5%)" font_size="22" justify="left" width="430" />
+                        <rect pos="440,0" width="50" height="34">
+                            <button name="add_speed" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" visible="{canspendspeedpoint}"/>
+                            <label depth="2" text="+" justify="center" font_size="30" pos="-1,-4" visible="{canspendspeedpoint}"/>
+                        </rect>
+                    </rect>
+
+                    <rect pos="0,-184" width="490" height="38">
+                        <label depth="3" text="XP Multiplier: {xpmultiplier}x (+10%)" font_size="22" justify="left" width="430" />
+                        <rect pos="440,0" width="50" height="34">
+                            <button name="add_xp_multiplier" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" visible="{canspendstatpoint}"/>
+                            <label depth="2" text="+" justify="center" font_size="30" pos="-1,-4" visible="{canspendstatpoint}"/>
+                        </rect>
+                    </rect>
+
+                    <rect pos="0,-224" width="490" height="38">
+                        <label depth="3" text="Health Regen: {healthregen}/s (+{healthregenskillpoints})" font_size="22" justify="left" width="430" />
+                        
+                        <rect pos="440,0" width="50" height="34">
+                            <button name="add_health_regen" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" visible="{canspendstatpoint}"/>
+                            <label depth="2" text="+" justify="center" font_size="30" pos="-1,-4" visible="{canspendstatpoint}"/>
+                        </rect>
+                    </rect>
+                </rect>
+
+                <rect pos="14,-50" width="490" height="330" visible="{isinfotab}">
+                    <rect pos="0,0" width="490" height="30">
+                        <label depth="3" text="{animal_name}" font_size="28" justify="left" width="300" />
+                        <label depth="3" text="Lvl {level}" font_size="28" justify="right" width="190" pos="300,0" />
+                    </rect>
+
+                    <rect pos="0,-34" width="490" height="26">
+                        <label depth="3" text="Type: {animal_class}" font_size="22" justify="left" width="245" />
+                        <label depth="3" text="Owner: {owner}" font_size="22" justify="right" width="245" pos="245,0" />
+                    </rect>
+
+                    <rect pos="0,-66" width="490" height="26">
+                        <label depth="3" text="XP: {xp}/{xptonextlevel}" font_size="22" justify="left" width="245" />
+                        <label depth="3" text="Gender: {gender}" font_size="22" justify="right" width="245" pos="245,0" />
+                    </rect>
+
+                    <rect pos="0,-98" width="490" height="26">
+                        <label depth="3" text="Order: {orderstatus}" font_size="22" justify="left" width="245" />
+                        <label depth="3" text="Combat: {combatstatus}" font_size="22" justify="right" width="245" pos="245,0" />
+                    </rect>
+
+                    <rect pos="0,-130" width="490" height="26">
+                        <label depth="3" text="XP Share: {xpsharestatus}" font_size="22" justify="left" width="245" />
+                        <label depth="3" text="Bond: {bond}" font_size="22" justify="right" width="245" pos="245,0" />
+                    </rect>
+
+                    <rect pos="0,-162" width="490" height="26">
+                        <label depth="3" text="Health Regen: {healthregen}/s" font_size="22" justify="left" width="490" />
+                        <label depth="3" text="Kills: {lifetimekills}" font_size="22" justify="right" width="245" pos="245, 0" />
+                    </rect>
+                </rect>
+
+                <rect pos="14,-50" width="490" height="330" visible="{isprestigetab}">
+                    <rect pos="0,0" width="490" height="30">
+                        <label depth="3" text="{animal_name}" font_size="28" justify="left" width="300" />
+                        <label depth="3" text="Lvl {level}" font_size="28" justify="right" width="190" pos="300,0" />
+                    </rect>
+
+                    <rect pos="0,-38" width="490" height="30">
+                        <label depth="3" text="Prestige:" font_size="24" justify="left" width="245" />
+                        <label depth="6" pos="75,0" width="30" height="30" text="{prestigestar1text}" color="{prestigestar1color}" visible="{isprestigetab}" />
+                        <label depth="6" pos="105,0" width="30" height="30" text="{prestigestar2text}" color="{prestigestar2color}" visible="{isprestigetab}" />
+                        <label depth="6" pos="135,0" width="30" height="30" text="{prestigestar3text}" color="{prestigestar3color}" visible="{isprestigetab}" />
+                        <label depth="6" pos="165,0" width="30" height="30" text="{prestigestar4text}" color="{prestigestar4color}" visible="{isprestigetab}" />
+                        <label depth="6" pos="195,0" width="30" height="30" text="{prestigestar5text}" color="{prestigestar5color}" visible="{isprestigetab}" />
+                    </rect>
+
+                    <rect pos="0,-86" width="490" height="26">
+                        <label depth="3" text="- Tame must be level 100 to prestige." font_size="21" justify="left" width="490" />
+                    </rect>
+
+                    <rect pos="0,-116" width="490" height="26">
+                        <label depth="3" text="- Prestige resets this animal to Level 1." font_size="21" justify="left" width="490" />
+                    </rect>
+
+                    <rect pos="0,-146" width="490" height="26">
+                        <label depth="3" text="- Stats and spent points are preserved." font_size="21" justify="left" width="490" />
+                    </rect>
+
+                    <rect pos="0,-176" width="490" height="26">
+                        <label depth="3" text="- XP requirements continue to scale upward." font_size="21" justify="left" width="490" />
+                    </rect>
+
+                    <rect pos="0,-206" width="490" height="26">
+                        <label depth="3" text="- Choosing prestige locks the evolution path." font_size="21" justify="left" width="490" />
+                    </rect>
+
+                    <button name="prestige_animal" pos="140,-250" width="220" height="35" text="Prestige Animal" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" visible="{canprestige}" />
+                    <label depth="3" pos="0,-255" text="PRESTIGE!" font_size="30" justify="center" width="490" visible="{canprestige}"/>
+                </rect>
+
+                <rect pos="14,-50" width="490" height="330" visible="{isevolutiontab}">
+                    <rect pos="0,0" width="490" height="26">
+                        <label depth="3" text="Target: {animal_name}" font_size="22" justify="left" width="330" />
+                        <label depth="3" text="{evolution_ready}" font_size="22" justify="right" width="160" pos="330,0" />
+                    </rect>
+
+                    <rect pos="0,-28" width="490" height="22">
+                        <label depth="3" text="Mode: {evolution_mode}" font_size="20" justify="left" width="220" />
+                        <label depth="3" text="{evolution_summary}" font_size="20" justify="right" width="270" pos="220,0" />
+                    </rect>
+
+                    <rect pos="0,-56" width="490" height="24" visible="{evo_row1_visible}">
+                        <label depth="3" text="{evo_row1_label}" font_size="19" justify="left" width="130" />
+                        <label depth="3" text="{evo_row1_progress}" font_size="19" justify="left" pos="132,0" width="228" />
+                        <label depth="3" text="{evo_row1_status}" font_size="19" justify="right" pos="362,0" width="128" />
+                    </rect>
+
+                    <rect pos="0,-82" width="490" height="24" visible="{evo_row2_visible}">
+                        <label depth="3" text="{evo_row2_label}" font_size="19" justify="left" width="130" />
+                        <label depth="3" text="{evo_row2_progress}" font_size="19" justify="left" pos="132,0" width="228" />
+                        <label depth="3" text="{evo_row2_status}" font_size="19" justify="right" pos="362,0" width="128" />
+                    </rect>
+
+                    <rect pos="0,-108" width="490" height="24" visible="{evo_row3_visible}">
+                        <label depth="3" text="{evo_row3_label}" font_size="19" justify="left" width="130" />
+                        <label depth="3" text="{evo_row3_progress}" font_size="19" justify="left" pos="132,0" width="228" />
+                        <label depth="3" text="{evo_row3_status}" font_size="19" justify="right" pos="362,0" width="128" />
+                    </rect>
+
+                    <rect pos="0,-134" width="490" height="24" visible="{evo_row4_visible}">
+                        <label depth="3" text="{evo_row4_label}" font_size="19" justify="left" width="130" />
+                        <label depth="3" text="{evo_row4_progress}" font_size="19" justify="left" pos="132,0" width="228" />
+                        <label depth="3" text="{evo_row4_status}" font_size="19" justify="right" pos="362,0" width="128" />
+                    </rect>
+
+                    <rect pos="0,-160" width="490" height="24" visible="{evo_row5_visible}">
+                        <label depth="3" text="{evo_row5_label}" font_size="19" justify="left" width="130" />
+                        <label depth="3" text="{evo_row5_progress}" font_size="19" justify="left" pos="132,0" width="228" />
+                        <label depth="3" text="{evo_row5_status}" font_size="19" justify="right" pos="362,0" width="128" />
+                    </rect>
+
+                    <rect pos="0,-186" width="490" height="24" visible="{evo_row6_visible}">
+                        <label depth="3" text="{evo_row6_label}" font_size="19" justify="left" width="130" />
+                        <label depth="3" text="{evo_row6_progress}" font_size="19" justify="left" pos="132,0" width="228" />
+                        <label depth="3" text="{evo_row6_status}" font_size="19" justify="right" pos="362,0" width="128" />
+                    </rect>
+
+                    <rect pos="0,-212" width="490" height="24" visible="{evo_row7_visible}">
+                        <label depth="3" text="{evo_row7_label}" font_size="19" justify="left" width="130" />
+                        <label depth="3" text="{evo_row7_progress}" font_size="19" justify="left" pos="132,0" width="228" />
+                        <label depth="3" text="{evo_row7_status}" font_size="19" justify="right" pos="362,0" width="128" />
+                    </rect>
+
+                    <rect pos="0,-238" width="490" height="24" visible="{evo_row8_visible}">
+                        <label depth="3" text="{evo_row8_label}" font_size="19" justify="left" width="130" />
+                        <label depth="3" text="{evo_row8_progress}" font_size="19" justify="left" pos="132,0" width="228" />
+                        <label depth="3" text="{evo_row8_status}" font_size="19" justify="right" pos="362,0" width="128" />
+                    </rect>
+                </rect>
+
+                <rect pos="14,-50" width="490" height="504" visible="{isnotificationstab}">
+                    <rect pos="0,0" width="490" height="32">
+                        <label depth="3" text="{animal_name}" font_size="28" justify="left" width="220"/>
+                        <label depth="3" text="Notification Rules" font_size="22" justify="right" width="270" pos="220,-3"/>
+                    </rect>
+
+                    <sprite depth="1" sprite="menu_empty3px" color="[black]" pos="0,-42" width="490" height="244" type="sliced" fillcenter="false"/>
+                    <sprite depth="1" sprite="menu_empty" color="[darkGrey]" pos="3,-45" width="484" height="34" type="sliced"/>
+
+                    <label depth="3" text="Condition" pos="8,-50" width="82" height="24" font_size="25" justify="left"/>
+                    <label depth="3" text="Status" pos="90,-50" width="86" height="24" font_size="25" justify="center"/>
+                    <label depth="3" text="Alert At" pos="178,-50" width="96" height="24" font_size="25" justify="center"/>
+                    <label depth="3" text="Reset At" pos="276,-50" width="96" height="24" font_size="25" justify="center"/>
+                    <label depth="3" text="Severity" pos="374,-50" width="108" height="24" font_size="25" justify="center"/>
+
+                    <!-- Health -->
+                    <rect pos="3,-82" width="484" height="66">
+                        <sprite depth="1" sprite="menu_empty" color="100,100,100,80" width="484" height="66" type="sliced"/>
+                        <label depth="3" text="Health" pos="8,-19" width="78" height="30" font_size="25" justify="left"/>
+                        <rect pos="87,-15" width="88" height="34">
+                            <button name="notification_health_toggle" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_health_enabled}" color="{notification_health_toggle_color}" pos="0,-5" width="88" height="28" font_size="25" justify="center"/>
+                        </rect>
+                        <rect pos="179,-15" width="94" height="34">
+                            <rect pos="0,0" width="26" height="34">
+                                <button name="notification_health_threshold_down" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="-" pos="0,-7" width="26" height="28" font_size="20" justify="center"/>
+                            </rect>
+                            <label depth="3" text="{notification_health_threshold}" pos="26,-7" width="42" height="28" font_size="25" justify="center"/>
+                            <rect pos="68,0" width="26" height="34">
+                                <button name="notification_health_threshold_up" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="+" pos="0,-8" width="26" height="28" font_size="19" justify="center"/>
+                            </rect>
+                        </rect>
+                        <rect pos="277,-15" width="94" height="34">
+                            <rect pos="0,0" width="26" height="34">
+                                <button name="notification_health_reset_down" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="-" pos="0,-7" width="26" height="28" font_size="20" justify="center"/>
+                            </rect>
+                            <label depth="3" text="{notification_health_reset}" pos="26,-7" width="42" height="28" font_size="25" justify="center"/>
+                            <rect pos="68,0" width="26" height="34">
+                                <button name="notification_health_reset_up" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="+" pos="0,-8" width="26" height="28" font_size="19" justify="center"/>
+                            </rect>
+                        </rect>
+                        <rect pos="375,-15" width="106" height="34">
+                            <button name="notification_health_severity" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_health_severity}" pos="0,-5" width="106" height="28" font_size="25" color="{notification_health_severity_color}" justify="center"/>
+                        </rect>
+                    </rect>
+
+                    <!-- Food -->
+                    <rect pos="3,-150" width="484" height="66">
+                        <sprite depth="1" sprite="menu_empty" color="75,75,75,80" width="484" height="66" type="sliced"/>
+                        <label depth="3" text="Food" pos="8,-19" width="78" height="30" font_size="25" justify="left"/>
+                        <rect pos="87,-15" width="88" height="34">
+                            <button name="notification_hunger_toggle" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_hunger_enabled}" color="{notification_hunger_toggle_color}" pos="0,-5" width="88" height="28" font_size="25" justify="center"/>
+                        </rect>
+                        <rect pos="179,-15" width="94" height="34">
+                            <rect pos="0,0" width="26" height="34">
+                                <button name="notification_hunger_threshold_down" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="-" pos="0,-7" width="26" height="28" font_size="20" justify="center"/>
+                            </rect>
+                            <label depth="3" text="{notification_hunger_threshold}" pos="26,-7" width="42" height="28" font_size="25" justify="center"/>
+                            <rect pos="68,0" width="26" height="34">
+                                <button name="notification_hunger_threshold_up" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="+" pos="0,-8" width="26" height="28" font_size="19" justify="center"/>
+                            </rect>
+                        </rect>
+                        <rect pos="277,-15" width="94" height="34">
+                            <rect pos="0,0" width="26" height="34">
+                                <button name="notification_hunger_reset_down" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="-" pos="0,-7" width="26" height="28" font_size="20" justify="center"/>
+                            </rect>
+                            <label depth="3" text="{notification_hunger_reset}" pos="26,-7" width="42" height="28" font_size="25" justify="center"/>
+                            <rect pos="68,0" width="26" height="34">
+                                <button name="notification_hunger_reset_up" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="+" pos="0,-8" width="26" height="28" font_size="19" justify="center"/>
+                            </rect>
+                        </rect>
+                        <rect pos="375,-15" width="106" height="34">
+                            <button name="notification_hunger_severity" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_hunger_severity}" pos="0,-5" width="106" height="28" color="{notification_hunger_severity_color}" font_size="25" justify="center"/>
+                        </rect>
+                    </rect>
+
+                    <!-- Water -->
+                    <rect pos="3,-218" width="484" height="66">
+                        <sprite depth="1" sprite="menu_empty" color="100,100,100,80" width="484" height="66" type="sliced"/>
+                        <label depth="3" text="Water" pos="8,-19" width="78" height="30" font_size="25" justify="left"/>
+                        <rect pos="87,-15" width="88" height="34">
+                            <button name="notification_thirst_toggle" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_thirst_enabled}" color="{notification_thirst_toggle_color}" pos="0,-5" width="88" height="28" font_size="25" justify="center"/>
+                        </rect>
+                        <rect pos="179,-15" width="94" height="34">
+                            <rect pos="0,0" width="26" height="34">
+                                <button name="notification_thirst_threshold_down" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="-" pos="0,-7" width="26" height="28" font_size="20" justify="center"/>
+                            </rect>
+                            <label depth="3" text="{notification_thirst_threshold}" pos="26,-7" width="42" height="28" font_size="25" justify="center"/>
+                            <rect pos="68,0" width="26" height="34">
+                                <button name="notification_thirst_threshold_up" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="+" pos="0,-8" width="26" height="28" font_size="19" justify="center"/>
+                            </rect>
+                        </rect>
+                        <rect pos="277,-15" width="94" height="34">
+                            <rect pos="0,0" width="26" height="34">
+                                <button name="notification_thirst_reset_down" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="-" pos="0,-7" width="26" height="28" font_size="20" justify="center"/>
+                            </rect>
+                            <label depth="3" text="{notification_thirst_reset}" pos="26,-7" width="42" height="28" font_size="25" justify="center"/>
+                            <rect pos="68,0" width="26" height="34">
+                                <button name="notification_thirst_reset_up" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                                <label depth="3" text="+" pos="0,-8" width="26" height="28" font_size="19" justify="center"/>
+                            </rect>
+                        </rect>
+                        <rect pos="375,-15" width="106" height="34">
+                            <button name="notification_thirst_severity" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_thirst_severity}" color="{notification_thirst_severity_color}" pos="0,-5" width="106" height="28" font_size="25" justify="center"/>
+                        </rect>
+                    </rect>
+
+                    <!-- Event Alerts -->
+                    <sprite depth="1" sprite="menu_empty3px" color="[black]" pos="0,-292" width="490" height="176" type="sliced" fillcenter="false"/>
+
+                    <rect pos="3,-295" width="239" height="82">
+                        <sprite depth="1" sprite="menu_empty" color="75,75,75,80" width="239" height="82" type="sliced"/>
+                        <label depth="3" text="Bleeding" pos="0,-5" width="239" height="24" font_size="25" justify="center"/>
+                        <rect pos="43,-38" width="72" height="34">
+                            <button name="notification_bleeding_toggle" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_bleeding_enabled}" color="{notification_bleeding_toggle_color}" pos="0,-7" width="72" height="28" font_size="25" justify="center"/>
+                        </rect>
+                        <rect pos="119,-38" width="76" height="34">
+                            <button name="notification_bleeding_severity" color="{notification_bleeding_toggle_color}" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_bleeding_severity}" color="{notification_bleeding_severity_color}" pos="0,-7" width="76" height="28" font_size="25" justify="center"/>
+                        </rect>
+                    </rect>
+
+                    <rect pos="245,-295" width="242" height="82">
+                        <sprite depth="1" sprite="menu_empty" color="100,100,100,80" width="242" height="82" type="sliced"/>
+                        <label depth="3" text="On Fire" pos="0,-5" width="242" height="24" font_size="25" justify="center"/>
+                        <rect pos="44,-38" width="72" height="34">
+                            <button name="notification_onfire_toggle" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_onfire_enabled}" color="{notification_onfire_toggle_color}" pos="0,-7" width="72" height="28" font_size="25" justify="center"/>
+                        </rect>
+                        <rect pos="120,-38" width="76" height="34">
+                            <button name="notification_onfire_severity" color="{notification_onfire_toggle_color}" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_onfire_severity}" color="{notification_onfire_severity_color}" pos="0,-7" width="76" height="28" font_size="25" justify="center"/>
+                        </rect>
+                    </rect>
+
+                    <rect pos="3,-380" width="239" height="82">
+                        <sprite depth="1" sprite="menu_empty" color="100,100,100,80" width="239" height="82" type="sliced"/>
+                        <label depth="3" text="Owner Hit" pos="0,-5" width="239" height="24" font_size="25" justify="center"/>
+                        <rect pos="43,-38" width="72" height="34">
+                            <button name="notification_ownerhit_toggle" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_ownerhit_enabled}" color="{notification_ownerhit_toggle_color}" pos="0,-7" width="72" height="28" font_size="25" justify="center"/>
+                        </rect>
+                        <rect pos="119,-38" width="76" height="34">
+                            <button name="notification_ownerhit_severity" color="{notification_ownerhit_toggle_color}" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_ownerhit_severity}" color="{notification_ownerhit_severity_color}" pos="0,-7" width="76" height="28" font_size="25" justify="center"/>
+                        </rect>
+                    </rect>
+
+                    <rect pos="245,-380" width="242" height="82">
+                        <sprite depth="1" sprite="menu_empty" color="75,75,75,80" width="242" height="82" type="sliced"/>
+                        <label depth="3" text="Death" pos="0,-5" width="242" height="24" font_size="25" justify="center"/>
+                        <rect pos="44,-38" width="72" height="34">
+                            <button name="notification_death_toggle" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_death_enabled}" color="{notification_death_toggle_color}" pos="0,-7" width="72" height="28" font_size="25" justify="center"/>
+                        </rect>
+                        <rect pos="120,-38" width="76" height="34">
+                            <button name="notification_death_severity" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                            <label depth="3" text="{notification_death_severity}" color="{notification_death_severity_color}" pos="0,-7" width="76" height="28" font_size="25" justify="center"/>
+                        </rect>
+                    </rect>
+                </rect>
+            </rect>
+
+            <rect name="btnClose" depth="3" pos="0,-616" height="42">
+                <sprite depth="8" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="2" name="background" pos="3,-3" sprite="menu_empty" width="514" height="36" color="[darkGrey]" type="sliced" />
+                <rect depth="3" pos="0,0" width="520" height="42">
+                    <button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" name="windowName" pos="0,-3" width="520" justify="center" text="CLOSE" text_key="xuiClose" font_size="36" />
+                </rect>
+            </rect>
+
+        </window>
+
+        <window name="windowCompanionTransfer" pos="-280, 230" width="560" height="460" anchor="CenterCenter" controller="CompanionTransferWindow, CHHusbandry" cursor_area="true">
+            <panel name="header" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+                <sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_map_marker"/>
+                <label style="header.name" text="TRANSFER COMPANION" width="280" />
+            </panel>
+
+            <rect name="content" pos="0,-46" height="374" depth="1">
+                <sprite depth="8" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="560" height="374" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="2" name="background" pos="3,-3" sprite="menu_empty" width="554" height="368" color="[darkGrey]" type="sliced" />
+
+                <rect pos="14,-10" width="532" height="26">
+                    <label depth="3" text="Choose a player near {transfer_pet_name}" font_size="22" justify="left" width="532" />
+                </rect>
+
+                <rect pos="14,-40" width="532" height="24" visible="{transfer_has_candidates}">
+                    <label depth="3" text="Recipient must be in range of your companion." font_size="18" justify="left" width="532" />
+                </rect>
+
+                <rect pos="14,-40" width="532" height="24" visible="{transfer_has_no_candidates}">
+                    <label depth="3" text="{transfer_status}" font_size="18" justify="left" width="532" />
+                </rect>
+
+                <rect pos="14,-72" width="170" height="64" visible="{slot1_visible}">
+                    <button name="slot_1" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot1_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+                <rect pos="194,-72" width="170" height="64" visible="{slot2_visible}">
+                    <button name="slot_2" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot2_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+                <rect pos="374,-72" width="170" height="64" visible="{slot3_visible}">
+                    <button name="slot_3" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot3_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+
+                <rect pos="14,-142" width="170" height="64" visible="{slot4_visible}">
+                    <button name="slot_4" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot4_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+                <rect pos="194,-142" width="170" height="64" visible="{slot5_visible}">
+                    <button name="slot_5" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot5_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+                <rect pos="374,-142" width="170" height="64" visible="{slot6_visible}">
+                    <button name="slot_6" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot6_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+
+                <rect pos="14,-212" width="170" height="64" visible="{slot7_visible}">
+                    <button name="slot_7" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot7_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+                <rect pos="194,-212" width="170" height="64" visible="{slot8_visible}">
+                    <button name="slot_8" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot8_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+                <rect pos="374,-212" width="170" height="64" visible="{slot9_visible}">
+                    <button name="slot_9" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot9_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+
+                <rect pos="14,-282" width="170" height="64" visible="{slot10_visible}">
+                    <button name="slot_10" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot10_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+                <rect pos="194,-282" width="170" height="64" visible="{slot11_visible}">
+                    <button name="slot_11" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot11_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+                <rect pos="374,-282" width="170" height="64" visible="{slot12_visible}">
+                    <button name="slot_12" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="{slot12_name}" justify="center" font_size="18" width="170" pos="0,-8" />
+                </rect>
+            </rect>
+
+            <rect name="btnClose" depth="3" pos="0, -418" height="42" >
+                <sprite depth="8" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="2" name="background" pos="3,-3" sprite="menu_empty" width="280" height="32" color="[darkGrey]" type="sliced" />
+                <rect depth="3" pos="0,0" height="42">
+                    <button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" name="windowName" pos="0,-1" justify="center" text="CLOSE" text_key="xuiClose" font_size="36" />
+                </rect>
+            </rect>
+        </window>
+
+        <window name="windowCompanionTransferConfirm" pos="-230, 100" width="460" height="210" anchor="CenterCenter" controller="CompanionTransferConfirmWindow, CHHusbandry" cursor_area="true">
+            <panel name="header" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+                <sprite depth="2" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_map_marker"/>
+                <label style="header.name" text="CONFIRM TRANSFER" width="220" />
+            </panel>
+
+            <rect name="content" pos="0,-46" height="124" depth="1">
+                <sprite depth="8" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="460" height="124" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="2" name="background" pos="3,-3" sprite="menu_empty" width="454" height="118" color="[darkGrey]" type="sliced" />
+                <label depth="3" text="{transfer_confirm_text}" font_size="24" justify="center" width="440" pos="10,-20" />
+
+                <rect pos="24,-72" width="194" height="34">
+                    <button name="confirm" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="Confirm" justify="center" font_size="24" />
+                </rect>
+                <rect pos="242,-72" width="194" height="34">
+                    <button name="cancel" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label depth="2" text="Cancel" justify="center" font_size="24" />
+                </rect>
+            </rect>
+        </window>
+
+        <!-- wild animal display -->
+
+        <window name="windowAnimalTargetWild" pos="0, -100" width="400" height="220" anchor="CenterTop" depth="-20" controller="AnimalTargetInfo, CHHusbandry" visible="{wildvisible}">
+
+            <!-- Row 1A: Level / Owner / Tamed -->
+            <rect pos="-255, -82" width="100" height="36">
+                <label depth="0" text="{owner} | Level: {level}" font_size="24" justify="center" height="36" width="250" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="250" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="-3" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="250" height="36" type="sliced" />
+            </rect>
+
+            <!-- Row 1B: Gender -->
+            <rect pos="5, -82" width="100" height="36">
+                <sprite depth="-2" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="250" height="36" type="sliced" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="250" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <label depth="3" text="{agestage} {gender}  Age:{age}" font_size="24" justify="center" height="36" width="250" />
+            </rect>
+
+            <!-- Row 2A: Knockout / Unconscious -->
+            <rect pos="-255, -122" width="100" height="36" visible="{showsedationinfo}">
+                <label depth="0" text="Unconscious: {sedation}% | Time: {ragdollduration}" font_size="24" justify="center" height="36" width="510" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="510" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <filledsprite depth="-2" name="BarContent" type="filled" color="0,200,0,180" width="506" height="32" fill="{sedationfill}" pos="2, 4" globalopacity="false"/>
+                <sprite depth="-3" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="510" height="36" type="sliced" />
+            </rect>
+
+            <!-- Row 2B: Passive Feeding / Held Food -->
+            <rect pos="-255, -122" width="100" height="36" visible="{showpassivefeedinfo}">
+                <label depth="0" text="Held Food: {passivefeeditem} | +{passivefeedvalue}" font_size="24" justify="center" height="36" width="510" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="510" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="-3" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="510" height="36" type="sliced" />
+            </rect>
+
+            <!-- Row 3: Passive Fear -->
+            <rect pos="-255,{wildfearrowy}" width="100" height="36">
+                <label depth="0" text="Fear: {passivefearstate} | {passivefearvalue}" font_size="24" justify="center" height="36" width="510" />
+                <sprite depth="-1" name="backgroundMainFear" sprite="menu_empty3px" pos="0,6" width="510" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <filledsprite depth="-2" name="BarContentFear" type="filled" color="200,120,0,180" width="506" height="32" fill="{passivefearfill}" pos="2, 4" globalopacity="false"/>
+                <sprite depth="-3" name="BackgroundFear" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="510" height="36" type="sliced" />
+            </rect>
+
+            <!-- Row 4: Shared Taming Progress -->
+            <rect pos="-255,{wildtamingrowy}" width="100" height="36" visible="{showtaminginfo}">
+                <label depth="0" text="Taming: {tameamount}/{tameamountmax}" font_size="24" justify="center" height="36" width="510" />
+                <sprite depth="-1" name="backgroundMainTaming" sprite="menu_empty3px" pos="0,6" width="510" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <filledsprite depth="-2" name="BarContentTaming" type="filled" color="0,200,0,180" width="506" height="32" fill="{tamingfill}" pos="2, 4" globalopacity="false"/>
+                <sprite depth="-3" name="BackgroundTaming" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="510" height="36" type="sliced" />
+            </rect>
+
+            <!-- Row 5: Player Trust -->
+            <rect pos="-255,{wildtrustrowy}" width="100" height="36" visible="{usestrust}">
+                <label depth="0" text="{trustcurrentwithmax}" font_size="24" justify="center" height="36" width="510" />
+                <label depth="2" name="TrustZoneDebug" text="Trust Zone | Dist: {trustdistance} | Safe: {trusttoocloseradius}-{trustouterradius}" font_size="20" justify="center" pos="0,-242" color="176, 64, 255, 255" width="510" height="28" />
+                <sprite depth="-1" name="backgroundMainTrust" sprite="menu_empty3px" pos="0,6" width="510" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <filledsprite depth="-2" name="BarContentTrust" type="filled" color="80,160,255,180" width="506" height="32" fill="{trustpercent}" pos="2, 4" globalopacity="false"/>
+                <sprite depth="-3" name="BackgroundTrust" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="510" height="36" type="sliced" />
+            </rect>
+
+        </window>
+
+        <!-- debug animal display -->
+
+        <window name="windowAnimalDebug" pos="0, -100" width="400" height="60" anchor="CenterTop" depth="-20" controller="AnimalTargetInfo, CHHusbandry">
+
+            <!-- Level -->
+            <rect pos="-255, -82" width="100" height="36">
+                <label pos="0,-100" depth="0" text="Wild: {wildvisible} | Tamed: {tamevisible} | Id: {entityid}" font_size="24" justify="center" height="36" width="510" />
+                <label depth="0" text="Level: {level}" font_size="24" justify="center" height="36" width="250" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="250" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <sprite depth="-3" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="250" height="36" type="sliced" />
+            </rect>
+
+            <!-- Gender -->
+            <rect pos="5, -82" width="100" height="36">
+                <sprite depth="-2" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="250" height="36" type="sliced" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="250" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <label depth="3" text="Gender: {gender}" font_size="24" justify="center" height="36" width="250" />
+            </rect>
+
+            <!--Bond-->
+
+            <!-- unconscious -->
+            <rect pos="-255, -122" width="100" height="36" visible="{wildvisible}">
+                <label depth="0" text="unconscious: {sedation}% | Time: {ragdollduration}" font_size="24" justify="center" height="36" width="510" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="510" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <filledsprite depth="-2" name="BarContent" type="filled" color="0,200,0,180" width="506" height="32" fill="{sedationfill}" pos="2, 4" globalopacity="false"/>
+                <sprite depth="-3" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="510" height="36" type="sliced" />
+            </rect>
+
+            <!-- Taming   -->
+            <rect pos="-255, -162" width="100" height="36" visible="{wildvisible}">
+                <label depth="0" text="Taming: {tameamount}/{tameamountmax}" font_size="24" justify="center" height="36" width="510" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,6" width="510" height="36" color="[black]" type="sliced" fillcenter="false" />
+                <filledsprite depth="-2" name="BarContent" type="filled" color="0,200,0,180" width="506" height="32" fill="{tamingfill}" pos="2, 4" globalopacity="false"/>
+                <sprite depth="-3" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,6" width="510" height="36" type="sliced" />
+            </rect>
+
+            <grid name="companionBuffList" pos="10,-178" width="240" height="40" rows="1" cols="6" cell_width="40" cell_height="40" arrangement="horizontal" repeat_content="false" controller="CompanionBuffList, CHHusbandry">
+                <companion_buff_entry name="0"/>
+                <companion_buff_entry name="1"/>
+                <companion_buff_entry name="2"/>
+                <companion_buff_entry name="3"/>
+                <companion_buff_entry name="4"/>
+                <companion_buff_entry name="5"/>
+            </grid>
+
+        </window>
+
+        <!-- tamed animal display -->
+
+        <window name="windowAnimalTargetTamed" pos="-130, 264" width="260" height="180" anchor="CenterCenter" depth="-20" controller="AnimalTargetInfo, CHHusbandry" visible="{tamevisible}">
+            <rect pos="0, 0" width="260" height="152">
+                <sprite depth="-2" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,0" width="260" height="{tamedwindowheight}" type="sliced" />
+                <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="260" height="{tamedwindowheight}" color="[black]" type="sliced" fillcenter="false" />
+
+                <label depth="3" text="{animal_name} | Age:{age} | {agestage} {gender}" font_size="24" justify="center" pos="0,-8" width="260" height="30" />
+                <label depth="3" text="{orderstatus} | {combatstatus}" font_size="20" justify="center" pos="0,-34" width="260" height="24" />
+
+                <rect pos="10,-58" width="240" height="28">
+                    <label pos="0,-2" depth="2" text="Health {currentwithmax}" font_size="18" justify="center" width="240" height="24" />
+                    <filledsprite depth="-2" name="BarContent" type="filled" color="200,0,0,180" width="236" height="20" fill="{hpfill}" pos="2,0" globalopacity="false"/>
+                    <sprite depth="-1" name="backgroundMain" sprite="menu_empty3px" pos="0,2" width="240" height="24" color="[black]" type="sliced" fillcenter="false" />
+                    <sprite depth="-3" name="Background" sprite="menu_empty" color="[darkestGrey]" pos="0,2" width="240" height="24" type="sliced" />
+                </rect>
+
+                <rect pos="10,-86" width="240" height="28">
+                    <label pos="0,-2" depth="2" text="Lvl {level} | Bond {bond} | Pts {available_skill_points}" font_size="18" justify="center" width="240" height="24" />
+                    <filledsprite depth="-2" name="BarContentXp" type="filled" color="128,4,128,180" width="236" height="20" fill="{xpfill}" pos="2,0" globalopacity="false"/>
+                    <sprite depth="-1" name="backgroundMainXp" sprite="menu_empty3px" pos="0,2" width="240" height="24" color="[black]" type="sliced" fillcenter="false" />
+                    <sprite depth="-3" name="BackgroundXp" sprite="menu_empty" color="[darkestGrey]" pos="0,2" width="240" height="24" type="sliced" />
+                </rect>
+
+                <rect pos="10,-114" width="116" height="28">
+                    <label pos="0,-2" depth="2" text="Food {hunger}/100" font_size="18" justify="center" width="116" height="24" />
+                    <filledsprite depth="-2" name="BarContentHunger" type="filled" color="80,170,80,180" width="112" height="20" fill="{hungerfill}" pos="2,0" globalopacity="false"/>
+                    <sprite depth="-1" name="backgroundMainHunger" sprite="menu_empty3px" pos="0,2" width="116" height="24" color="[black]" type="sliced" fillcenter="false" />
+                    <sprite depth="-3" name="BackgroundHunger" sprite="menu_empty" color="[darkestGrey]" pos="0,2" width="116" height="24" type="sliced" />
+                </rect>
+
+                <rect pos="134,-114" width="116" height="28">
+                    <label pos="0,-2" depth="2" text="Water {thirst}/100" font_size="18" justify="center" width="116" height="24" />
+                    <filledsprite depth="-2" name="BarContentThirst" type="filled" color="40,120,200,180" width="112" height="20" fill="{thirstfill}" pos="2,0" globalopacity="false"/>
+                    <sprite depth="-1" name="backgroundMainThirst" sprite="menu_empty3px" pos="0,2" width="116" height="24" color="[black]" type="sliced" fillcenter="false" />
+                    <sprite depth="-3" name="BackgroundThirst" sprite="menu_empty" color="[darkestGrey]" pos="0,2" width="116" height="24" type="sliced" />
+                </rect>
+
+                <rect pos="10,-142" width="240" height="28" visible="{showbreedinginfo}">
+                    <label pos="0,-2" depth="2" text="{breedingstate}" font_size="18" justify="center" width="240" height="24" />
+                    <filledsprite depth="-2" name="BarContentBreeding" type="filled" color="200,80,160,180" width="236" height="20" fill="{breedingfill}" pos="2,0" globalopacity="false"/>
+                    <sprite depth="-1" name="backgroundMainBreeding" sprite="menu_empty3px" pos="0,2" width="240" height="24" color="[black]" type="sliced" fillcenter="false" />
+                    <sprite depth="-3" name="BackgroundBreeding" sprite="menu_empty" color="[darkestGrey]" pos="0,2" width="240" height="24" type="sliced" />
+                </rect>
+
+                <rect pos="80,20" width="100" height="22" visible="{showprestigestars}">
+                    <label depth="4" text="{prestigestar1text}" color="{prestigestar1color}" font_size="20" justify="center" pos="0,0" width="20" height="22" />
+                    <label depth="4" text="{prestigestar2text}" color="{prestigestar2color}" font_size="20" justify="center" pos="20,0" width="20" height="22" />
+                    <label depth="4" text="{prestigestar3text}" color="{prestigestar3color}" font_size="20" justify="center" pos="40,0" width="20" height="22" />
+                    <label depth="4" text="{prestigestar4text}" color="{prestigestar4color}" font_size="20" justify="center" pos="60,0" width="20" height="22" />
+                    <label depth="4" text="{prestigestar5text}" color="{prestigestar5color}" font_size="20" justify="center" pos="80,0" width="20" height="22" />
+                </rect>
+
+                <grid name="companionBuffList" pos="10,-152" width="240" height="40" rows="1" cols="6" cell_width="40" cell_height="40" arrangement="horizontal" repeat_content="false" controller="CompanionBuffList, CHHusbandry">
+                    <companion_buff_entry name="0"/>
+                    <companion_buff_entry name="1"/>
+                    <companion_buff_entry name="2"/>
+                    <companion_buff_entry name="3"/>
+                    <companion_buff_entry name="4"/>
+                    <companion_buff_entry name="5"/>
+                </grid>
+            </rect>
+        </window>
+
+        <window name="windowCompanionFollowHud" pos="300,0" width="300" height="230" anchor="LeftTop" depth="-20" controller="CompanionFollowHud, CHHusbandry" visible="{hudvisible}">
+            <rect pos="0,0" width="300" height="230">
+                <label depth="3" text="Companions" font_size="22" justify="center" pos="0,-6" width="300" height="24" />
+
+                <rect pos="50,-32" width="200" height="37" visible="{row1_visible}">
+                    <sprite depth="1" name="border1" color="0,0,0,128" type="sliced" />
+                    <sprite depth="2" name="background1" color="0,0,0,140" height="37" type="sliced" />
+                    <filledsprite depth="3" name="barHealthMax1" color="110,110,110,128" width="199" height="37" type="filled" fill="1" />
+                    <filledsprite depth="5" name="barHealth1" color="255,0,0,128" width="197" height="37" type="filled" fill="{row1_fill}" />
+                    <sprite depth="8" name="borderFront1" color="0,0,0,255" width="200" height="37" type="sliced" fillcenter="false" />
+                    <sprite depth="4" name="defenseicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_defense" visible="{row1_guardvisible}"/>
+                    <sprite depth="4" name="vehicleicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_minibike" visible="{row1_vehiclevisible}"/>
+                    <label depth="6" text="{row1_name}" pos="8,-6" font_size="24" color="[white]" justify="left" pivot="topleft" width="120" height="30" />
+                    <label depth="6" text="{row1_health}" pos="194,-6" font_size="24" color="[white]" justify="right" pivot="topright" width="90" height="30" />
+                </rect>
+
+                <rect pos="50,-72" width="200" height="37" visible="{row2_visible}">
+                    <sprite depth="1" name="border2" color="0,0,0,128" type="sliced" />
+                    <sprite depth="2" name="background2" color="0,0,0,140" height="37" type="sliced" />
+                    <filledsprite depth="3" name="barHealthMax2" color="110,110,110,128" width="199" height="37" type="filled" fill="1" />
+                    <filledsprite depth="5" name="barHealth2" color="255,0,0,128" width="197" height="37" type="filled" fill="{row2_fill}" />
+                    <sprite depth="8" name="borderFront2" color="0,0,0,255" width="200" height="37" type="sliced" fillcenter="false" />
+                    <sprite depth="4" name="defenseicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_defense" visible="{row2_guardvisible}"/>
+                    <sprite depth="4" name="vehicleicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_minibike" visible="{row2_vehiclevisible}"/>
+                    <label depth="6" text="{row2_name}" pos="8,-6" font_size="24" color="[white]" justify="left" pivot="topleft" width="120" height="30" />
+                    <label depth="6" text="{row2_health}" pos="194,-6" font_size="24" color="[white]" justify="right" pivot="topright" width="90" height="30" />
+                </rect>
+
+                <rect pos="50,-112" width="200" height="37" visible="{row3_visible}">
+                    <sprite depth="1" name="border3" color="0,0,0,128" type="sliced" />
+                    <sprite depth="2" name="background3" color="0,0,0,140" height="37" type="sliced" />
+                    <filledsprite depth="3" name="barHealthMax3" color="110,110,110,128" width="199" height="37" type="filled" fill="1" />
+                    <filledsprite depth="5" name="barHealth3" color="255,0,0,128" width="197" height="37" type="filled" fill="{row3_fill}" />
+                    <sprite depth="8" name="borderFront3" color="0,0,0,255" width="200" height="37" type="sliced" fillcenter="false" />
+                    <sprite depth="4" name="defenseicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_defense" visible="{row3_guardvisible}"/>
+                    <sprite depth="4" name="vehicleicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_minibike" visible="{row3_vehiclevisible}"/>
+                    <label depth="6" text="{row3_name}" pos="8,-6" font_size="24" color="[white]" justify="left" pivot="topleft" width="120" height="30" />
+                    <label depth="6" text="{row3_health}" pos="194,-6" font_size="24" color="[white]" justify="right" pivot="topright" width="90" height="30" />
+                </rect>
+
+                <rect pos="50,-152" width="200" height="37" visible="{row4_visible}">
+                    <sprite depth="1" name="border4" color="0,0,0,128" type="sliced" />
+                    <sprite depth="2" name="background4" color="0,0,0,140" height="37" type="sliced" />
+                    <filledsprite depth="3" name="barHealthMax4" color="110,110,110,128" width="199" height="37" type="filled" fill="1" />
+                    <filledsprite depth="5" name="barHealth4" color="255,0,0,128" width="197" height="37" type="filled" fill="{row4_fill}" />
+                    <sprite depth="8" name="borderFront4" color="0,0,0,255" width="200" height="37" type="sliced" fillcenter="false" />
+                    <sprite depth="4" name="defenseicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_defense" visible="{row4_guardvisible}"/>
+                    <sprite depth="4" name="vehicleicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_minibike" visible="{row4_vehiclevisible}"/>
+                    <label depth="6" text="{row4_name}" pos="8,-6" font_size="24" color="[white]" justify="left" pivot="topleft" width="120" height="30" />
+                    <label depth="6" text="{row4_health}" pos="194,-6" font_size="24" color="[white]" justify="right" pivot="topright" width="90" height="30" />
+                </rect>
+
+                <rect pos="50,-192" width="200" height="37" visible="{row5_visible}">
+                    <sprite depth="1" name="border5" color="0,0,0,128" type="sliced" />
+                    <sprite depth="2" name="background5" color="0,0,0,140" height="37" type="sliced" />
+                    <filledsprite depth="3" name="barHealthMax5" color="110,110,110,128" width="199" height="37" type="filled" fill="1" />
+                    <filledsprite depth="5" name="barHealth5" color="255,0,0,128" width="197" height="37" type="filled" fill="{row5_fill}" />
+                    <sprite depth="8" name="borderFront5" color="0,0,0,255" width="200" height="37" type="sliced" fillcenter="false" />
+                    <sprite depth="4" name="defenseicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_defense" visible="{row5_guardvisible}"/>
+                    <sprite depth="4" name="vehicleicon" style="icon32px" pos="-35,-2" sprite="ui_game_symbol_minibike" visible="{row5_vehiclevisible}"/>
+                    <label depth="6" text="{row5_name}" pos="8,-6" font_size="24" color="[white]" justify="left" pivot="topleft" width="120" height="30" />
+                    <label depth="6" text="{row5_health}" pos="194,-6" font_size="24" color="[white]" justify="right" pivot="topright" width="90" height="30" />
+                </rect>
+            </rect>
+        </window>
+
+        <window name="chatoutput" pos="20,-250" depth="10" width="500" height="286" anchor="TopLeft" controller="ChatOutput" fadeout_wait_time="5" fadeout_duration="2">
+
+            <rect name="chatTabs" pos="8,-4" width="484" height="34">
+
+                <rect pos="0,0" width="242" height="34">
+                    <button name="tab_chat" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label pos="0,-5" depth="3" text="Chat" width="242" height="28" justify="center" font_size="24"/>
+                </rect>
+
+                <rect pos="242,0" width="242" height="34">
+                    <button name="tab_companions" sprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0"/>
+                    <label pos="0,-5" depth="3" text="Companions" width="242" height="28" justify="center" font_size="24"/>
+                </rect>
+
+            </rect>
+
+            <rect name="chatContent" pos="0,0" width="500" height="210">
+                <textlist name="txtOutput" pos="8,-214" width="484" height="170" list_style="chat" pivot="bottomleft" depth="2" font_size="26" crispness="Never" effect="outline" effect_distance="1,1" effect_color="[black]" on_press="true" prefix_first_line="   " support_urls="Chat,DiscordMessageButton" snap="false" gamepad_selectable="false"/>
+            </rect>
+
+            <rect name="companionContent" pos="0,0" width="500" height="248">
+                <textlist name="txtCompanionOutput" pos="12,-270" width="476" height="225" list_style="chat" pivot="bottomleft" depth="2" font_size="25" line_spacing="4" crispness="Never" effect="outline" effect_distance="1,1" effect_color="[black]" on_press="true" prefix_first_line="" snap="false" gamepad_selectable="false"/>
+            </rect>
+
+        </window>
+
+        <window name="windowCompanionNotification" pos="-300,-120" width="600" height="{notificationheight}" anchor="CenterTop" depth="-30" controller="CompanionNotification, CHHusbandry" visible="{notificationvisible}">
+            <rect pos="0,0" width="600" height="{notificationheight}">
+                <sprite depth="1" name="notificationBackground" sprite="menu_empty" color="{notificationcolor}" width="600" height="{notificationheight}" type="sliced"/>
+                <sprite depth="2" name="notificationBorder" sprite="menu_empty3px" color="[black]" width="600" height="{notificationheight}" type="sliced" fillcenter="false"/>
+                <label depth="3" text="{notificationtype}" pos="16,-10" width="568" height="26" font_size="22" justify="center"/>
+                <label depth="3" text="{notificationmessage}" pos="24,-58" width="552" height="{notificationmessageheight}" font_size="22" justify="center" pivot="topleft"/>
+            </rect>
+        </window>
+
+        <window name="windowCompanionAlert" pos="-220,-140" width="440" height="{notificationheight}" anchor="CenterTop" depth="-30" controller="CompanionAlert, CHHusbandry" visible="{notificationvisible}">
+            <rect pos="0,0" width="440" height="{notificationheight}">
+                <sprite depth="1" name="notificationBackground" sprite="menu_empty" color="{notificationcolor}" width="440" height="{notificationheight}" type="sliced"/>
+                <sprite depth="2" name="notificationBorder" sprite="menu_empty3px" color="[black]" width="440" height="{notificationheight}" type="sliced" fillcenter="false"/>
+                <label depth="3" text="{notificationtype}" pos="16,-10" width="408" height="26" font_size="30" justify="center"/>
+                <label depth="3" text="{notificationmessage}" pos="20,-58" width="400" height="{notificationmessageheight}" font_size="30" justify="center" pivot="topleft"/>
+            </rect>
+        </window>
+
+    </append>
+</windows>

@@ -1,0 +1,290 @@
+<Hells_Janitor>
+	<append xpath="/entitygroups">
+	<entitygroup name="EnemyAnimalsDesertNoVultures">
+		<e n="animalCoyote" p="20" />
+		<e n="animalSnake" p="5" />
+		<e n="none" p="75" />
+	</entitygroup>
+	
+	<entitygroup name="EnemyAnimalsNoDireWolves">
+		<e n="animalCoyote" p="40" />
+		<e n="animalWolf" p="10" />
+		<e n="animalMountainLion" p="5" />
+		<e n="none" p="45" />
+	</entitygroup>
+	</append>	
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieArlene'
+	or @n='zombieMarlene'
+	or @n='zombiePartyGirl'
+	or @n='zombieNurse'
+	or @n='zombieScreamer']
+	/@n">zombieDarkseekerSlimFemale</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieArleneFeral'
+	or @n='zombieMarleneFeral'
+	or @n='zombiePartyGirlFeral'
+	or @n='zombieNurseFeral'
+	or @n='zombieScreamerFeral']
+	/@n">zombieDarkseekerSlimFemaleFeral</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieArleneRadiated'
+	or @n='zombieMarleneRadiated'
+	or @n='zombiePartyGirlRadiated'
+	or @n='zombieNurseRadiated'
+	or @n='zombieScreamerRadiated']
+	/@n">zombieDarkseekerSlimFemaleRadiated</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieArleneCharged'
+	or @n='zombieMarleneCharged'
+	or @n='zombiePartyGirlCharged'
+	or @n='zombieNurseCharged'
+	or @n='zombieScreamerCharged']
+	/@n">zombieDarkseekerSlimFemaleCharged</set>
+	
+	<!-- <set xpath="/entitygroups/entitygroup
+	/e[@n='zombieArleneInfernal'
+	or @n='zombieMarleneInfernal'
+	or @n='zombiePartyGirlInfernal'
+	or @n='zombieNurseInfernal'
+	or @n='zombieScreamerInfernal']
+	/@n">zombieDarkseekerSlimFemaleInfernal</set> -->
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieJoe'
+	or @n='zombieSteve'
+	or @n='zombieTomClark'
+	or @n='zombieBusinessMan'
+	or @n='zombieBurnt'
+	]/@n">zombieDarkseekerSlimMale</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieJoeFeral'
+	or @n='zombieSteveFeral'
+	or @n='zombieTomClarkFeral'
+	or @n='zombieBusinessManFeral'
+	or @n='zombieBurntFeral'
+	]/@n">zombieDarkseekerSlimMaleFeral</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieJoeRadiated'
+	or @n='zombieSteveRadiated'
+	or @n='zombieTomClarkRadiated'
+	or @n='zombieBusinessManRadiated'
+	or @n='zombieBurntRadiated'
+	]/@n">zombieDarkseekerSlimMaleRadiated</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieJoeCharged'
+	or @n='zombieSteveCharged'
+	or @n='zombieTomClarkCharged'
+	or @n='zombieBusinessManCharged'
+	or @n='zombieBurntCharged'
+	]/@n">zombieDarkseekerSlimMaleCharged</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBusinessManInfernal'
+	or @n='zombieBurntInfernal'
+	]/@n">zombieDarkseekerSlimMaleInfernal</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieLab'
+	or @n='zombieDarlene'
+	]/@n">zombieDarkseekerNormalFemale</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieLabFeral'
+	or @n='zombieDarleneFeral'
+	]/@n">zombieDarkseekerNormalFemaleFeral</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieLabRadiated'
+	or @n='zombieDarleneRadiated'
+	]/@n">zombieDarkseekerNormalFemaleRadiated</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieLabCharged'
+	or @n='zombieDarleneCharged'
+	]/@n">zombieDarkseekerNormalFemaleCharged</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieDarleneInfernal'
+	]/@n">zombieDarkseekerNormalFemaleInfernal</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBoe'
+	or @n='zombieMaleHazmat'
+	or @n='zombieJanitor'
+	or @n='zombieInmate'
+	or @n='zombieMoe'
+	or @n='zombieYo'
+	or @n='zombieUtilityWorker'
+	or @n='zombieRancher'
+	]/@n">zombieDarkseekerNormalMale</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBoeFeral'
+	or @n='zombieMaleHazmatFeral'
+	or @n='zombieJanitorFeral'
+	or @n='zombieInmateFeral'
+	or @n='zombieMoeFeral'
+	or @n='zombieYoFeral'
+	or @n='zombieUtilityWorkerFeral'
+	or @n='zombieRancherFeral'
+	]/@n">zombieDarkseekerNormalMaleFeral</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBoeRadiated'
+	or @n='zombieMaleHazmatRadiated'
+	or @n='zombieJanitorRadiated'
+	or @n='zombieInmateRadiated'
+	or @n='zombieMoeRadiated'
+	or @n='zombieYoRadiated'
+	or @n='zombieUtilityWorkerRadiated'
+	or @n='zombieRancherRadiated'
+	]/@n">zombieDarkseekerNormalMaleRadiated</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBoeCharged'
+	or @n='zombieMaleHazmatCharged'
+	or @n='zombieJanitorCharged'
+	or @n='zombieInmateCharged'
+	or @n='zombieYoCharged'
+	or @n='zombieUtilityWorkerCharged'
+	or @n='zombieRancherCharged'
+	]/@n">zombieDarkseekerNormalMaleCharged</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBoeInfernal'
+	or @n='zombieMaleHazmatInfernal'
+	or @n='zombieJanitorInfernal'
+	or @n='zombieInmateInfernal'
+	or @n='zombieMoeInfernal'
+	or @n='zombieYoInfernal'
+	or @n='zombieUtilityWorkerInfernal'
+	or @n='zombieRancherInfernal'
+	]/@n">zombieDarkseekerNormalMaleInfernal</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBiker'
+	or @n='zombieLumberjack'
+	or @n='zombieFemaleFat'
+	or @n='zombieFatHawaiian'
+	or @n='zombieBowler'
+	or @n='zombieSkateboarder'
+	or @n='zombieSoldier'
+	or @n='zombieMutated'
+	or @n='zombieChuck'
+	]/@n">zombieDarkseekerAlpha</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBikerFeral'
+	or @n='zombieLumberjackFeral'
+	or @n='zombieFemaleFatFeral'
+	or @n='zombieFatHawaiianFeral'
+	or @n='zombieBowlerFeral'
+	or @n='zombieSkateboarderFeral'
+	or @n='zombieSoldierFeral'
+	or @n='zombieMutatedFeral'
+	or @n='zombieChuckFeral'
+	]/@n">zombieDarkseekerAlphaFeral</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBikerRadiated'
+	or @n='zombieLumberjackRadiated'
+	or @n='zombieFemaleFatRadiated'
+	or @n='zombieFatHawaiianRadiated'
+	or @n='zombieBowlerRadiated'
+	or @n='zombieSkateboarderRadiated'
+	or @n='zombieSoldierRadiated'
+	or @n='zombieMutatedRadiated'
+	or @n='zombieChuckRadiated'
+	]/@n">zombieDarkseekerAlphaRadiated</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieSkateboarderCharged'
+	or @n='zombieMutatedCharged'
+	or @n='zombieChuckCharged'
+	]/@n">zombieDarkseekerAlphaCharged</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieBikerInfernal'
+	or @n='zombieLumberjackInfernal'
+	or @n='zombieFemaleFatInfernal'
+	or @n='zombieFatHawaiianInfernal'
+	or @n='zombieBowlerInfernal'
+	or @n='zombieSkateboarderInfernal'
+	or @n='zombieSoldierInfernal'
+	or @n='zombieMutatedInfernal'
+	or @n='zombieChuckInfernal'
+	or @n='zombieDemolition'
+	]/@n">zombieDarkseekerAlphaInfernal</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieFatCop'
+	]/@n">zombieDarkseekerSpitter</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieFatCopFeral'
+	]/@n">zombieDarkseekerSpitterFeral</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieFatCopRadiated'
+	]/@n">zombieDarkseekerSpitterRadiated</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieFatCopInfernal'
+	]/@n">zombieDarkseekerSpitterInfernal</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieSteveCrawler'
+	]/@n">zombieDarkseekerCrawler</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieSteveCrawlerFeral'
+	]/@n">zombieDarkseekerCrawlerFeral</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieSpider'
+	]/@n">zombieDarkseekerSpider</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieSpiderFeral'
+	]/@n">zombieDarkseekerSpiderFeral</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieSpiderRadiated'
+	]/@n">zombieDarkseekerSpiderRadiated</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieSpiderCharged'
+	]/@n">zombieDarkseekerSpiderCharged</set>
+	
+	<set xpath="/entitygroups/entitygroup
+	/e[@n='zombieSpiderInfernal'
+	]/@n">zombieDarkseekerSpiderInfernal</set>
+	
+	
+	
+	<!-- <set xpath="/entitygroups/entitygroup[starts-with (@name,'ZombieScouts')]"> -->
+		<!-- animalRabbit -->
+	<!-- </set>	 -->
+	
+	<set xpath="/entitygroups/entitygroup[@name='EnemyAnimalsWasteland']">
+		<e n="animalSnake" p="20" />
+		<e n="none" p="80" />
+	</set>
+	
+	<set xpath="/entitygroups/entitygroup[@name='EnemyAnimalsWastelandNight']">
+		<e n="animalDireWolf" p="5" />
+		<e n="animalZombieBear" p="5" />
+		<e n="animalZombieDog" p="10" />
+		<e n="none" p="80" />
+	</set>
+	
+	<remove xpath="/entitygroups/entitygroup[@name='ZombiesNight']/e[starts-with (@n,'animal')]"/>
+</Hells_Janitor>

@@ -1,0 +1,32 @@
+<configs>
+
+    <append xpath="xui">
+
+        <window_group name="AnimalName" defaultSelected="input">
+			<window name="windowAnimalName" />
+		</window_group>
+
+        <window_group name="AnimalStats">
+			<window name="windowAnimalStats" />
+		</window_group>
+
+        <window_group name="CompanionTransfer">
+			<window name="windowCompanionTransfer" />
+		</window_group>
+
+        <window_group name="CompanionTransferConfirm">
+			<window name="windowCompanionTransferConfirm" />
+		</window_group>
+
+    </append>
+
+    <append xpath="xui/window_group[@name='compass']">
+        <window name="windowAnimalTargetWild" />
+        <window name="windowAnimalTargetTamed" />
+        <window name="windowCompanionFollowHud" />
+        <window name="windowCompanionNotification" />
+        <window name="windowCompanionAlert" />
+        <!-- <window name="windowAnimalDebug" /> -->
+    </append>
+
+</configs>

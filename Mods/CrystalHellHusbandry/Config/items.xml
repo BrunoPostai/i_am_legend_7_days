@@ -1,0 +1,1071 @@
+<configs>
+
+    <!--Temp Additions for random item giver-->
+    <append xpath="//item[@name='casinoCoin']/property[@name='Tags']/@value">Coin</append>
+
+    <!-- Append tranquilizer arrows to gunBow -->
+    <append xpath="//item[contains(@name, 'gunBow') and not (contains(@name, 'Crossbow'))]/property[@class='Action0']/property[@name='Magazine_items']/@value">,tranqArrowT1,tranqArrowT2,tranqArrowT3,tranqArrowT4,tranqArrowT5</append>
+    <append xpath="//item[contains(@name, 'gunBow') and (contains(@name, 'Crossbow'))]/property[@class='Action0']/property[@name='Magazine_items']/@value">,tranqBoltT1,tranqBoltT2,tranqBoltT3,tranqBoltT4,tranqBoltT5</append>
+    
+    <!-- Adding the ability to knock out animals with the wooden club -->
+    <append xpath="//item[@name='meleeWpnClubT0WoodenClub']">
+        <property name="DisplayType" value="meleeTranqClub"/>
+        <property name="TamingValidAnimals" value="all"/>
+        <property name="TamingSedationValue" value="10"/>
+        <property name="TamingSedationValueMax" value="30"/> <!--Scales with taming level for melee weapons only-->
+        <property name="KnockOutMultiplier" value="1.0"/>
+        <effect_group tiered="false">
+            <display_value name="TamingSedationValue" value="10"/>
+        </effect_group>
+    </append>
+    <!-- Adding the ability to knock out animals with the wooden club -->
+    <append xpath="//item[@name='meleeWpnClubT1BaseballBat']">
+        <property name="DisplayType" value="meleeTranqClub"/>
+        <property name="TamingValidAnimals" value="all"/>
+        <property name="TamingSedationValue" value="25"/>
+        <property name="TamingSedationValueMax" value="30"/> <!--Scales with taming level for melee weapons only-->
+        <property name="KnockOutMultiplier" value="1.5"/>
+        <effect_group tiered="false">
+            <display_value name="TamingSedationValue" value="25"/>
+        </effect_group>
+    </append>
+    <!-- Adding the ability to knock out animals with the wooden club -->
+    <append xpath="//item[@name='meleeWpnClubT3SteelClub']">
+        <property name="DisplayType" value="meleeTranqClub"/>
+        <property name="TamingValidAnimals" value="all"/>
+        <property name="TamingSedationValue" value="50"/>
+        <property name="TamingSedationValueMax" value="30"/> <!--Scales with taming level for melee weapons only-->
+        <property name="KnockOutMultiplier" value="2.0"/>
+        <effect_group tiered="false">
+            <display_value name="TamingSedationValue" value="50"/>
+        </effect_group>
+    </append>
+
+    <append xpath="/items">
+
+        <!-- Global configuration item for eligible animals -->
+        <item name="tamingConfig">
+            <property name="Extends" value="schematicMaster"/>
+            <property name="TamingEligibleAnimals" value="animalWolf,animalBoar,animalBear,animalBearSmall,animalMountainLion"/>
+            <property name="KnockOutDuration" value="60"/>
+            <property name="TamingHitDamage" value="3"/>
+            <property name="CreativeMode" value="Player"/>
+            <property name="Delay" value="20"/>
+            <property name="SyncEntitiesPerSecond" value="5"/> <!-- DO NOT TOUCH THIS UNLESS YOU'VE READ THE CONFIG GUIDE -->
+        </item>
+
+        <!-- Tranquilizer Dart (T1 equivalent) -->
+        <item name="tranquilizerDart">
+            <property name="Extends" value="ammoArrowStone"/>
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="CustomIcon" value="ammoArrowStone"/>
+            <property name="TamingSedationValue" value="10"/>
+            <property name="KnockOutMultiplier" value="1.0"/>
+            <property name="TranqLevel" value="1"/>
+            <effect_group tiered="false">
+                <display_value name="TamingSedationValue" value="10"/>
+            </effect_group>
+        </item>
+
+        <!-- Dev Taming Tool (T5 equivalent) -->
+        <item name="devTamingTool">
+            <property name="Extends" value="meleeToolRepairT0StoneAxe"/>
+            <property name="DisplayType" value="meleeTranqRepairTool"/>
+            <property name="CustomIcon" value="meleeToolRepairT0StoneAxe"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="max"/>
+            <property name="TamingSedationValueMax" value="9999"/>
+            <property name="KnockOutMultiplier" value="0.2"/>
+            <effect_group tiered="false">
+                <display_value name="TamingSedationValue" value="9999"/>
+            </effect_group>
+        </item>
+
+        <!-- Revival Syringe for dead tamed companions -->
+        <item name="companionRevivalBandage">
+            <property name="Extends" value="medicalFirstAidBandage"/>
+            <property name="DescriptionKey" value="companionRevivalBandage_Desc"/>
+            <property name="CustomIcon" value="medicalFirstAidBandage"/>
+            <property name="CustomIconTint" value="0,255,255"/>
+            <property name="Stacknumber" value="50"/>
+            <property name="EconomicValue" value="500"/>
+            <property name="CompanionReviveItem" value="true"/>
+            <property name="Delay" value="1"/>
+            <property class="Action0">
+                <property name="Class" value="ItemActionReviveCompanion, CHHusbandry"/>
+            </property>
+            <property class="Action1">
+                <property name="Class" value="ItemActionReviveCompanion, CHHusbandry"/>
+            </property>
+        </item>
+
+        <!-- Tranquilizer Arrow T1 -->
+        <item name="tranqArrowT1">
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="DescriptionKey" value="tranqArrowT1_Desc"/>
+            <property name="Tags" value="ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/arrow_stonePrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".25"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value="1"/>
+            <property name="Material" value="Mwood"/>
+            <property name="Stacknumber" value="150"/>
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/>
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Basics,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+
+            <property name="CustomIcon" value="ammoArrowStone"/>
+            <property name="CustomIconTint" value="0,255,0"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="15"/>
+            <property name="KnockOutMultiplier" value="1.0"/>
+            <property name="TranqLevel" value="1"/>
+
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="FlyTime" value="0"/>
+                <property name="Gravity" value="-4"/>
+                <property name="LifeTime" value="14"/>
+            </property>
+            <effect_group name="tranqArrowT1" tiered="false">
+                <display_value name="TamingSedationValue" value="15"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,metal,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="45" tags="perkArchery"/>
+            </effect_group>
+            <effect_group tiered="false">
+                <triggered_effect trigger="onProjectilePreImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="1">
+                    <requirement name="ProgressionLevel" progression_name="perkAgilityMastery" operation="Equals" value="5"/>
+                    <requirement name="CatapultStrainAmount" operation="GTE" value="1"/>
+                </triggered_effect>
+                <passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <passive_effect name="TargetArmor" operation="perc_add" value="-1" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <triggered_effect trigger="onProjectileImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="0"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Arrow T2 -->
+        <item name="tranqArrowT2">
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="DescriptionKey" value="tranqArrowT2_Desc"/>
+            <property name="Tags" value="ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/arrow_stonePrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".25"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value="1"/>
+            <property name="Material" value="Mwood"/>
+            <property name="Stacknumber" value="150"/>
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/>
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Basics,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+            <property name="CustomIcon" value="ammoArrowStone"/>
+            <property name="CustomIconTint" value="0,0,255"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="25"/>
+            <property name="KnockOutMultiplier" value="1.25"/>
+            <property name="TranqLevel" value="2"/>
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="FlyTime" value="0"/>
+                <property name="Gravity" value="-4"/>
+                <property name="LifeTime" value="14"/>
+            </property>
+            <effect_group name="tranqArrowT2" tiered="false">
+                <display_value name="TamingSedationValue" value="25"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,metal,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="45" tags="perkArchery"/>
+            </effect_group>
+            <effect_group tiered="false">
+                <triggered_effect trigger="onProjectilePreImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="1">
+                    <requirement name="ProgressionLevel" progression_name="perkAgilityMastery" operation="Equals" value="5"/>
+                    <requirement name="CatapultStrainAmount" operation="GTE" value="1"/>
+                </triggered_effect>
+                <passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <passive_effect name="TargetArmor" operation="perc_add" value="-1" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <triggered_effect trigger="onProjectileImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="0"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Arrow T3 -->
+        <item name="tranqArrowT3">
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="DescriptionKey" value="tranqArrowT3_Desc"/>
+            <property name="Tags" value="ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/arrow_ironPrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".25"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value="1"/>
+            <property name="Material" value="Mwood"/>
+            <property name="Stacknumber" value="150"/>
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/>
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Basics,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+            <property name="CustomIcon" value="ammoArrowIron"/>
+            <property name="CustomIconTint" value="128,0,128"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="40"/>
+            <property name="KnockOutMultiplier" value="1.5"/>
+            <property name="TranqLevel" value="3"/>
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="FlyTime" value="0"/>
+                <property name="Gravity" value="-4"/>
+                <property name="LifeTime" value="14"/>
+            </property>
+            <effect_group name="tranqArrowT3" tiered="false">
+                <display_value name="TamingSedationValue" value="40"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,metal,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="45" tags="perkArchery"/>
+            </effect_group>
+            <effect_group tiered="false">
+                <triggered_effect trigger="onProjectilePreImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="1">
+                    <requirement name="ProgressionLevel" progression_name="perkAgilityMastery" operation="Equals" value="5"/>
+                    <requirement name="CatapultStrainAmount" operation="GTE" value="1"/>
+                </triggered_effect>
+                <passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <passive_effect name="TargetArmor" operation="perc_add" value="-1" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <triggered_effect trigger="onProjectileImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="0"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Arrow T4 -->
+        <item name="tranqArrowT4">
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="DescriptionKey" value="tranqArrowT4_Desc"/>
+            <property name="Tags" value="ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/arrow_ironPrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".25"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value="1"/>
+            <property name="Material" value="Mwood"/>
+            <property name="Stacknumber" value="150"/>
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/>
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Basics,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+            <property name="CustomIcon" value="ammoArrowIron"/>
+            <property name="CustomIconTint" value="255,215,0"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="60"/>
+            <property name="KnockOutMultiplier" value="1.75"/>
+            <property name="TranqLevel" value="4"/>
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="FlyTime" value="0"/>
+                <property name="Gravity" value="-4"/>
+                <property name="LifeTime" value="14"/>
+            </property>
+            <effect_group name="tranqArrowT4" tiered="false">
+                <display_value name="TamingSedationValue" value="60"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,metal,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="45" tags="perkArchery"/>
+            </effect_group>
+            <effect_group tiered="false">
+                <triggered_effect trigger="onProjectilePreImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="1">
+                    <requirement name="ProgressionLevel" progression_name="perkAgilityMastery" operation="Equals" value="5"/>
+                    <requirement name="CatapultStrainAmount" operation="GTE" value="1"/>
+                </triggered_effect>
+                <passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <passive_effect name="TargetArmor" operation="perc_add" value="-1" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <triggered_effect trigger="onProjectileImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="0"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Arrow T5 -->
+        <item name="tranqArrowT5">
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="DescriptionKey" value="tranqArrowT5_Desc"/>
+            <property name="Tags" value="ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/arrow_steelPrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".25"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value="1"/>
+            <property name="Material" value="Mwood"/>
+            <property name="Stacknumber" value="150"/>
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/>
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Basics,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+            <property name="CustomIcon" value="ammoArrowSteelAP"/>
+            <property name="CustomIconTint" value="255,0,0"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="90"/>
+            <property name="KnockOutMultiplier" value="2.0"/>
+            <property name="TranqLevel" value="5"/>
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="FlyTime" value="0"/>
+                <property name="Gravity" value="-4"/>
+                <property name="LifeTime" value="14"/>
+            </property>
+            <effect_group name="tranqArrowT5" tiered="false">
+                <display_value name="TamingSedationValue" value="90"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,metal,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="45" tags="perkArchery"/>
+            </effect_group>
+            <effect_group tiered="false">
+                <triggered_effect trigger="onProjectilePreImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="1">
+                    <requirement name="ProgressionLevel" progression_name="perkAgilityMastery" operation="Equals" value="5"/>
+                    <requirement name="CatapultStrainAmount" operation="GTE" value="1"/>
+                </triggered_effect>
+                <passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <passive_effect name="TargetArmor" operation="perc_add" value="-1" tags="perkArchery">
+                    <requirement name="CVarCompare" cvar="$perkPiercingPrecision" operation="EQ" value="1"/>
+                </passive_effect>
+                <triggered_effect trigger="onProjectileImpact" action="ModifyCVar" cvar="$perkPiercingPrecision" operation="set" value="0"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Bolt T1 -->
+
+        <item name="tranqBoltT1">
+            <property name="Tags" value="T1,ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="DescriptionKey" value="tranqBoltT1_Desc"/>
+            <property name="PreviousTechItem" value="ammoArrowStone"/>
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/bolt_stonePrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="Material" value="Mwood"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".12"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value=".75"/>
+            <property name="Stacknumber" value="150"/> <!-- STK ammo low -->
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/><!-- ammoCrossbowBoltStone -->
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+
+            <property name="CustomIcon" value="ammoCrossbowBoltStone"/>
+            <property name="CustomIconTint" value="0,255,0"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="15"/>
+            <property name="KnockOutMultiplier" value="1.0"/>
+            <property name="TranqLevel" value="1"/>
+
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="Gravity" value="-3"/>
+                <property name="FlyTime" value="0"/>
+                <property name="LifeTime" value="14"/>
+                <!-- <property name="DamageBonus|earth" value="0"/>
+                <property name="DamageBonus|metal" value="0"/>
+                <property name="DamageBonus|cloth" value="0"/> -->
+            </property>
+
+            <effect_group name="ammoCrossbowBoltStone" tiered="false"> <!-- ammoCrossbowBoltStone -->
+                <display_value name="TamingSedationValue" value="15"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_add" value="100" tags="barrelExplosive"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="67.5" tags="perkArchery"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Bolt T2 -->
+
+        <item name="tranqBoltT2">
+            <property name="Tags" value="T1,ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="DescriptionKey" value="tranqBoltT2_Desc"/>
+            <property name="PreviousTechItem" value="ammoArrowStone"/>
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/bolt_stonePrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="Material" value="Mwood"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".12"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value=".75"/>
+            <property name="Stacknumber" value="150"/> <!-- STK ammo low -->
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/><!-- ammoCrossbowBoltStone -->
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+
+            <property name="CustomIcon" value="ammoCrossbowBoltStone"/>
+            <property name="CustomIconTint" value="0,0,255"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="25"/>
+            <property name="KnockOutMultiplier" value="1.25"/>
+            <property name="TranqLevel" value="2"/>
+
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="Gravity" value="-3"/>
+                <property name="FlyTime" value="0"/>
+                <property name="LifeTime" value="14"/>
+                <!-- <property name="DamageBonus|earth" value="0"/>
+                <property name="DamageBonus|metal" value="0"/>
+                <property name="DamageBonus|cloth" value="0"/> -->
+            </property>
+
+            <effect_group name="ammoCrossbowBoltStone" tiered="false"> <!-- ammoCrossbowBoltStone -->
+                <display_value name="TamingSedationValue" value="25"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_add" value="100" tags="barrelExplosive"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="67.5" tags="perkArchery"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Bolt T3 -->
+
+        <item name="tranqBoltT3">
+            <property name="Tags" value="T1,ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="DescriptionKey" value="tranqBoltT3_Desc"/>
+            <property name="PreviousTechItem" value="ammoArrowStone"/>
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/bolt_ironPrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="Material" value="Mwood"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".12"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value=".75"/>
+            <property name="Stacknumber" value="150"/> <!-- STK ammo low -->
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/><!-- ammoCrossbowBoltStone -->
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+
+            <property name="CustomIcon" value="ammoCrossbowBoltIron"/>
+            <property name="CustomIconTint" value="128,0,128"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="40"/>
+            <property name="KnockOutMultiplier" value="1.5"/>
+            <property name="TranqLevel" value="3"/>
+
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="Gravity" value="-3"/>
+                <property name="FlyTime" value="0"/>
+                <property name="LifeTime" value="14"/>
+                <!-- <property name="DamageBonus|earth" value="0"/>
+                <property name="DamageBonus|metal" value="0"/>
+                <property name="DamageBonus|cloth" value="0"/> -->
+            </property>
+
+            <effect_group name="ammoCrossbowBoltStone" tiered="false"> <!-- ammoCrossbowBoltStone -->
+                <display_value name="TamingSedationValue" value="40"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_add" value="100" tags="barrelExplosive"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="67.5" tags="perkArchery"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Bolt T4 -->
+
+        <item name="tranqBoltT4">
+            <property name="Tags" value="T1,ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="DescriptionKey" value="tranqBoltT4_Desc"/>
+            <property name="PreviousTechItem" value="ammoArrowStone"/>
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/bolt_ironPrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="Material" value="Mwood"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".12"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value=".75"/>
+            <property name="Stacknumber" value="150"/> <!-- STK ammo low -->
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/><!-- ammoCrossbowBoltStone -->
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+
+            <property name="CustomIcon" value="ammoCrossbowBoltIron"/>
+            <property name="CustomIconTint" value="255,215,0"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="60"/>
+            <property name="KnockOutMultiplier" value="1.75"/>
+            <property name="TranqLevel" value="4"/>
+
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="Gravity" value="-3"/>
+                <property name="FlyTime" value="0"/>
+                <property name="LifeTime" value="14"/>
+                <!-- <property name="DamageBonus|earth" value="0"/>
+                <property name="DamageBonus|metal" value="0"/>
+                <property name="DamageBonus|cloth" value="0"/> -->
+            </property>
+
+            <effect_group name="ammoCrossbowBoltStone" tiered="false"> <!-- ammoCrossbowBoltStone -->
+                <display_value name="TamingSedationValue" value="60"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_add" value="100" tags="barrelExplosive"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="67.5" tags="perkArchery"/>
+            </effect_group>
+        </item>
+
+        <!-- Tranquilizer Bolt T5-->
+
+        <item name="tranqBoltT5">
+            <property name="Tags" value="T1,ammo,ranged,attAgility,perkArchery,perkPenetrator"/>
+            <property name="DescriptionKey" value="tranqBoltT5_Desc"/>
+            <property name="PreviousTechItem" value="ammoArrowStone"/>
+            <property name="DisplayType" value="ammoArrowTranq"/>
+            <property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/bolt_steelPrefab.prefab"/>
+            <property name="HoldType" value="45"/>
+            <property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+            <property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+            <property name="Material" value="Mwood"/>
+            <property name="IsSticky" value="true"/>
+            <property name="StickyOffset" value=".12"/>
+            <property name="StickyColliderUp" value="2"/>
+            <property name="StickyColliderRadius" value=".05"/>
+            <property name="StickyColliderLength" value=".75"/>
+            <property name="Stacknumber" value="150"/> <!-- STK ammo low -->
+            <property name="EconomicValue" value="12"/>
+            <property name="TraderStageTemplate" value="arrowsTier0"/><!-- ammoCrossbowBoltStone -->
+            <property name="EconomicBundleSize" value="5"/>
+            <property name="Group" value="Ammo/Weapons,Ammo,Ranged Weapons"/>
+            <property name="SoundPickup" value="arrows_grab"/>
+            <property name="SoundPlace" value="arrows_place"/>
+
+            <property name="CustomIcon" value="ammoCrossbowBoltSteelAP"/>
+            <property name="CustomIconTint" value="255,0,0"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingSedationValue" value="90"/>
+            <property name="KnockOutMultiplier" value="2.0"/>
+            <property name="TranqLevel" value="5"/>
+
+            <property class="Action1">
+                <property name="Class" value="Projectile"/>
+                <property class="Explosion">
+                    <property name="ParticleIndex" value="0"/>
+                </property>
+                <property name="Gravity" value="-3"/>
+                <property name="FlyTime" value="0"/>
+                <property name="LifeTime" value="14"/>
+                <!-- <property name="DamageBonus|earth" value="0"/>
+                <property name="DamageBonus|metal" value="0"/>
+                <property name="DamageBonus|cloth" value="0"/> -->
+            </property>
+
+            <effect_group name="ammoCrossbowBoltStone" tiered="false"> <!-- ammoCrossbowBoltStone -->
+                <display_value name="TamingSedationValue" value="90"/>
+                <passive_effect name="EntityDamage" operation="base_set" value="5" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_set" value="1" tags="perkArchery"/>
+                <passive_effect name="BlockDamage" operation="base_add" value="100" tags="barrelExplosive"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="wood"/>
+                <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth,cloth"/>
+                <passive_effect name="ProjectileVelocity" operation="base_set" value="67.5" tags="perkArchery"/>
+            </effect_group>
+        </item>
+
+        <!-- Sedative Items (Crafting Only) -->
+        <item name="itemSedativeT1">
+            <property name="Extends" value="resourceAcid"/>
+            <property name="DescriptionKey" value="itemSedativeT1_Desc"/>
+            <property name="CustomIcon" value="resourceAcid"/>
+            <property name="CustomIconTint" value="0,255,0"/>
+            <property name="CraftingSkillGroup" value="craftSkillScience"/>
+            <property name="EconomicValue" value="100"/>
+        </item>
+        <item name="itemSedativeT2">
+            <property name="Extends" value="resourceAcid"/>
+            <property name="DescriptionKey" value="itemSedativeT2_Desc"/>
+            <property name="CustomIcon" value="resourceAcid"/>
+            <property name="CustomIconTint" value="0,0,255"/>
+            <property name="CraftingSkillGroup" value="craftSkillScience"/>
+            <property name="EconomicValue" value="150"/>
+        </item>
+        <item name="itemSedativeT3">
+            <property name="Extends" value="resourceAcid"/>
+            <property name="DescriptionKey" value="itemSedativeT3_Desc"/>
+            <property name="CustomIcon" value="resourceAcid"/>
+            <property name="CustomIconTint" value="128,0,128"/>
+            <property name="CraftingSkillGroup" value="craftSkillScience"/>
+            <property name="EconomicValue" value="200"/>
+        </item>
+        <item name="itemSedativeT4">
+            <property name="Extends" value="resourceAcid"/>
+            <property name="DescriptionKey" value="itemSedativeT4_Desc"/>
+            <property name="CustomIcon" value="resourceAcid"/>
+            <property name="CustomIconTint" value="255,215,0"/>
+            <property name="CraftingSkillGroup" value="craftSkillScience"/>
+            <property name="EconomicValue" value="250"/>
+        </item>
+        <item name="itemSedativeT5">
+            <property name="Extends" value="resourceAcid"/>
+            <property name="DescriptionKey" value="itemSedativeT5_Desc"/>
+            <property name="CustomIcon" value="resourceAcid"/>
+            <property name="CustomIconTint" value="255,0,0"/>
+            <property name="CraftingSkillGroup" value="craftSkillScience"/>
+            <property name="EconomicValue" value="300"/>
+        </item>
+
+        <!-- Wolf Taming Food T1 -->
+        <item name="TamingFoodT1">
+            <property name="Extends" value="foodCanDogfood"/>
+            <property name="DisplayType" value="foodTaming"/>
+            <property name="DescriptionKey" value="TamingFoodT1_Desc"/>
+            <property name="CustomIcon" value="foodCanDogfood"/>
+            <property name="CustomIconTint" value="0,255,0"/>
+            <property class="Action1">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property name="Delay" value="1"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingValue" value="10"/>
+            <property name="FoodValue" value="10"/>
+        </item>
+
+        <!-- Wolf Taming Food T2 -->
+        <item name="TamingFoodT2">
+            <property name="Extends" value="foodCanDogfood"/>
+            <property name="DisplayType" value="foodTaming"/>
+            <property name="DescriptionKey" value="TamingFoodT2_Desc"/>
+            <property name="CustomIcon" value="foodCanDogfood"/>
+            <property name="CustomIconTint" value="0,0,255"/>
+            <property class="Action0">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property class="Action1">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property name="Delay" value="1"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingValue" value="20"/>
+            <property name="FoodValue" value="20"/>
+        </item>
+
+        <!-- Wolf Taming Food T3 -->
+        <item name="TamingFoodT3">
+            <property name="Extends" value="foodCanDogfood"/>
+            <property name="DisplayType" value="foodTaming"/>
+            <property name="DescriptionKey" value="TamingFoodT3_Desc"/>
+            <property name="CustomIcon" value="foodCanDogfood"/>
+            <property name="CustomIconTint" value="128,0,128"/>
+            <property class="Action0">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property class="Action1">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property name="Delay" value="1"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingValue" value="40"/>
+            <property name="FoodValue" value="30"/>
+        </item>
+
+        <!-- Wolf Taming Food T4 -->
+        <item name="TamingFoodT4">
+            <property name="Extends" value="foodCanDogfood"/>
+            <property name="DisplayType" value="foodTaming"/>
+            <property name="DescriptionKey" value="TamingFoodT4_Desc"/>
+            <property name="CustomIcon" value="foodCanDogfood"/>
+            <property name="CustomIconTint" value="255,215,0"/>
+            <property class="Action0">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property class="Action1">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property name="Delay" value="1"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingValue" value="80"/>
+            <property name="FoodValue" value="40"/>
+        </item>
+
+        <!-- Wolf Taming Food T5 -->
+        <item name="TamingFoodT5">
+            <property name="Extends" value="foodCanDogfood"/>
+            <property name="DisplayType" value="foodTaming"/>
+            <property name="DescriptionKey" value="TamingFoodT5_Desc"/>
+            <property name="CustomIcon" value="foodCanDogfood"/>
+            <property name="CustomIconTint" value="255,0,0"/>
+            <property class="Action0">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property class="Action1">
+                <property name="Class" value="ItemActionTame, CHHusbandry"/>
+            </property>
+            <property name="Delay" value="1"/>
+            <property name="TamingValidAnimals" value="all"/>
+            <property name="TamingValue" value="160"/>
+            <property name="FoodValue" value="50"/>
+        </item>
+    </append>
+</configs>
+
+<!-- Configuration guide
+	Overview:
+		-This guide provides instructions for modders to understand and interact with the CHHusbandry mod, enabling customization of taming mechanics through item properties.
+
+	Properties Section
+
+		TamingEligibleAnimals:
+			Applies to: tamingConfig.
+
+			-Specifies which animals can be tamed by any taming item in the mod.
+
+			-Items with specific TamingValidAnimals must match these animals or use "all".
+
+			-Acceptable values: Comma-separated list of animal entity names (e.g., "animalWolf,animalBear") or a single name, matching entity names in entityclasses.xml.
+
+			Example: To allow taming of animalStag, set:
+			<item name="tamingConfig">
+				<property name="TamingEligibleAnimals" value="animalWolf,animalStag"/>
+			</item>
+
+			This enables animalStag for taming by items with TamingValidAnimals set to "animalStag" or "all".
+
+		KnockOutDuration:
+			Applies to: tamingConfig.
+
+			-Sets the base duration in seconds for an animal’s ragdoll state when fully sedated.
+
+			-Multiplied by an item’s KnockOutMultiplier for total duration.
+
+			-Acceptable values: Positive number (e.g., 60 for 60 seconds).
+
+			Example: To increase knockout duration, set:
+			<item name="tamingConfig">
+				<property name="KnockOutDuration" value="120"/>
+			</item>
+
+			This sets a 120s base, giving 240s with KnockOutMultiplier=2.0.
+
+		TamingValidAnimals:
+			Applies to: tranquilizerDart, tranqArrowT1 to T5, devTamingTool, tamingFood, wolfTamingFoodT1 to T5, meleeWpnClubT0WoodenClub.
+
+			-Defines which animals the item can sedate (for weapons) or tame (for food).
+
+			-Must match TamingEligibleAnimals or be "all".
+
+			-Acceptable values: Comma-separated list (e.g., "animalChicken,animalRabbit") or "all".
+
+			Example: To create a melee tool for animalStag, set:
+			<item name="meleeTamingStick">
+				<property name="TamingValidAnimals" value="animalStag"/>
+			</item>
+
+			This allows sedating animalStag if in TamingEligibleAnimals.
+
+		TamingSedationValue:
+			Applies to: tranquilizerDart, tranqArrowT1 to T5, devTamingTool, meleeWpnClubT0WoodenClub.
+
+			-Sets sedation points per hit.
+
+			-Ragdoll triggers when SedationPercentage reaches SedationPercentageMax.
+
+			-Acceptable values: Positive number (e.g., 10, 60) or "max" for instant knockout.
+
+			Example: To create a melee tool with moderate sedation, set:
+			<item name="meleeTamingStick">
+				<property name="TamingSedationValue" value="50"/>
+			</item>
+
+			This adds 50 points per hit.
+
+		TamingSedationValueMax:
+			Applies to: devTamingTool, meleeWpnClubT0WoodenClub.
+
+			-Sets maximum sedation points for melee weapons.
+
+			-Scales with player’s taming skill.
+
+			-Acceptable values: Positive number (e.g., 30, 9999).
+
+			Example: To create a melee tool for high-level animals, set:
+			<item name="meleeTamingStick">
+				<property name="TamingSedationValueMax" value="1000"/>
+			</item>
+
+			This supports large SedationPercentageMax values.
+
+		KnockOutMultiplier:
+			Applies to: tranquilizerDart, tranqArrowT1 to T5, devTamingTool, meleeWpnClubT0WoodenClub.
+
+			-Multiplies tamingConfig’s KnockOutDuration for total ragdoll time.
+
+			-Example: 1.0 gives 60s, 2.0 gives 120s with 60s base.
+
+			-Acceptable values: Positive number (e.g., 1.0, 1.5, 2.0).
+
+			Example: To create a melee tool with extended ragdoll duration, set:
+			<item name="meleeTamingStick">
+				<property name="KnockOutMultiplier" value="3.0"/>
+			</item>
+
+			This gives 180s (60s * 3.0).
+
+		TranqLevel:
+			Applies to: tranquilizerDart, tranqArrowT1 to T5, devTamingTool.
+
+			-Sets tier (1 to 5) affecting SedationPercentage decay rate during ragdoll.
+
+			-Higher tiers decay slower, extending taming window.
+
+			-Acceptable values: Integer 1 to 5.
+
+			Example: To create a high-tier melee tool, set:
+			<item name="meleeTamingStick">
+				<property name="TranqLevel" value="5"/>
+			</item>
+
+			This minimizes decay.
+
+		TamingValue:
+			Applies to: tamingFood, wolfTamingFoodT1 to T5.
+
+			-Sets taming points per use during ragdoll.
+
+			-Taming succeeds when TameAmount reaches TameAmountMax.
+
+			-Acceptable values: Positive number (e.g., 20, 300).
+
+			Example: To create food for a new animal, set:
+			<item name="stagTamingFood">
+				<property name="TamingValue" value="100"/>
+			</item>
+
+			This adds 100 points per use.
+
+		FoodValue:
+			Applies to: tamingFood, wolfTamingFoodT1 to T5, any item with a secondary action.
+
+			-Sets the amount of health restored to a tamed animal when used by its owner.
+
+			-Applied via ItemActionTame when the animal is not in ragdoll state.
+
+			-Acceptable values: Positive number (e.g., 5, 50); defaults to 5 if invalid.
+
+			Example: To create food that heals animalStag, set:
+			<item name="stagTamingFood">
+				<property name="FoodValue" value="10"/>
+			</item>
+
+			This restores 10 health points to a tamed animalStag per use.
+
+		Example Modder Creation: To extend for a new animal (e.g., animalStag), update tamingConfig:
+			<item name="tamingConfig">
+				<property name="TamingEligibleAnimals" value="animalWolf,animalStag"/>
+				<property name="KnockOutDuration" value="100"/>
+			</item>
+		This creates a system to allow taming of animalStag.
+
+			Create a tranquilizer arrow, including all properties from the mimicked arrow (e.g., ammoArrowStone, such as DisplayType, Tags, Meshfile, etc.):
+			<item name="tranqArrowStag"> // Include ALL properties from ammoArrowStone, then add:
+				<property name="TamingValidAnimals" value="animalStag"/>
+				<property name="TamingSedationValue" value="25"/>
+				<property name="KnockOutMultiplier" value="1.5"/>
+				<property name="TranqLevel" value="2"/>
+			</item>
+		This adds an arrow to sedate animalStag with 25 sedation points per hit and a 150s ragdoll duration.
+
+			Create taming food:
+			<item name="stagTamingFood">
+				<property name="Extends" value="foodCornBread"/>
+				<property name="TamingValidAnimals" value="animalStag"/>
+				<property name="TamingValue" value="50"/>
+				<property name="FoodValue" value="10"/>
+				<property class="Action0">
+					<property name="Class" value="ItemActionTame, CHHusbandry"/>
+					<property name="Delay" value="20"/>
+				</property>
+			</item>
+		This creates food to tame animalStag with 50 taming points per use.
+
+
+Gameplay Notes: 
+	-Sedation reaches SedationPercentageMax (e.g., 200 for Level 1 animalWolf, 100 + Level * 2).
+
+	-Taming requires TameAmountMax (e.g., 120 for Level 1 animalWolf).
+
+	-Ragdoll duration is base (60s) * KnockOutMultiplier (e.g., 120s for T5).
+
+	-SedationPercentage resets to 0 post-ragdoll.
+
+	-Adjust values to balance gameplay.
+
+
+	Planned Features:
+		Animal Breeding:
+			-Allows tamed animals to produce offspring under specific conditions.
+
+			-Will introduce new items or mechanics to manage breeding processes.
+
+			-May include properties like BreedingEligibleAnimals or BreedingCooldown.
+
+			-Future updates will define how offspring inherit traits or levels.
+
+		Passive Taming Method:
+			-Allows players to tame animals without sedation by sneaking up undetected.
+
+			-Requires specific food items.
+
+			-Feeding preferred food increases taming by a small amount, set by the item.
+
+			-Creates a stronger bond, potentially enhancing the tamed animal’s stats.
+
+		Scaling:
+			-Will determine the method used to scale taming mechanics, such as taming amount per food or health restored by feeding.
+
+			-"CVar" will allow players to create buffs to influence scaling factors; "Progression" will use attributes, perks, skills, or crafting magazines.
+
+			-Acceptable values: "CVar" or "Progression".
+
+		Progression:
+			-Will specify the name of the Attribute, perk, skill, or crafting magazine controlling scaling of taming mechanics when Scaling is set to "Progression".
+
+			-Allows modders to define which progression system affects taming factors like taming amount or food value.
+
+			-Acceptable values: Valid name of an Attribute, perk, skill, or crafting magazine (e.g., "perkAnimalTaming", "craftSkillScience").
+
+		CVar:
+			-Will specify the name of the CVar controlling scaling of taming mechanics when Scaling is set to "CVar".
+
+			-Allows modders to define which CVar affects taming factors like taming amount or food value.
+
+			-Acceptable values: Valid CVar name (e.g., "TamingSkillLevel", "AnimalBondStrength").
+
+
+	Known Issues:
+
+		Tamed Animal Health Reset:
+			-When you reload the game, the tamed animal's health will reset back to maximum.
+
+			-This issue will be addressed in the near future, but not for the initial Alpha 1.0 build.
+
+		Multiple Wolves Not Attacking:
+			-If the player has multiple wolves following at the same time, sometimes they will not attack zombies around you.
+
+			-Fix: Limit followed animals to one at a time, unless the animal is passive and does not attack.
+
+			-This is planned to be fixed but not for Alpha 1.0.
+
+		Tamed Wolves Occasional Attacks:
+			-Your tamed wolves will very occasionally attack.
+
+			-This will be looked into but not for the Alpha 1.0 build.
+-->

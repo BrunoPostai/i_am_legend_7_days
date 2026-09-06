@@ -1,0 +1,106 @@
+Key,English
+tutorialTipQuest01,"Six billion people on Earth when the infection hit. The Krippin Virus had a 90 percent kill rate; that's 5.4 BILLION people, dead. Crashed and bled out. Dead. Less than one-percent immunity. That left 12 million healthy people, like you.\n\nThe other 588 MILLION turned into Dark Seekers, and then they got hungry, and they killed and fed on everybody. EVERYBODY!\n\nEvery single person that you or I has ever known is dead! DEAD!\n\nTHERE IS NO GOD!\n\n[32cd32]ABOUT THE 'I AM LEGEND' MOD.[-]\n\nZombies (Dark Seekers) [cd5c5c]do not[-] spawn in the wild during the day. You are free to move about the world, but be warned...\n\n[cd5c5c]Buildings are DANGEROUS[-]. They are filled with fast-moving enemies, and you'll need to be careful when looking for supplies.\n\nThere are [cd5c5c]no traders[-]; all trader compounds have been abandoned.\n\nWhen night falls, you'll want to be [ffc40c]inside[-] and [ffc40c]well hidden[-]. Dark Seekers will be out in force, and they're hungry ..."
+tutorialTipQuest01_title,I Am Legend
+tutorialTipQuest02,"In 2009 a deadly virus burned through our civilization, pushing humankind to the edge of extinction.\n\nDr. Robert Neville dedicated his life to the discovery of a cure, and the restoration of humanity.\n\nOn September 9th, 2012, at approximately 8:49 p.m. he discovered that cure; and at 8:52 he gave his life to defend it.\n\nWe are his legacy.\n\nThis is his legend."
+tutorialTipQuest02_title,Light up the darkness
+IAmLegendTip,"In 2009 a deadly virus burned through our civilization, pushing humankind to the edge of extinction.\n\nDr. Robert Neville dedicated his life to the discovery of a cure, and the restoration of humanity.\n\nOn September 9th, 2012, at approximately 8:49 p.m. he discovered that cure; and at 8:52 he gave his life to defend it.\n\nWe are his legacy.\n\nThis is his legend."
+IAmLegendTip_title,Light up the darkness
+
+quest_WhiteRiverCitizen1_description,"Six billion people on Earth when the infection hit. The Krippin Virus had a 90 percent kill rate; that's 5.4 BILLION people, dead. Crashed and bled out. Dead. Less than one-percent immunity. That left 12 million healthy people, like you.\n\nThe other 588 MILLION turned into Dark Seekers, and then they got hungry, and they killed and fed on everybody. EVERYBODY!\n\nEvery single person that you or I has ever known is dead! DEAD!\n\nTHERE IS NO GOD!\n\n[32cd32]ABOUT THE 'I AM LEGEND' MOD.[-]\n\nZombies (Dark Seekers) [cd5c5c]do not[-] spawn in the wild during the day. You are free to move about the world, but be warned...\n\n[cd5c5c]Buildings are DANGEROUS[-]. They are filled with fast-moving enemies, and you'll need to be careful when looking for supplies.\n\nThere are [cd5c5c]no traders[-]; all trader compounds have been abandoned.\n\nWhen night falls, you'll want to be [ffc40c]inside[-] and [ffc40c]well hidden[-]. Dark Seekers will be out in force, and they're hungry ..."
+
+IAmLegendPreset,I Am Legend
+IAmLegendDesc,The desired sandbox settings for the I Am Legend mod.
+
+noteDuke01,Note from Anna Montez
+noteDuke01Desc,"In 2009 a deadly virus burned through our civilization, pushing humankind to the edge of extinction.\n\nDr. Robert Neville dedicated his life to the discovery of a cure, and the restoration of humanity.\n\nOn September 9th, 2012, at approximately 8:49 p.m. he discovered that cure; and at 8:52 he gave his life to defend it.\n\nWe are his legacy.\n\nThis is his legend."
+
+buffDukeNoteDesc,Reading the Note from Anna Montez or reaching Level 2 will dismiss this buff.
+buffDukeNoteName,Read the Note from Anna Montez
+buffDukeNoteToolTip,[00FF00]Anna Montez left you a note to read[-]
+
+buffDrunkGrandpasAwesomeSauceDesc,It tastes like brass or ass but you feel incredible.\n+2 to all attributes ... for a while.
+drinkJarGrandpasAwesomeSauceDesc,Apocalypse getting you down?\nTake a shot of Grandpa's Awesome Sauce\nand get an instant pick-me-up!\n\n+2 to all attributes for the duration of the buff.
+
+cntVendingMachineChallengeRewards,Challenge Rewards Vending Machine
+oldCashDesc,This is legal tender. Use it in vending machines found around the map.
+perkGreatHeistAdrenalineFallLongDesc,Adrenaline Fall: Use adrenaline to your full advantage. You can fall up to 15 meters without taking damage while carrying 5000 cash or more.
+perkLuckyLooterDukesDesc,Find more cash in loot.
+perkLuckyLooterDukesLongDesc,"Cash: If you know where to look, you can find money just laying around. Find more cash in loot."
+
+StartWeaponBundle,Starter Weapon Ticket
+StartWeaponBundleDesc,Use this ticket to craft your starter weapon bundle.
+
+challengeGroupComplete,I Am Legend
+challengeGroupCompleteDesc,"Six billion people on Earth when the infection hit. The Krippin Virus had a 90 percent kill rate; that's 5.4 BILLION people, dead. Crashed and bled out. Dead. Less than one-percent immunity. That left 12 million healthy people, like you.\n\nThe other 588 MILLION turned into Dark Seekers, and then they got hungry, and they killed and fed on everybody. EVERYBODY!\n\nEvery single person that you or I has ever known is dead! DEAD!\n\nTHERE IS NO GOD!\n\n[32cd32]ABOUT THE 'I AM LEGEND' MOD.[-]\n\nZombies (Dark Seekers) [cd5c5c]do not[-] spawn in the wild during the day. You are free to move about the world, but be warned...\n\n[cd5c5c]Buildings are DANGEROUS[-]. They are filled with fast-moving enemies, and you'll need to be careful when looking for supplies.\n\nThere are [cd5c5c]no traders[-]; all trader compounds have been abandoned.\n\nWhen night falls, you'll want to be [ffc40c]inside[-] and [ffc40c]well hidden[-]. Dark Seekers will be out in force, and they're hungry ..."
+challengeGroupCompleteDesc_alt,"After successfully completing every challenge within the Basics of Survival category, it's time to claim your well-earned rewards.\n\nSelect each completed challenge marked [00FF00]GREEN[-] and click the Redeem button below or use the shortcut [action:gui:GUI Inspect].\n\nRedeeming all of the challenges in each group will award you with a group completion reward."
+
+challengeKillZombies,Kill Darkseekers
+challengeKillZombiesDesc,"[DECEA3]Darkseekers[-] are the primary threat to your survival.\n\n[DECEA3]Normal[-] Darkseekers make up the bulk of the threat.\n\n[FF6666]Feral[-] Darkseekers hit harder and are tougher than normal Darkseekers.\n\n[00FF00]Radiated, Charged, and Infernal[-] Darkseekers regenerate their health and deal severe damage, making them a stubborn threat until eliminated. "
+challengeKillZombiesShort,Kill some Darkseekers.
+challengeKillAnyZombies,Kill Any Darkseekers
+challengeKillAnyZombiesDesc,"[DECEA3]Darkseekers[-] are a constant threat to your day-to-day survival.\n\nNot only a direct danger, they can destroy [DECEA3]Blocks[-] and consume killed [DECEA3]Animals[-].\n\nAs your [DECEA3]Gamestage[-] increases, stronger, faster, and more challenging [DECEA3]Darkseekers[-] will appear.\n\nNo place is safe, as [DECEA3]Darkseekers[-] inhabit all biomes, with [DECEA3]Downtown[-] and [DECEA3]Commercial[-] areas hosting the highest concentrations, while other areas may be less populated. \n\nKill a lot of [DECEA3]Darkseekers[-]."
+challengeKillAnyZombiesShort,Kill lots of Darkseekers.
+challengeKillLumberjacks,Kill Male Darkseekers
+challengeKillLumberjacksDesc,"[DECEA3]Male Darkseekers[-] are intelligent, strong, and quick, with heightened senses.\n\nKill some [DECEA3]Male Darkseekers[-]."
+challengeKillLumberjacksShort,Kill some Male Darkseekers.
+challengeKillSpiderZombies,Kill Female Darkseekers
+challengeKillSpiderZombiesDesc,"[DECEA3]Female Darkseekers[-], like their male counterparts, are strong, quick, and smart.\n\nKill some [DECEA3]Female Darkseekers[-]."
+challengeKillSpiderZombiesShort,Kill some Female Darkseekers.
+challengeKillBigMama,Kill Female Darkseekers
+challengeKillBigMamaDesc,"These [DECEA3]Female Darkseekers[-] are a little tougher than other females, but just as quick and intelligent.\n\nKill some [DECEA3]Female Darkseekers[-]."
+challengeKillBigMamaShort,Kill some Female Darkseekers.
+challengeKillTouristZombies,Kill Alpha Darkseekers
+challengeKillTouristZombiesDesc,"[DECEA3]Alpha Darkseekers[-] possess superhuman strength, speed, agility and senses.\n\nKill some [DECEA3]Alpha Darkseekers[-]."
+challengeKillTouristZombiesShort,Kill some Alpha Darkseekers.
+challengeKillMutated,Kill Radiated Alpha Darkseekers
+challengeKillMutatedDesc,"[DECEA3]Radiated Alpha Darkseekers[-] are much tougher than their non-radiated variants, and will regenerate health over time. Easily spotted by their glowing green skin.\n\nKill some [DECEA3]Radiated Alpha Darkseekers[-]."
+challengeKillMutatedShort,Kill some Radiated Alpha Darkseekers.
+challengeKillCops,Kill Spitting Darkseekers
+challengeKillCopsDesc,"[DECEA3]Spitting Darkseekers[-] hit hard in melee combat and can also attack from range with a stream of [DECEA3]Vomit[-].\n\nAfter taking major damage, they will charge toward their enemy and [DECEA3]Explode[-], dealing heavy damage to nearby [DECEA3]Blocks[-] and any [DECEA3]Players[-] or [DECEA3]Zombies[-] caught in the blast.\n\nKill some [DECEA3]Spitting Darkseekers[-]."
+challengeKillCopsShort,Kill some Spitting Darkseekers.
+challengeKillDemolitions,Kill Elite Darkseekers
+challengeKillDemolitionsDesc,"[DECEA3]Elite Darkseekers[-] are the toughest of the Alphas. Characterized by their glowing blue or orange skin, they are tougher, move faster, hit harder, and regenerate health over time\n\nKill some [DECEA3]Elite Darkseekers[-]."
+challengeKillDemolitionsShort,Kill some Elite Darkseekers.
+
+xuiZombies,Zombies
+
+animalGermanShepherd,Samantha
+animalGermanShepherdCompanion,Samantha
+germanShepherdSpawnCube,"Samantha (Companion)"
+germanShepherdSpawnCubeDesc,Place this item to summon and recruit your German Shepherd.
+
+zombieDarkseekerSlimMale,Darkseeker
+zombieDarkseekerSlimMaleFeral,Feral Darkseeker
+zombieDarkseekerSlimMaleRadiated,Radiated Darkseeker
+zombieDarkseekerSlimMaleCharged,Charged Darkseeker
+zombieDarkseekerSlimMaleInfernal,Infernal Darkseeker
+zombieDarkseekerSlimFemale,Darkseeker
+zombieDarkseekerSlimFemaleFeral,Feral Darkseeker
+zombieDarkseekerSlimFemaleRadiated,Radiated Darkseeker
+zombieDarkseekerSlimFemaleCharged,Charged Darkseeker
+zombieDarkseekerNormalMale,Darkseeker
+zombieDarkseekerNormalMaleFeral,Feral Darkseeker
+zombieDarkseekerNormalMaleRadiated,Radiated Darkseeker
+zombieDarkseekerNormalMaleCharged,Charged Darkseeker
+zombieDarkseekerNormalMaleInfernal,Infernal Darkseeker
+zombieDarkseekerNormalFemale,Darkseeker
+zombieDarkseekerNormalFemaleFeral,Feral Darkseeker
+zombieDarkseekerNormalFemaleRadiated,Radiated Darkseeker
+zombieDarkseekerNormalFemaleCharged,Charged Darkseeker
+zombieDarkseekerNormalFemaleInfernal,Infernal Darkseeker
+zombieDarkseekerAlpha,Alpha
+zombieDarkseekerAlphaFeral,Feral Alpha
+zombieDarkseekerAlphaRadiated,Radiated Alpha 
+zombieDarkseekerAlphaCharged,Charged Alpha 
+zombieDarkseekerAlphaInfernal,Infernal Alpha 
+zombieDarkseekerSpitter,Spitter
+zombieDarkseekerSpitterFeral,Feral Spitter
+zombieDarkseekerSpitterRadiated,Radiated Spitter
+zombieDarkseekerSpitterInfernal,Infernal Spitter
+zombieDarkseekerCrawler,Crawler
+zombieDarkseekerCrawlerFeral,Feral Crawler
+zombieDarkseekerSpider,Spider
+zombieDarkseekerSpiderFeral,Feral Spider
+zombieDarkseekerSpiderRadiated,Radiated Spider
+zombieDarkseekerSpiderCharged,Charged Spider
+zombieDarkseekerSpiderInfernal,Infernal Spider

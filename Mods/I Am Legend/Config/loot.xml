@@ -1,0 +1,12 @@
+<Hells_Janitor>
+	<set xpath="//lootgroup/item[@name='casinoCoin']/@name">oldCash</set>
+	<set xpath="//lootcontainer/item[@name='casinoCoin']/@name">oldCash</set>
+	
+	<conditional>
+		<if cond="mod_loaded('0-XNPCCore')">
+			<append xpath="/lootcontainers">
+				<lootcontainer name="animalNPC" count="0" size="1,1" sound_open="UseActions/open_shopping_basket" open_time="0" sound_close="UseActions/close_shopping_basket" loot_quality_template="qualBaseTemplate"/>
+			</append>
+		</if>
+	</conditional>
+</Hells_Janitor>

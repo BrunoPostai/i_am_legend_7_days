@@ -1,0 +1,45 @@
+<HellsJanitor>
+	<!-- *** Trader Challenges -->
+	<remove xpath="/challenges/challenge[@name='meetRekt']"/>
+	<remove xpath="/challenges/challenge[@name='meetJen']"/>
+	<remove xpath="/challenges/challenge[@name='meetBob']"/>
+	<remove xpath="/challenges/challenge[@name='meetHugh']"/>
+	<remove xpath="/challenges/challenge[@name='meetJoel']"/>
+	<remove xpath="/challenges/challenge[@name='purchaseItems']"/>
+	<remove xpath="/challenges/challenge[@name='sellItems']"/>
+	<remove xpath="/challenges/challenge[@name='questComplete']"/>
+	<remove xpath="/challenges/challenge[@name='questTierComplete']"/>
+	<remove xpath="/challenges/challenge[@name='questTraderToTraderComplete']"/>
+	
+	<!-- *** Zombie Slayer Challenges -->
+	<set xpath="/challenges/challenge[@name='killAnyZombies']/objective/@count">1000</set>
+	
+	<set xpath="/challenges/challenge[@name='killLumberjack']/objective/@entity_names">zombieDarkseekerNormalMale,zombieDarkseekerNormalMaleFeral,zombieDarkseekerNormalMaleRadiated,zombieDarkseekerNormalMaleCharged,zombieDarkseekerNormalMaleInfernal</set>
+	<set xpath="/challenges/challenge[@name='killLumberjack']/objective/@count">100</set>
+	
+	<set xpath="/challenges/challenge[@name='killSpider']/objective/@entity_names">zombieDarkseekerSpider,zombieDarkseekerSpiderFeral,zombieDarkseekerSpiderRadiated,zombieDarkseekerSpiderCharged,zombieDarkseekerSpiderInfernal</set>
+	<set xpath="/challenges/challenge[@name='killSpider']/objective/@count">100</set>
+	
+	<set xpath="/challenges/challenge[@name='killBigMama']/objective/@entity_names">zombieDarkseekerNormalFemale,zombieDarkseekerNormalFemaleFeral,zombieDarkseekerNormalFemaleRadiated,zombieDarkseekerNormalFemaleCharged,zombieDarkseekerNormalFemaleInfernal</set>
+	<set xpath="/challenges/challenge[@name='killBigMama']/objective/@count">100</set>
+	
+	<set xpath="/challenges/challenge[@name='killTourist']/objective/@entity_names">zombieDarkseekerAlpha,zombieDarkseekerAlphaFeral</set>
+	<set xpath="/challenges/challenge[@name='killTourist']/objective/@count">100</set>
+	
+	<set xpath="/challenges/challenge[@name='killMutated']/objective/@entity_names">zombieDarkseekerAlphaRadiated</set>
+	<set xpath="/challenges/challenge[@name='killMutated']/objective/@count">100</set>
+	
+	<set xpath="/challenges/challenge[@name='killCop']/objective/@entity_names">zombieDarkseekerSpitter,zombieDarkseekerSpitterFeral,zombieDarkseekerSpitterRadiated,zombieDarkseekerSpitterInfernal</set>
+	<set xpath="/challenges/challenge[@name='killCop']/objective/@count">100</set>
+	
+	<set xpath="/challenges/challenge[@name='killDemolitions']/objective/@entity_names">zombieDarkseekerAlphaCharged,zombieDarkseekerAlphaInfernal</set>
+	<!-- <set xpath="/challenges/challenge[@name='killDemolitions']/objective/@count">100</set> -->
+	
+	<set xpath="/challenges/challenge[contains (@name,'Zombies')]/objective[@type='KillByTag']/@entity_tags">darkseeker</set>
+	
+	<!-- *** Biome Challenges -->
+	<remove xpath="/challenges/challenge[@name='burntSurvivalKillZombie']/objective[@type='Kill']"/>
+	<remove xpath="/challenges/challenge[@name='desertSurvivalKillZombie']/objective[@type='Kill']"/>
+	<remove xpath="/challenges/challenge[@name='snowSurvivalKillZombie']/objective[@type='Kill']"/>
+	<remove xpath="/challenges/challenge[@name='wastelandSurvivalKillZombie']/objective[@type='Kill']"/>
+</HellsJanitor>

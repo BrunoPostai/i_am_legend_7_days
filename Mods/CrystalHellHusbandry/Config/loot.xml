@@ -1,0 +1,5 @@
+<configs>
+
+    <setattribute xpath="//lootcontainer[@name='traderNPC']" name="size">0,0</setattribute>
+
+</configs>

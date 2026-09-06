@@ -1,0 +1,65 @@
+<config>
+
+    <append xpath="buffs">
+
+        <buff name="buffAnimalRegen">
+            <stack_type value="ignore"/>
+            <duration value="0"/>
+            <update_rate value="5"/>
+            <effect_group>
+                <passive_effect name="HealthChangeOT" operation="base_add" value="0.1"/>
+            </effect_group>
+        </buff>
+
+        <buff name="buffSedated" hidden="true">
+            <stack_type value="ignore"/>
+            <duration value="1"/>
+            <effect_group name="ragdoll">
+                <triggered_effect trigger="onSelfBuffUpdate" action="Ragdoll" duration="60"/>
+            </effect_group>
+        </buff>
+
+        <buff name="buffSedatedCooldown" hidden="true">
+            <stack_type value="ignore"/>
+            <duration value="30"/>
+            <effect_group>
+                <!--Empty buff-->
+            </effect_group>
+        </buff>
+
+        <buff name="buffAnimalRagdoll" hidden="true">
+            <stack_type value="ignore"/>
+            <duration value="0"/>
+            <effect_group>
+                <triggered_effect trigger="onSelfBuffStart" action="Ragdoll" duration="@ragdollDuration"/>
+                <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="ragdollDuration" operation="subtract" value="1">
+                    <requirement name="CVarCompare" cvar="ragdollDuration" operation="GT" value="0"/>
+                </triggered_effect>
+                <triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffAnimalRagdoll">
+                    <requirement name="CVarCompare" cvar="ragdollDuration" operation="Equals" value="0"/>
+                </triggered_effect>
+                <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="ragdollDuration" operation="set" value="0"/>
+            </effect_group>
+        </buff>
+
+        <buff name="buffRabbitReducedGestation" hidden="true">
+            <stack_type value="replace"/>
+            <duration value="1"/>
+            <effect_group>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="RabbitReduceGestationVar" operation="set" value="25"/>
+                <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="RabbitReduceGestationVar" operation="set" value="0"/>
+            </effect_group>
+        </buff>
+
+        <buff name="buffRabbitReducedGrowthTime" hidden="true">
+            <stack_type value="replace"/>
+            <duration value="1"/>
+            <effect_group>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="RabbitReducedGrowthTimeVar" operation="set" value="25"/>
+                <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="RabbitReducedGrowthTimeVar" operation="set" value="0"/>
+            </effect_group>
+        </buff>
+
+    </append>
+
+</config>

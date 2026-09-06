@@ -1,0 +1,18 @@
+<HellsJanitor>
+    <set xpath="/worldglobal/environment/property[@name='ambientEquatorScale']/@value">.7, .10</set>
+    <set xpath="/worldglobal/environment/property[@name='ambientGroundScale']/@value">.3, .025</set>
+    <set xpath="/worldglobal/environment/property[@name='ambientSkyScale']/@value">1, .045</set>
+	<!-- Do not set night desaturation to exactly 0.
+     Zero causes some lit smoke/gas particles to render black. -->
+    <set xpath="/worldglobal/environment/property[@name='ambientSkyDesat']/@value">.95, .05</set>
+
+    <!-- Do not fully kill moon ambient; smoke and lit particles need a little fill -->
+    <set xpath="/worldglobal/environment/property[@name='ambientMoon']/@value">.9, .04</set>
+
+    <!-- Interiors can still be dark, but not absolute-zero -->
+    <set xpath="/worldglobal/environment/property[@name='ambientInsideEquatorScale']/@value">.5, .08</set>
+    <set xpath="/worldglobal/environment/property[@name='ambientInsideGroundScale']/@value">.4, .02</set>
+    <set xpath="/worldglobal/environment/property[@name='ambientInsideSkyScale']/@value">.7, .035</set>
+
+    <set xpath="/worldglobal/environment/property[@name='fogPower']/@value">1.4, 1.6</set>	
+</HellsJanitor>

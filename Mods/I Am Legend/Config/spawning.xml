@@ -1,0 +1,18 @@
+<HellsJanitor>
+	
+	<set xpath="/spawning/biome[@name='pine_forest']/spawn[@entitygroup='WildGameForest']/@time">Day</set>
+	<set xpath="/spawning/biome[@name='burnt_forest']/spawn[@entitygroup='WildGameForest']/@time">Day</set>
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='EnemyVultureDesert']/@time">Night</set>
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='WildGameForest']/@time">Day</set>
+	<set xpath="/spawning/biome[@name='desert']/spawn[@entitygroup='EnemyAnimalsDesert']/@time">Day</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='WildGameForest']/@time">Day</set>
+	<set xpath="/spawning/biome[@name='snow']/spawn[@entitygroup='EnemyAnimalsSnow']/@time">Day</set>
+	<set xpath="/spawning/biome[@name='wasteland']/spawn[@entitygroup='WildGameForest']/@time">Day</set>
+	
+	<conditional>
+		<if cond="mod_loaded('0-XNPCCore')">
+			<remove xpath="/spawning/biome/spawn[contains (@id,'Harley')]"/>
+			<remove xpath="/spawning/biome/spawn[contains (@id,'Friendly')]"/>
+		</if>
+	</conditional>
+</HellsJanitor>

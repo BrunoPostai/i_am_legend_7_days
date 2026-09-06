@@ -1,0 +1,808 @@
+<configs>
+
+    <append xpath="//entity_class/property[@name='Tags' and contains(concat(',', translate(@value, ' ', ''), ','), ',zombie,')]/@value">,breedingDisabled</append>
+
+    <append xpath="//entity_class[@name='animalZombieDog']">
+        <property name="CompanionsDisabled" value="true"/>
+    </append>
+
+    <!-- Wolf -->
+
+    <append xpath="//entity_class[@name='animalWolf']">
+
+        <property name="MaxSedation" value="150"/>
+        <property name="PetReactionSound" value="wolfroam"/>
+
+        <property name="EvoTarget" value="animalDireWolf"/>
+        <property name="EvoMode" value="all"/>
+        <property name="EvoOutcome" value="evolution"/>
+        <property name="EvoCond1" value="bond|min=100"/>
+        <property name="EvoCond2" value="kills|min=250|targetTag=zombie"/>
+        <property name="EvoCond3" value="ageDays|min=20"/>
+        <property name="EvoCond4" value="level|min=100"/>
+        <property name="EvoCond5" value="isBloodMoon|value=true"/>
+        <property name="CompanionProfile" value="AggressivePredator"/>
+
+        <property name="AITask-1" value="BreakBlock"/>
+        <property name="AITask-2" value="Territorial"/>
+        <property name="AITask-3" value="BreedingApproach, CHHusbandry"/>
+        <property name="AITask-4" value="TroughApproach, CHHusbandry"/>
+        <property name="AITask-5" value="FearResponse, CHHusbandry"/>
+        <property name="AITask-6" value="FollowOwner, CHHusbandry"/>
+        <property name="AITask-7" value="ApproachAndAttackTarget" data="class=EntityPlayer,15,EntityBandit,15,EntityAnimalStag,20,EntityZombie,20"/>
+        <property name="AITask-8" value="ApproachSpot"/>
+        <property name="AITask-9" value="Look"/>
+        <property name="AITask-10" value="Wander"/>
+        <property name="AITask-11" value=""/>
+
+        <property class="AnimalTamingProfile">
+          <property name="MethodMode" value="Any"/>
+
+          <property class="Method1">
+              <property name="Id" value="test_knockout"/>
+              <property name="Type" value="knockout_feed"/>
+              <property name="RequiredTaming" value="100"/>
+              <property name="FeedCooldownSeconds" value="5"/>
+
+              <property class="Food1">
+                  <property name="Item" value="foodRawMeat"/>
+                  <property name="Value" value="5"/>
+              </property>
+
+              <property class="Sedative1">
+                <property name="Item" value="itemSedativeT1"/>
+                <property name="Value" value="3"/>
+              </property>
+
+              <property class="Sedative2">
+                <property name="Item" value="itemSedativeT2"/>
+                <property name="Value" value="10"/>
+              </property>
+
+              <property class="Sedative3">
+                <property name="Item" value="itemSedativeT3"/>
+                <property name="Value" value="25"/>
+              </property>
+
+              <property class="Sedative4">
+                <property name="Item" value="itemSedativeT4"/>
+                <property name="Value" value="60"/>
+              </property>
+
+              <property class="Sedative5">
+                <property name="Item" value="itemSedativeT5"/>
+                <property name="Value" value="150"/>
+              </property>
+
+          </property>
+      </property>
+    </append>
+
+    <!-- Dire Wolf -->
+    <remove xpath="//entity_class[@name='animalDireWolf']/property[@name='EntityFlags']"/>
+    <remove xpath="//entity_class[@name='animalDireWolf']/property[contains(@name, 'AITask')]"/>
+    <append xpath="//entity_class[@name='animalDireWolf']">
+        <property name="EntityFlags" value="animal"/>
+        <property name="EvoEnabled" value="false"/>
+        <property name="CompanionProfile" value="AggressivePredator"/>
+        <property name="AITask-1" value="BreakBlock"/>
+        <property name="AITask-2" value="Territorial"/>
+        <property name="AITask-3" value="BreedingApproach, CHHusbandry"/>
+        <property name="AITask-4" value="TroughApproach, CHHusbandry"/>
+        <property name="AITask-5" value="FearResponse, CHHusbandry"/>
+        <property name="AITask-6" value="FollowOwner, CHHusbandry"/>
+        <property name="AITask-7" value="ApproachAndAttackTarget" data="class=EntityPlayer,15,EntityBandit,15,EntityAnimalStag,20,EntityZombie,20"/>
+        <property name="AITask-8" value="ApproachSpot"/>
+        <property name="AITask-9" value="Look"/>
+        <property name="AITask-10" value="Wander"/>
+        <property name="AITask-11" value=""/>
+    </append>
+
+    <remove xpath="//entity_class[@name='animalZombieBoar']/property[@name='EntityFlags']"/>
+
+
+    <!-- Boar -->
+    <!-- <remove xpath="//entity_class[@name='animalBoar']/property[contains(@name, 'AITask')]"/> -->
+
+    <append xpath="//entity_class[@name='animalBoar']">
+        <property name="CompanionProfile" value="DefensiveForager"/>
+        <property name="CompanionFoods" value="foodCropCorn:5,foodCornMeal:5"/>
+        <property name="CompanionRequiredTaming" value="50"/>
+        <property name="CompanionFeedCooldownSeconds" value="5"/>
+        <property name="CompanionTameSkillPointReward" value="2"/>
+        <property name="CompanionTameBondReward" value="30"/>
+        <property name="UsesTrust" value="true"/>
+        <property name="MaxTrust" value="100"/>
+        <property name="TrustPerSecond" value="2"/>
+        <property name="MaxSedation" value="100"/>
+        <property name="CompanionFearResponse" value="Defensive"/>
+
+        <property name="EvoTarget" value="animalZombieBoar"/>
+        <property name="EvoMode" value="all"/>
+        <property name="EvoOutcome" value="evolution"/>
+        <property name="EvoCond1" value="bond|min=100"/>
+        <property name="EvoCond2" value="kills|min=250|targetTag=zombie"/>
+        <property name="EvoCond3" value="ageDays|min=20"/>
+        <property name="EvoCond4" value="level|min=100"/>
+        <property name="EvoCond5" value="isBloodMoon|value=true"/>
+    </append>
+
+    <!-- Grace -->
+
+    <remove xpath="//entity_class[@name='animalZombieBoar']/property[contains(@name, 'AITask')]"/>
+
+    <append xpath="//entity_class[@name='animalZombieBoar']">
+        <property name="EvoEnabled" value="false"/>
+    </append>
+    
+
+    <!-- Big Bear -->
+    <remove xpath="//entity_class[@name='animalBear']/property[contains(@name, 'AITask')]"/>
+    <append xpath="//entity_class[@name='animalBear']">
+
+        <property name="MaxSedation" value="1000"/>
+        <property name="EvoTarget" value="animalZombieBear"/>
+        <property name="EvoMode" value="all"/>
+        <property name="EvoOutcome" value="evolution"/>
+        <property name="EvoCond1" value="bond|min=100"/>
+        <property name="EvoCond2" value="kills|min=250|targetTag=zombie"/>
+        <property name="EvoCond3" value="ageDays|min=20"/>
+        <property name="EvoCond4" value="level|min=100"/>
+        <property name="EvoCond5" value="isBloodMoon|value=true"/>
+
+        <property name="AITask-1" value="BreakBlock"/>
+        <property name="AITask-2" value="Territorial"/>
+        <property name="AITask-3" value="BreedingApproach, CHHusbandry"/>
+        <property name="AITask-4" value="TroughApproach, CHHusbandry"/>
+        <property name="AITask-5" value="FearResponse, CHHusbandry"/>
+        <property name="AITask-6" value="FollowOwner, CHHusbandry"/>
+        <property name="AITask-7" value="ApproachAndAttackTarget" data="class=EntityPlayer,15,EntityBandit,15,EntityAnimalStag,20,EntityZombie,20"/>
+        <property name="AITask-8" value="ApproachSpot"/>
+        <property name="AITask-9" value="Look"/>
+        <property name="AITask-10" value="Wander"/>
+        <property name="AITask-11" value=""/>
+
+        <property name="CompanionProfile" value="AggressivePredator"/>
+
+        <property class="AnimalTamingProfile">
+          <property name="MethodMode" value="Any"/>
+
+          <property class="Method1">
+              <property name="Id" value="test_knockout"/>
+              <property name="Type" value="knockout_feed"/>
+              <property name="RequiredTaming" value="500"/>
+              <property name="FeedCooldownSeconds" value="5"/>
+
+              <property class="Food1">
+                  <property name="Item" value="foodRawMeat"/>
+                  <property name="Value" value="5"/>
+              </property>
+
+              <property class="Food2">
+                  <property name="Item" value="foodHoney"/>
+                  <property name="Value" value="15"/>
+              </property>
+
+              <property class="Sedative1">
+                <property name="Item" value="itemSedativeT1"/>
+                <property name="Value" value="3"/>
+              </property>
+
+              <property class="Sedative2">
+                <property name="Item" value="itemSedativeT2"/>
+                <property name="Value" value="10"/>
+              </property>
+
+              <property class="Sedative3">
+                <property name="Item" value="itemSedativeT3"/>
+                <property name="Value" value="25"/>
+              </property>
+
+              <property class="Sedative4">
+                <property name="Item" value="itemSedativeT4"/>
+                <property name="Value" value="60"/>
+              </property>
+
+              <property class="Sedative5">
+                <property name="Item" value="itemSedativeT5"/>
+                <property name="Value" value="150"/>
+              </property>
+
+          </property>
+      </property>
+    </append>
+
+    <!-- Zombie Bear -->
+
+    <remove xpath="//entity_class[@name='animalZombieBear']/property[@name='EntityFlags']"/>
+    <remove xpath="//entity_class[@name='animalZombieBear']/property[contains(@name, 'AITask')]"/>
+
+    <append xpath="//entity_class[@name='animalZombieBear']">
+        <property name="EvoEnabled" value="false"/>
+        <property name="CompanionProfile" value="AggressivePredator"/>
+        <property name="EntityFlags" value="animal"/>
+        <property name="EvoEnabled" value="false"/>
+        <property name="CompanionProfile" value="AggressivePredator"/>
+
+        <property name="AITask-1" value="BreakBlock"/>
+        <property name="AITask-2" value="Territorial"/>
+        <property name="AITask-3" value="BreedingApproach, CHHusbandry"/>
+        <property name="AITask-4" value="TroughApproach, CHHusbandry"/>
+        <property name="AITask-5" value="FearResponse, CHHusbandry"/>
+        <property name="AITask-6" value="FollowOwner, CHHusbandry"/>
+        <property name="AITask-7" value="ApproachAndAttackTarget" data="class=EntityPlayer,15,EntityBandit,15,EntityAnimalStag,20,EntityZombie,20"/>
+        <property name="AITask-8" value="ApproachSpot"/>
+        <property name="AITask-9" value="Look"/>
+        <property name="AITask-10" value="Wander"/>
+        <property name="AITask-11" value=""/>
+    </append>
+
+    <!-- Small Bear -->
+    <append xpath="//entity_class[@name='animalBearSmall']">
+        <property name="MaxSedation" value="500"/>
+
+        <property class="AnimalTamingProfile">
+          <property name="MethodMode" value="Any"/>
+
+          <property class="Method1">
+              <property name="Id" value="test_knockout"/>
+              <property name="Type" value="knockout_feed"/>
+              <property name="RequiredTaming" value="400"/>
+              <property name="FeedCooldownSeconds" value="5"/>
+
+              <property class="Food1">
+                  <property name="Item" value="foodRawMeat"/>
+                  <property name="Value" value="5"/>
+              </property>
+
+              <property class="Sedative1">
+                <property name="Item" value="itemSedativeT1"/>
+                <property name="Value" value="3"/>
+              </property>
+
+              <property class="Sedative2">
+                <property name="Item" value="itemSedativeT2"/>
+                <property name="Value" value="10"/>
+              </property>
+
+              <property class="Sedative3">
+                <property name="Item" value="itemSedativeT3"/>
+                <property name="Value" value="25"/>
+              </property>
+
+              <property class="Sedative4">
+                <property name="Item" value="itemSedativeT4"/>
+                <property name="Value" value="60"/>
+              </property>
+
+              <property class="Sedative5">
+                <property name="Item" value="itemSedativeT5"/>
+                <property name="Value" value="150"/>
+              </property>
+
+          </property>
+      </property>
+    </append>
+
+    <!-- Mountain Lion -->
+
+    <append xpath="//entity_class[@name='animalMountainLion']">
+
+        <property name="MaxSedation" value="250"/>
+        <property name="EvoEnabled" value="false"/>
+
+            <property name="AITask-1" value="BreakBlock"/>
+            <property name="AITask-2" value="Territorial"/>
+            <property name="AITask-3" value="BreedingApproach, CHHusbandry"/>
+            <property name="AITask-4" value="TroughApproach, CHHusbandry"/>
+            <property name="AITask-5" value="FearResponse, CHHusbandry"/>
+            <property name="AITask-6" value="FollowOwner, CHHusbandry"/>
+            <property name="AITask-7" value="ApproachAndAttackTarget" data="class=EntityPlayer,15,EntityBandit,15,EntityAnimalStag,20,EntityZombie,20"/>
+            <property name="AITask-8" value="ApproachSpot"/>
+            <property name="AITask-9" value="Look"/>
+            <property name="AITask-10" value="Wander"/>
+            <property name="AITask-11" value=""/>
+
+        <property name="CompanionProfile" value="AggressivePredator"/>
+
+        <property class="AnimalTamingProfile">
+          <property name="MethodMode" value="Any"/>
+
+          <property class="Method1">
+              <property name="Id" value="test_knockout"/>
+              <property name="Type" value="knockout_feed"/>
+              <property name="RequiredTaming" value="200"/>
+              <property name="FeedCooldownSeconds" value="5"/>
+
+              <property class="Food1">
+                  <property name="Item" value="foodRawMeat"/>
+                  <property name="Value" value="5"/>
+              </property>
+
+              <property class="Sedative1">
+                <property name="Item" value="itemSedativeT1"/>
+                <property name="Value" value="3"/>
+              </property>
+
+              <property class="Sedative2">
+                <property name="Item" value="itemSedativeT2"/>
+                <property name="Value" value="10"/>
+              </property>
+
+              <property class="Sedative3">
+                <property name="Item" value="itemSedativeT3"/>
+                <property name="Value" value="25"/>
+              </property>
+
+              <property class="Sedative4">
+                <property name="Item" value="itemSedativeT4"/>
+                <property name="Value" value="60"/>
+              </property>
+
+              <property class="Sedative5">
+                <property name="Item" value="itemSedativeT5"/>
+                <property name="Value" value="150"/>
+              </property>
+
+          </property>
+      </property>
+    </append>
+
+    <append xpath="//entity_class[@name='animalRabbit']">
+      <property name="CompanionProfile" value="PassiveLivestock"/>
+      <property name="CompanionFoods" value="foodCropCorn:10,foodCornMeal:10"/>
+    </append>
+
+    <append xpath="//entity_class[@name='animalChicken']">
+      <property name="CompanionProfile" value="PassiveLivestock"/>
+      <property name="CompanionFoods" value="foodCropCorn:10,foodCornMeal:10"/>
+    </append>
+
+    <append xpath="//entity_class[@name='animalStag']">
+      <property name="CompanionProfile" value="PassiveLivestock"/>
+      <property name="CompanionFoods" value="foodCropCorn:10,foodCornMeal:10"/>
+    </append>
+
+    <append xpath="//entity_class[@name='animalDoe']">
+        <property name="CompanionProfile" value="PassiveLivestock"/>
+        <property name="CompanionFoods" value="foodCropCorn:10,foodCornMeal:10"/>
+    </append>
+
+   <!--
+    ========================
+    Companions EntityClass Guide
+    ========================
+
+    These are the custom entity_class properties currently supported by Companions.
+
+    ========================================
+    1) Basic Companion Setup
+    ========================================
+
+    CompanionProfile (optional, preset name)
+    - Enables the simplified companion setup system.
+    - Automatically provides default taming behavior.
+    - Automatically injects required companion AI tasks.
+    - Full AnimalTamingProfile still overrides this simple preset system.
+
+    Supported presets:
+    - PassiveLivestock
+    - DefensiveForager
+    - AggressivePredator
+
+    Example:
+      <property name="CompanionProfile" value="DefensiveForager"/>
+
+
+    CompanionTemperament (optional)
+    - Overrides the default temperament/fear personality for the preset.
+    - Does not fully rewrite vanilla combat AI by itself.
+
+    Supported common values:
+    - Passive
+    - Defensive
+    - Aggressive
+
+    Example:
+      <property name="CompanionTemperament" value="Passive"/>
+
+
+    ========================================
+    2) Companion Presets
+    ========================================
+
+    PassiveLivestock
+    - Default temperament: Passive
+    - Default taming method: passive_feed
+    - No knockout feeding by default.
+    - Best for chickens, rabbits, deer, and timid animals.
+
+    Example:
+      <property name="CompanionProfile" value="PassiveLivestock"/>
+
+
+    DefensiveForager
+    - Default temperament: Defensive
+    - Default taming methods: passive_feed and knockout_feed
+    - Best for boars or animals that may flee or fight back.
+
+    Example:
+      <property name="CompanionProfile" value="DefensiveForager"/>
+
+
+    AggressivePredator
+    - Default temperament: Aggressive
+    - Default taming method: knockout_feed
+    - No passive feeding by default.
+    - Best for wolves, bears, mountain lions, and dangerous predators.
+
+    Example:
+      <property name="CompanionProfile" value="AggressivePredator"/>
+
+
+    ========================================
+    3) Taming Overrides
+    ========================================
+
+    CompanionFoods (optional, item:value list)
+    - Overrides accepted taming foods for profile methods that use food.
+    - Format: itemName:tamingValue,itemName:tamingValue
+
+    Example:
+      <property name="CompanionFoods" value="foodCropCorn:25,foodCornMeal:10"/>
+
+
+    CompanionSedatives (optional, item:value list)
+    - Overrides accepted sedative items.
+    - Format: itemName:sedationValue,itemName:sedationValue
+
+    Example:
+      <property name="CompanionSedatives" value="itemSedativeT1:25"/>
+
+
+    CompanionRequiredTaming (optional, number)
+    - Sets how much taming progress is required.
+
+    Example:
+      <property name="CompanionRequiredTaming" value="100"/>
+
+
+    CompanionFeedCooldownSeconds (optional, number)
+    - Sets the cooldown between valid feed actions.
+
+    Example:
+      <property name="CompanionFeedCooldownSeconds" value="30"/>
+
+
+    CompanionTameSkillPointReward (optional, whole number)
+    - Gives skill/stat upgrade points when the animal is tamed.
+
+    Example:
+      <property name="CompanionTameSkillPointReward" value="2"/>
+
+
+    CompanionTameBondReward (optional, number)
+    - Gives bond progress when the animal is tamed.
+
+    Example:
+      <property name="CompanionTameBondReward" value="10"/>
+
+
+    ========================================
+    4) Fear Overrides
+    ========================================
+
+    CompanionFearRadius (optional, number)
+    - Distance where standing players can increase fear.
+
+    CompanionCalmRadius (optional, number)
+    - Distance used for calming/no-pressure behavior.
+
+    CompanionStandingFearGainPerSecond (optional, number)
+    - Fear gained per second from nearby standing players.
+
+    CompanionCrouchingFearReductionPerSecond (optional, number)
+    - Fear reduced per second from crouching behavior.
+
+    CompanionNoNearbyPlayerFearReductionPerSecond (optional, number)
+    - Fear reduced per second when no nearby player is pressuring the animal.
+
+    CompanionFeedFearThreshold (optional, number 0-100)
+    - Animal must be at or below this fear amount to passive feed.
+
+    Example:
+      <property name="CompanionFearRadius" value="10"/>
+      <property name="CompanionCalmRadius" value="20"/>
+      <property name="CompanionStandingFearGainPerSecond" value="8"/>
+      <property name="CompanionCrouchingFearReductionPerSecond" value="2"/>
+      <property name="CompanionNoNearbyPlayerFearReductionPerSecond" value="4"/>
+      <property name="CompanionFeedFearThreshold" value="25"/>
+
+
+    ========================================
+    5) Fear Response Overrides
+    ========================================
+
+    CompanionFearResponse (optional)
+    - Overrides the default fear response behavior.
+
+    Common values:
+    - Passive
+    - Defensive
+    - Aggressive
+    - Flee
+
+    CompanionFleeFearThreshold (optional, number 0-100)
+    - Fear amount needed before flee behavior can trigger.
+
+    CompanionFleeDurationSeconds (optional, number)
+    - How long the flee response lasts.
+
+    CompanionFleeCooldownSeconds (optional, number)
+    - Cooldown between flee responses.
+
+    CompanionFleeDistance (optional, number)
+    - How far the animal tries to flee.
+
+    Example:
+      <property name="CompanionFearResponse" value="Defensive"/>
+      <property name="CompanionFleeFearThreshold" value="75"/>
+      <property name="CompanionFleeDurationSeconds" value="5"/>
+      <property name="CompanionFleeCooldownSeconds" value="10"/>
+      <property name="CompanionFleeDistance" value="15"/>
+
+
+    ========================================
+    6) Trust Overrides
+    ========================================
+
+    UsesTrust (optional, true/false)
+    - Enables or disables the pre-tame trust mechanic for this animal.
+    - Defaults to true.
+    - If false:
+      - Trust UI is hidden.
+      - Trust does not build over time.
+      - Passive feed does not use trust-based success chance.
+      - Trust-based passive approach behavior is skipped.
+
+    Example:
+      <property name="UsesTrust" value="true"/>
+
+
+    MaxTrust (optional, number)
+    - Sets the maximum trust value for this animal.
+    - Defaults to 100.
+    - Higher values make trust take longer to max out if TrustPerSecond stays the same.
+    - Trust percentage is calculated as current trust / MaxTrust.
+    - Trust percentage affects:
+      - Passive feed success chance.
+      - Trust-based taming multiplier.
+      - Too-close radius.
+      - Outer trust radius.
+      - Crouch-movement tolerance.
+
+    Example:
+      <property name="MaxTrust" value="100"/>
+
+
+    TrustPerSecond (optional, number)
+    - Trust gained per second while the player is crouched, calm, and inside the animal's trust zone.
+    - Defaults to 0.5.
+    - Only applies when UsesTrust is true.
+
+    Example:
+      <property name="TrustPerSecond" value="0.5"/>
+
+
+    Trust behavior notes:
+    - Trust is pre-tame only.
+    - Bond is post-tame.
+    - Passive feeding is an attempt, not guaranteed.
+    - Passive feed success chance is based on trust percentage.
+      Example: 35 / 100 trust = 35% success chance.
+    - Failed passive feed attempts:
+      - Do not consume food.
+      - Cause the animal to flee.
+      - Reduce trust slightly.
+    - Knockout feeding does not use the passive feed success roll.
+    - Trust still improves knockout feed taming value if the animal uses trust.
+    - At higher trust, animals become more tolerant of crouched movement.
+
+    ========================================
+    7) Taming / Sedation
+    ========================================
+
+    MaxSedation (optional, number)
+    - Sets the base sedation cap for this animal.
+    - If missing, the mod defaults to 100.
+
+    Example:
+      <property name="MaxSedation" value="150"/>
+
+
+    ========================================
+    8) Pet Audio
+    ========================================
+
+    PetReactionSound (optional, sound key)
+    - Sound that plays when the owner uses Pet.
+    - If missing/invalid, fallback sound key is used: open_sign
+
+    Example:
+      <property name="PetReactionSound" value="wolfroam"/>
+
+
+    ========================================
+    9) Evolution
+    ========================================
+
+    EvoTarget (required for evolution)
+    - Target entity class to evolve into.
+
+    EvoMode (optional)
+    - all (default): every condition must pass.
+    - any: at least one condition must pass.
+
+    EvoOutcome (optional)
+    - evolution (default)
+    - de-evolution
+    - Stored for tracking/telemetry; does not change or swap mechanics.
+
+    EvoCond / EvoCondN (required; at least one)
+    - Condition format:
+        type|min=#
+      plus optional attributes:
+        type|min=#|key=value
+    - You can use one unindexed condition (EvoCond) and/or indexed conditions (EvoCond1..EvoCond64).
+    - If EvoTarget exists but there are no valid conditions, evolution is ignored.
+
+    Supported condition types:
+
+    bond:
+      bond|min=80
+
+    level:
+      level|min=10
+
+    ageDays:
+      ageDays|min=5
+
+    kills:
+      kills|min=25
+      kills|min=25|targetTag=zombie
+
+    isBloodMoon:
+      isBloodMoon
+      isBloodMoon|value=true
+
+    inBiome:
+      inBiome|biome=snow
+      inBiome|biome=snow,wasteland
+
+    timeOfDay:
+      timeOfDay|min=22|max=4
+      timeOfDay|min=6|max=18
+
+    Important evolution behavior:
+    - One-time per companion.
+    - On evolve, old entity is despawned and target entity is spawned.
+    - Companion carryover includes owner, behavior toggles, name, and stat progression/multipliers.
+    - Evolved entity is fully healed on spawn.
+
+
+    ========================================
+    10) Simple Example
+    ========================================
+
+      <append xpath="//entity_class[@name='animalBoar']">
+          <property name="CompanionProfile" value="DefensiveForager"/>
+      </append>
+
+
+    ========================================
+    11) Intermediate Example
+    ========================================
+
+      <append xpath="//entity_class[@name='animalBoar']">
+          <property name="CompanionProfile" value="DefensiveForager"/>
+          <property name="CompanionFoods" value="foodCropCorn:25"/>
+          <property name="CompanionSedatives" value="itemSedativeT1:25"/>
+          <property name="CompanionRequiredTaming" value="100"/>
+          <property name="CompanionFeedCooldownSeconds" value="30"/>
+          <property name="CompanionTameSkillPointReward" value="2"/>
+          <property name="CompanionTameBondReward" value="10"/>
+          <property name="UsesTrust" value="true"/>
+          <property name="MaxTrust" value="100"/>
+          <property name="TrustPerSecond" value="0.5"/>
+          <property name="MaxSedation" value="150"/>
+          <property name="PetReactionSound" value="boaralert"/>
+      </append>
+
+
+    ========================================
+    12) Evolution Example
+    ========================================
+
+      <append xpath="//entity_class[@name='animalWolf']">
+          <property name="CompanionProfile" value="AggressivePredator"/>
+          <property name="MaxSedation" value="220"/>
+          <property name="PetReactionSound" value="wolfroam"/>
+
+          <property name="EvoTarget" value="animalDireWolf"/>
+          <property name="EvoMode" value="all"/>
+          <property name="EvoOutcome" value="evolution"/>
+          <property name="EvoCond1" value="bond|min=80"/>
+          <property name="EvoCond2" value="kills|min=25|targetTag=zombie"/>
+          <property name="EvoCond3" value="ageDays|min=5"/>
+      </append>
+
+    ========================================
+    13) Advanced Example: Full AnimalTamingProfile
+    ========================================
+
+    Full AnimalTamingProfile is the advanced override path.
+
+    If an entity has a valid AnimalTamingProfile, it takes priority over
+    CompanionProfile preset defaults and companion override properties.
+
+    UsesTrust is global for the animal. Individual taming methods may use trust differently.
+    For example, passive_feed can use trust as an acceptance chance, while knockout_feed can use trust as a taming value multiplier without using the passive feed rejection roll.
+
+    Example:
+
+      <append xpath="//entity_class[@name='animalWolf']">
+
+          <property name="CompanionProfile" value="AggressivePredator"/>
+          <property name="UsesTrust" value="true"/>
+          <property name="MaxTrust" value="100"/>
+          <property name="TrustPerSecond" value="0.5"/>
+
+          <property class="AnimalTamingProfile">
+              <property name="MethodMode" value="any"/>
+
+              <property class="KnockoutFeed">
+                  <property name="Type" value="knockout_feed"/>
+                  <property name="RequiredTaming" value="150"/>
+                  <property name="FeedCooldownSeconds" value="45"/>
+                  <property name="TameSkillPointReward" value="3"/>
+                  <property name="TameBondReward" value="15"/>
+
+                  <property class="Foods">
+                      <property name="foodRawMeat" value="25"/>
+                      <property name="foodRottingFlesh" value="10"/>
+                  </property>
+
+                  <property class="Sedatives">
+                      <property name="itemSedativeT1" value="25"/>
+                  </property>
+              </property>
+
+              <property class="PassiveFeed">
+                  <property name="Type" value="passive_feed"/>
+                  <property name="RequiredTaming" value="200"/>
+                  <property name="FeedCooldownSeconds" value="60"/>
+                  <property name="FeedFearThreshold" value="10"/>
+
+                  <property name="FearRadius" value="12"/>
+                  <property name="CalmRadius" value="25"/>
+                  <property name="StandingFearGainPerSecond" value="15"/>
+                  <property name="CrouchingFearReductionPerSecond" value="3"/>
+                  <property name="NoNearbyPlayerFearReductionPerSecond" value="5"/>
+
+                  <property name="FearResponse" value="Flee"/>
+                  <property name="FleeFearThreshold" value="60"/>
+                  <property name="FleeDurationSeconds" value="8"/>
+                  <property name="FleeCooldownSeconds" value="12"/>
+                  <property name="FleeDistance" value="20"/>
+
+                  <property class="Foods">
+                      <property name="foodRawMeat" value="20"/>
+                  </property>
+
+              </property>
+          </property>
+
+      </append>
+-->
+
+</configs>

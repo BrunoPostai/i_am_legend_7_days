@@ -1,0 +1,33 @@
+<configs>
+
+    <append xpath="blocks">
+
+        <block name="randomItemMachine">
+            <property name="Extends" value="cntVendingMachine2Broken"/>
+            <property name="CreativeMode" value="Dev"/>
+            <property name="Class" value="GameEvent"/>
+            <property name="ActivateEvent" value="action_GiveRandomItem"/>
+            <property name="DestroyOnEvent" value="false"/>
+            <property name="CustomIcon" value="cntVendingMachine2Broken"/>
+            <property name="Model" value="@:Entities/Crafting/sodaVendingMachineBrokenPrefab.prefab"/>
+        </block>   
+
+        <block name="companionAnimalTrough">
+            <property name="Extends" value="cntWoodWritableCrate" param1="DowngradeBlock" />
+            <property name="Class" value="AnimalTrough, CHHusbandry"/>
+            <property class="CompositeFeatures">
+                <property class="TEFeatureStorage">
+                    <property name="LootList" value="playerWoodWritableStorage" />
+                </property>
+                <property class="TEFeatureLockable" />
+            </property>
+            <property name="CreativeMode" value="Player"/>
+            <property name="Model" value="@:Entities/LootContainers/troughPig_EmptyPrefab.prefab" />
+            <property name="MultiBlockDim" value="2,1,1" />
+            <property name="CustomIcon" value="cntTroughPigEmpty"/>
+            <property name="DescriptionKey" value="companionAnimalTroughDesc"/>
+        </block>    
+
+    </append>
+
+</configs>

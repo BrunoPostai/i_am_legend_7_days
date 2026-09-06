@@ -1,0 +1,173 @@
+<configs>
+    <append xpath="/recipes">
+        <!--TRANQ ARROWS-->
+            <recipe name="tranqArrowT1" count="5" craft_time="5">
+                <ingredient name="ammoArrowStone" count="5"/>
+                <ingredient name="itemSedativeT1" count="1"/>
+            </recipe>
+            <recipe name="tranqArrowT1" count="1" craft_time="5">
+                <ingredient name="tranqBoltT1" count="1"/>
+            </recipe>
+
+            <recipe name="tranqArrowT2" count="5" craft_time="8">
+                <ingredient name="ammoArrowStone" count="5"/>
+                <ingredient name="itemSedativeT2" count="1"/>
+            </recipe>
+            <recipe name="tranqArrowT2" count="1" craft_time="5">
+                <ingredient name="tranqBoltT2" count="1"/>
+            </recipe>
+
+            <recipe name="tranqArrowT3" count="5" craft_time="11" craft_area="workbench">
+                <ingredient name="ammoArrowIron" count="5"/>
+                <ingredient name="itemSedativeT3" count="1"/>
+            </recipe>
+            <recipe name="tranqArrowT3" count="1" craft_time="5">
+                <ingredient name="tranqBoltT3" count="1"/>
+            </recipe>
+
+            <recipe name="tranqArrowT4" count="5" craft_time="14" craft_area="workbench">
+                <ingredient name="ammoArrowIron" count="5"/>
+                <ingredient name="itemSedativeT4" count="1"/>
+            </recipe>
+            <recipe name="tranqArrowT4" count="1" craft_time="5">
+                <ingredient name="tranqBoltT4" count="1"/>
+            </recipe>
+
+            <recipe name="tranqArrowT5" count="5" craft_time="17" craft_area="workbench">
+                <ingredient name="ammoArrowSteelAP" count="5"/>
+                <ingredient name="itemSedativeT5" count="1"/>
+            </recipe>
+            <recipe name="tranqArrowT5" count="1" craft_time="5">
+                <ingredient name="tranqBoltT5" count="1"/>
+            </recipe>
+
+        <!--TRANQ BOLTS-->
+
+            <recipe name="tranqBoltT1" count="5" craft_time="5">
+                <ingredient name="ammoCrossbowBoltStone" count="5"/>
+                <ingredient name="itemSedativeT1" count="1"/>
+            </recipe>
+            <recipe name="tranqBoltT1" count="1" craft_time="5">
+                <ingredient name="tranqArrowT1" count="1"/>
+            </recipe>
+
+            <recipe name="tranqBoltT2" count="5" craft_time="8">
+                <ingredient name="ammoCrossbowBoltStone" count="5"/>
+                <ingredient name="itemSedativeT2" count="1"/>
+            </recipe>
+            <recipe name="tranqBoltT2" count="1" craft_time="5">
+                <ingredient name="tranqArrowT2" count="1"/>
+            </recipe>
+
+            <recipe name="tranqBoltT3" count="5" craft_time="11" craft_area="workbench">
+                <ingredient name="ammoCrossbowBoltIron" count="5"/>
+                <ingredient name="itemSedativeT3" count="1"/>
+            </recipe>
+            <recipe name="tranqBoltT3" count="1" craft_time="5">
+                <ingredient name="tranqArrowT3" count="1"/>
+            </recipe>
+
+            <recipe name="tranqBoltT4" count="5" craft_time="14" craft_area="workbench">
+                <ingredient name="ammoCrossbowBoltIron" count="5"/>
+                <ingredient name="itemSedativeT4" count="1"/>
+            </recipe>
+            <recipe name="tranqBoltT4" count="1" craft_time="5">
+                <ingredient name="tranqArrowT4" count="1"/>
+            </recipe>
+
+            <recipe name="tranqBoltT5" count="5" craft_time="17" craft_area="workbench">
+                <ingredient name="ammoCrossbowBoltSteelAP" count="5"/>
+                <ingredient name="itemSedativeT5" count="1"/>
+            </recipe>
+            <recipe name="tranqBoltT5" count="1" craft_time="5">
+                <ingredient name="tranqArrowT5" count="1"/>
+            </recipe>
+
+        <!--SEDATIVES-->
+
+            <recipe name="itemSedativeT1" count="2" craft_time="7">
+                <ingredient name="foodCropMushrooms" count="25"/>
+                <ingredient name="drinkJarRiverWater" count="2"/>
+                <ingredient name="resourceScrapPolymers" count="10"/>
+            </recipe>
+
+            <recipe name="itemSedativeT2" count="1" craft_time="16">
+                <ingredient name="itemSedativeT1" count="2"/>
+                <ingredient name="drinkJarRiverWater" count="1"/>
+                <ingredient name="resourceScrapPolymers" count="10"/>
+            </recipe>
+
+            <recipe name="itemSedativeT3" count="1" craft_time="19" craft_area="chemistryStation">
+                <ingredient name="itemSedativeT2" count="2"/>
+                <ingredient name="drinkJarBoiledWater" count="1"/>
+                <ingredient name="resourceScrapPolymers" count="10"/>
+            </recipe>
+
+            <recipe name="itemSedativeT4" count="1" craft_time="22" craft_area="chemistryStation">
+                <ingredient name="itemSedativeT3" count="2"/>
+                <ingredient name="drinkJarBoiledWater" count="1"/>
+                <ingredient name="resourceScrapPolymers" count="10"/>
+            </recipe>
+
+            <recipe name="itemSedativeT5" count="1" craft_time="25" craft_area="chemistryStation">
+                <ingredient name="itemSedativeT4" count="2"/>
+                <ingredient name="drinkJarBoiledWater" count="1"/>
+                <ingredient name="resourceScrapPolymers" count="10"/>
+            </recipe>
+
+        <!--WOLF TAMING/HEALING FOOD-->
+
+            <recipe name="foodCanDogfood" count="1" craft_time="10">
+                <ingredient name="resourceScrapIron" count="25"/>
+                <ingredient name="foodCornMeal" count="5"/>
+                <ingredient name="foodRawMeat" count="5"/>
+                <ingredient name="drinkJarBoiledWater" count="1"/>
+            </recipe>
+
+            <recipe name="TamingFoodT1" count="1" craft_time="5">
+                <ingredient name="foodCanDogfood" count="1"/>
+                <ingredient name="foodShamSandwich" count="1"/>
+                <ingredient name="foodRawMeat" count="10"/>
+            </recipe>
+
+            <recipe name="TamingFoodT2" count="1" craft_time="10">
+                <ingredient name="TamingFoodT1" count="2"/>
+                <ingredient name="foodCanBeef" count="1"/>
+                <ingredient name="foodRawMeat" count="10"/>
+            </recipe>
+
+            <recipe name="TamingFoodT3" count="1" craft_area="workbench" craft_time="20">
+                <ingredient name="TamingFoodT2" count="2"/>
+                <ingredient name="foodMeatStew" count="1"/>
+                <ingredient name="foodHoney" count="1"/>
+                <ingredient name="foodRawMeat" count="10"/>
+            </recipe>
+
+            <recipe name="TamingFoodT4" count="1" craft_area="workbench" craft_time="40">
+                <ingredient name="TamingFoodT3" count="2"/>
+                <ingredient name="foodSteakAndPotato" count="1"/>
+                <ingredient name="foodHoney" count="1"/>
+                <ingredient name="foodRawMeat" count="10"/>
+            </recipe>
+
+            <recipe name="TamingFoodT5" count="1" craft_area="workbench" craft_time="80">
+                <ingredient name="TamingFoodT4" count="2"/>
+                <ingredient name="foodGumboStew" count="1"/>
+                <ingredient name="foodHoney" count="1"/>
+                <ingredient name="foodRawMeat" count="10"/>
+            </recipe>
+
+            <recipe name="companionRevivalBandage" count="1" craft_area="workbench">
+                <ingredient name="medicalFirstAidKit" count="5"/>
+                <ingredient name="drugAntibiotics" count="1"/>
+                <ingredient name="drugPainkillers" count="1"/>
+                <ingredient name="resourceLegendaryParts" count="1"/>
+            </recipe>
+
+            <recipe name="companionAnimalTrough" count="1" craft_area="workbench" craft_time="20">
+                <ingredient name="resourceWood" count="20"/>
+                <ingredient name="resourceForgedIron" count="20"/>
+                <ingredient name="resourceNail" count="10"/>
+            </recipe>
+    </append>
+</configs>

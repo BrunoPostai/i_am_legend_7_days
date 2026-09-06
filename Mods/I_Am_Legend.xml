@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Servers>
+    <ServerGroup Name="I Am Legend" Logo="" Description="Light up the darkness">
+        <Server Name="I Am Legend" Logo="">
+            <Description>
+			
+Update 16/08/26
+v 3.1.0.0
+
+Updated for 7 Days to Die v3.0 with normal, feral, radiated, charged, and infernal custom Darkseeker models.
+Includes Shavick's Companion Mod so you start with a pet dog (just like the movie).
+
+I AM LEGEND
+
+A mod that tries to emulate the movie of the same name.
+
+### Light up the darkness
+
+Six billion people on Earth when the infection hit. The Krippin Virus had a 90 percent kill rate; that's 5.4 BILLION people, dead.
+
+Crashed and bled out. Dead. Less than one-percent immunity. That left 12 million healthy people, like you.
+
+The other 588 MILLION turned into Dark Seekers, and then they got hungry, and they killed and fed on everybody. EVERYBODY!
+
+Every single person that you or I has ever known is dead! DEAD!
+
+**THERE IS NO GOD!**
+
+# ABOUT THE 'I AM LEGEND' MOD.
+
+Zombies (Dark Seekers) *do not* spawn in the wild during the day. You are free to move about the world, but be warned...
+
+Buildings are DANGEROUS. They are filled with fast-moving enemies, and you'll need to be careful when looking for supplies.
+
+There is no trading.
+
+When night falls, you'll want to be inside and well hidden. Dark Seekers will be out in force, and they're hungry ..."
+
+## DARKSEEKERS
+
+There are 5 types of Dark Seeker: Normal (both male and female), Hunter, Alpha, Spitter, and Wight.
+
+ - Normal Dark Seekers are various humans, infected by KV. They have different characteristics, such as movement speed, movement type, and health, but are effectively the 'grunts' of the Dark Seekers.
+ 
+ - Hunters move on all fours, can jump much bigger distances, and can launch a leaping attack on unsuspecting individuals.
+ 
+ - Alphas are bigger, tougher, and more muscular, but can be just as fast.
+ 
+ - Spitters have evolved to launch acidic projectiles at whatever they're hunting, and when damaged, have a tendency to explode, damaging anything around them.
+ They are more skeletal than 'normals' and look more animalistic, with mandibles instead of a mouth.
+ 
+ - There are also special variants of Alphas, known as Wights. These guys are fast, strong, and almost impossible to stun.
+ 
+ There are also 4 sub-variants of these creatures:
+ 
+ - Feral, characterized by glowing yellow eyes, and MUCH tougher than non-ferals
+ 
+ - Radiated, characterized by their green glow. As tough as feral variants, Radiated Dark Seekers can regenerate health at an alarming rate.
+ 
+ - Charged, with a bluish glow, are tougher still than Radiated. They have evolved to be stronger and faster, and hit *hard*. They too have regenerative properties.
+ 
+ - Infernals have an orange glow and are tougher again. They can hit blocks with increased strength, tearing through buildings. Infernals also regenerate their health over time.
+ 
+# GAMEPLAY
+
+As mentioned earlier, Darkseekers do not spawn in the open world during daylight hours.
+
+Buildings are infested, so be very careful when looking for supplies.
+
+Cash still works in vending machines.
+
+By default, there are no quests. Trader compounds exist, as do the traders, which can be used to turn in challenges and claim rewards should you enable that feature from the sandbox options menu.
+
+Any sandbox options in grey are disabled and cannot be changed. 90% of the mod's functionality comes from these options, but you are free to change any of the others (see the note below).
+
+At night, the Darkseekers will spawn, and there will be a LOT of them; 5x more than the vanilla game. Staying inside and staying hidden at night is advisable.
+
+Skills are a hybrid system of perk points and action skills. 50% of your skills come from your perks, and the other 50% from your skill. The more you use certain tools and weapons, the more adept you are at using them.
+
+You will spawn with a companion - a German Shepherd dog. Your dog must be fed, watered, and kept safe. Keep a close eye on the dog's stats, especially in combat.
+Your companion will level up the same way you do and will earn perk points over time. Use these points to increase things like:
+
+ - Max health
+
+ - Damage dealt
+
+ - Health regen
+
+However, if Samantha should die ... she'll be **gone for good**. There is a **revival bandage** that can be used to save your fallen companion, as a last resort.
+
+>[!NOTE]
+>The mod comes with a built-in sandbox preset, which is the preferred and recommended way to play. The sandbox settings provided are a deliberate choice.
+>You are free to change any settings that are not greyed out, but doing so may affect the way the mod is meant to be experienced.
+
+>[!TIP]
+>The mod comes with a 'Configs.txt' file in the 'I Am Legend' folder. You can edit this file to change the multiplier applied to POI and biome spawns, and also change the range at which you are detected.
+
+>[!IMPORTANT]
+> **DO NOT** delete this file. It is required for the mod's functionality.
+ 
+### EPILOGUE
+
+In 2009 a deadly virus burned through our civilization, pushing humankind to the edge of extinction.
+
+Dr. Robert Neville dedicated his life to the discovery of a cure, and the restoration of humanity.
+
+On September 9th, 2012, at approximately 8:49 p.m. he discovered that cure; and at 8:52 he gave his life to defend it.
+
+We are his legacy.
+
+This is his legend.
+
+# INSTALLATION INSTRUCTIONS
+
+The mod comes pre-packaged in a "Mods" folder. Simply delete your existing mods folder, and copy the contents of the .zip file to that previous location.
+
+# MOD COMPATIBILITY
+
+The mod has been tested with AGF's HUD mod and with POI Scourge Lite. Compatibility with other mods is **not** guaranteed, so use other mods at your own risk.
+
+## CREDITS
+
+JoeSloMo for the Hybrid Action Skills mod, Shavick for the companion mod, and WookieNookie for the inspiration for increased entity levels.	
+            </Description>
+            <Discord></Discord>
+            <Donate></Donate>
+            <EAC>Disabled</EAC>
+            <Version>Latest</Version>
+            <DownloadMode>Clone</DownloadMode>
+            <Downloads>
+                <Download>https://github.com/HellsJanitor/I-Am-Legend-3.0</Download>
+            </Downloads>
+        </Server>
+    </ServerGroup>
+</Servers>

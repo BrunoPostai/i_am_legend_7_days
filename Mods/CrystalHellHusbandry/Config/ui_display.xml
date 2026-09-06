@@ -1,0 +1,21 @@
+<configs>
+
+    <append xpath="/ui_display_info/item_display">
+        <item_display_info display_type="ammoArrowTranq" display_group="groupAmmo" extends="ammoArrow">
+            <display_entry name="TamingSedationValue" title_key="statTamingSedationValue" display_type="Integer"/>
+        </item_display_info>
+        
+        <item_display_info display_type="meleeTranqClub" display_group="groupMelee" extends="melee">
+            <display_entry name="TamingSedationValue" title_key="statTamingSedationValue" display_type="Integer"/>
+        </item_display_info>
+
+        <item_display_info display_type="meleeTranqRepairTool" display_group="groupMelee" extends="meleeRepairTool">
+            <display_entry name="TamingSedationValue" title_key="statTamingSedationValue" display_type="Integer"/>
+        </item_display_info>
+
+        <item_display_info display_type="foodTaming" display_group="groupConsumables" extends="foodRaw">
+            <display_entry name="TamingValue" title_key="statTamingValue" display_type="Integer"/>
+        </item_display_info>
+    </append>
+
+</configs>

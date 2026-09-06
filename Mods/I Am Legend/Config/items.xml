@@ -1,0 +1,30 @@
+<Hells_Janitor>
+	<set xpath="//item[@name='drinkJarGrandpasAwesomeSauce']/effect_group[@name='Drink Tier 5']//display_value[@name='dBartering']/@value">2</set>
+	<set xpath="//item[@name='drinkJarGrandpasAwesomeSauce']/effect_group[@name='Drink Tier 5']//display_value[@name='dBartering']/@name">dFortitude</set>
+	<insertafter xpath="//item[@name='drinkJarGrandpasAwesomeSauce']/effect_group[@name='Drink Tier 5']//display_value[@name='dFortitude']">
+		<display_value name="dPerception" value="2"/>
+		<display_value name="dStrength" value="2"/>
+		<display_value name="dAgility" value="2"/>
+		<display_value name="dIntellect" value="2"/>
+	</insertafter>
+	<set xpath="//item[@name='drinkJarGrandpasAwesomeSauce']/effect_group[@name='Drink Tier 5']//display_value[@name='dDuration']/@value">600</set>
+	<set xpath="//item[@name='drinkJarGrandpasAwesomeSauce']/effect_group[@name='Drink Tier 5']//triggered_effect[@operation='add']/@value">603</set>
+	<set xpath="//item[@name='drinkJarGrandpasAwesomeSauce']/effect_group[@name='Drink Tier 5']//triggered_effect[@operation='set']/@value">1803</set>
+	<set xpath="//item[@name='drinkJarGrandpasAwesomeSauce']/effect_group[@name='Drink Tier 5']/triggered_effect[@operation='set']/requirement[@name='CVarCompare']/@value">1803</set>
+	
+	<conditional>
+		<if cond="mod_loaded('Companions')">
+			<append xpath="//item[@name='tamingConfig']/property[@name='TamingEligibleAnimals']/@value">,animalGermanShepherd</append>
+
+			<csv xpath="/items/item/property/property[@name='Magazine_items']/@value" op="remove">*tranq*</csv>
+			
+			<remove xpath="/items/item[contains (@name,'meleeWpnClub')]/property[@name='DisplayType']"/>
+			<remove xpath="/items/item[contains (@name,'meleeWpnClub')]/property[@name='TamingValidAnimals']"/>
+			<remove xpath="/items/item[contains (@name,'meleeWpnClub')]/property[@name='TamingSedationValue']"/>
+			<remove xpath="/items/item[contains (@name,'meleeWpnClub')]/property[@name='TamingSedationValueMax']"/>
+			<remove xpath="/items/item[contains (@name,'meleeWpnClub')]/property[@name='KnockOutMultiplier']"/>
+			
+			<remove xpath="/items/item[contains (@name,'meleeWpnClub')]/effect_group[@tiered='false']/display_value[@name='TamingSedationValue']"/>
+		</if>
+	</conditional>
+</Hells_Janitor>

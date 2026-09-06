@@ -1,0 +1,10 @@
+<Hells_Janitor>
+	<setattribute xpath="/traders" name="currency_item">oldCash</setattribute>	
+	
+	<conditional>
+		<if cond="mod_loaded('0-XNPCCore')">
+			<set xpath="/traders/trader_info[@id='9']"></set>
+		</if>
+	</conditional>
+	
+</Hells_Janitor>

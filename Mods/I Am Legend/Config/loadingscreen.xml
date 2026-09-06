@@ -1,0 +1,8 @@
+<HellsJanitor>
+	<set xpath="/doc/backgrounds">
+		<tex file="@modfolder:UIAtlases/ItemIconAtlas/background.jpg" />
+		<tex file="@modfolder:UIAtlases/ItemIconAtlas/background.jpg" />
+		<tex file="@modfolder:UIAtlases/ItemIconAtlas/background.jpg" />
+		<tex file="@modfolder:UIAtlases/ItemIconAtlas/background.jpg" />		
+	</set>
+</HellsJanitor>

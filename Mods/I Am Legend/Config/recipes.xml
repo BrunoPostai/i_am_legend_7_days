@@ -1,0 +1,10 @@
+<HellsJanitor>
+	<conditional>
+		<if cond="mod_loaded('Companions')">
+			<remove xpath="/recipes/recipe[starts-with (@name,'tranq')]"/>
+			<remove xpath="/recipes/recipe[starts-with (@name,'itemSedative')]"/>
+			<remove xpath="/recipes/recipe[@name='foodCanDogfood']"/>
+			<remove xpath="/recipes/recipe[starts-with (@name,'TamingFood')]"/>
+		</if>
+	</conditional>
+</HellsJanitor>

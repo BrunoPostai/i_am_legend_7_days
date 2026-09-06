@@ -1,0 +1,13 @@
+
+<configs>
+    <append xpath="templates">
+        <companion_buff_entry>
+            <rect name="companionBuffEntry" width="40" height="40" controller="CompanionBuffEntry, CHHusbandry" visible="{buffvisible}">
+                <sprite depth="0" name="backgroundBorder" sprite="menu_empty3px" color="0,0,0,255" width="40" height="40" type="sliced" fillcenter="false"/>
+                <sprite depth="1" name="background" sprite="menu_empty" color="0,0,0,235" pos="1,-1" width="38" height="38" type="sliced"/>
+                <sprite depth="2" name="buffIcon" sprite="{bufficon}" color="{buffcolor}" pos="4,-4" width="32" height="32"/>
+                <label depth="4" name="buffTime" text="{bufftime}" pos="1,-24" width="36" height="14" font_size="13" justify="right" effect="outline" effect_color="0,0,0,255" effect_distance="1,1" foregroundlayer="true"/>
+            </rect>
+        </companion_buff_entry>
+    </append>
+</configs>

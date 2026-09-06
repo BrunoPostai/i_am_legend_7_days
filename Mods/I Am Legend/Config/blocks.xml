@@ -1,0 +1,29 @@
+<HellsJanitor>
+	<conditional>
+		<if cond="mod_loaded('0-SCore_sphereii')">
+			<!-- <set xpath="/blocks/block[@name='ConfigFeatureBlock']/property[@class='AdvancedZombieFeatures']/property[@name='RandomSize']/@value">true</set> -->
+			<set xpath="/blocks/block[@name='ConfigFeatureBlock']/property[@class='AdvancedZombieFeatures']/property[@name='RandomWalk']/@value">true</set>
+			
+			<append xpath="/blocks">
+				<block name="germanShepherdSpawnCube">
+					<property name="Extends" value="SpawnCube"/>
+					<property name="CustomIcon" value="animalGermanShepherdCompanion"/>
+					<property name="DescriptionKey" value="germanShepherdSpawnCubeDesc"/>
+					<property name="Class" value="SpawnCube2SDX, SCore"/>
+					<property name="Config" value="ec=animalGermanShepherdCompanion;buff=buffOrderFollow;pc=0;leader=true"/>
+					<property name="Model" value="#@modfolder:Resources/germanshepherd.unity3d?GermanShepherd"/>
+					<property name="ModelOffset" value="0,0,0"/>
+					<property name="Group" value="I Am Legend"/>
+					<property name="EconomicValue" value="0"/>
+					<property name="SellableToTrader" value="false"/>
+				</block>
+			</append>
+		</if>
+	</conditional>
+	
+	<conditional>
+		<if cond="mod_loaded('Companions')">
+			<remove xpath="/blocks/block[@name='randomItemMachine']"/>
+		</if>
+	</conditional>
+</HellsJanitor>

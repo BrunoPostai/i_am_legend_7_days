@@ -1,0 +1,7 @@
+<configs>
+
+    <set xpath="//window[@name='sandboxOptions']//grid[@name='tabButtons']/@cols">5</set>
+    <set xpath="//window[@name='sandboxOptions']//grid[@name='tabButtons']/@rows">3</set>
+    <set xpath="//window[@name='sandboxOptions']//rect[@name='tabsContents']/@repeat_count">11</set>
+
+</configs>

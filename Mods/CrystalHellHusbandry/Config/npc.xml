@@ -1,0 +1,8 @@
+<config>
+
+    <!-- <set xpath="//faction[@name= 'animals']">
+        <relationship name="*" value="neutral"/>
+		<relationship name="undead" value="hate"/>
+    </set> -->
+
+</config>
