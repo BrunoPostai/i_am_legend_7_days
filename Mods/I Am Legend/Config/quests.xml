@@ -29,8 +29,8 @@
 			<property name="shareable" value="false"/>
 			
 			<action type="ShowMessageWindow">
-				<property name="message" value="IAmLegendTip02"/>
-				<property name="title" value="IAmLegendTip02_title"/>
+				<property name="message" value="IAmLegendTip"/>
+				<property name="title" value="IAmLegendTip_title"/>
 				<property name="delay" value="3"/>
 			</action>
 		</quest>

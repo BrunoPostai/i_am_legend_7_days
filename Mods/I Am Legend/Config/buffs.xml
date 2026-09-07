@@ -27,13 +27,32 @@
 			<stack_type value="effect"/>
 			<duration value="0"/>
 			<update_rate value=".25"/>
-			<!-- Damage while exposed -->
+			<!-- Damage while exposed — per-tier (flat DPS; tougher tiers have bigger HP pools so they survive longer) -->
 			<effect_group>
-				<passive_effect name="HealthChangeOT" operation="base_subtract" value="0.5"/>
+				<requirement name="!EntityTagCompare" tags="feral,radiated,charged,infernal"/>
+				<passive_effect name="HealthChangeOT" operation="base_subtract" value="10"/>
 				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffIsOnFire"/>
-				<!-- <triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="#IAmLegend:Effect2_Shape" /> -->
-				<!-- <triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="Effect2_Shape" /> -->
-				<!-- <triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="Effect2_Shape" /> -->
+			</effect_group>
+			<effect_group>
+				<requirement name="EntityTagCompare" tags="feral"/>
+				<requirement name="!EntityTagCompare" tags="radiated,charged,infernal"/>
+				<passive_effect name="HealthChangeOT" operation="base_subtract" value="17.5"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffIsOnFire"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="EntityTagCompare" tags="radiated"/>
+				<passive_effect name="HealthChangeOT" operation="base_subtract" value="25"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffIsOnFire"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="EntityTagCompare" tags="charged"/>
+				<passive_effect name="HealthChangeOT" operation="base_subtract" value="27.5"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffIsOnFire"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="EntityTagCompare" tags="infernal"/>
+				<passive_effect name="HealthChangeOT" operation="base_subtract" value="30"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffIsOnFire"/>
 			</effect_group>
 		</buff>
 		

@@ -84,7 +84,7 @@
         <!-- Revival Syringe for dead tamed companions -->
         <item name="companionRevivalBandage">
             <property name="Extends" value="medicalFirstAidBandage"/>
-            <property name="DescriptionKey" value="companionRevivalBandage_Desc"/>
+            <property name="DescriptionKey" value="companionRevivalBandageDesc"/>
             <property name="CustomIcon" value="medicalFirstAidBandage"/>
             <property name="CustomIconTint" value="0,255,255"/>
             <property name="Stacknumber" value="50"/>

@@ -173,7 +173,7 @@
 		<!-- *** FEMALE CHARGED DARKSEEKER -->
 		<entity_class name="zombieDarkseekerSlimFemaleCharged" extends="zombieDarkseekerSlimFemaleRadiated">
 			<property name="MatColor" value="charged"/>
-			<property name="PreviousTier" value="zombieArleneRadiated"/>
+			<property name="PreviousTier" value="zombieDarkseekerSlimFemaleRadiated"/>
 			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,charged"/>
 			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerCharged"/> -->
 			<property name="ExperienceGain" value="^xpSlimCharged01"/><!-- Charged -->
@@ -959,13 +959,11 @@
 
 					<property name="AITask-1" value="BreakBlock"/>
 					<property name="AITask-2" value="Territorial"/>
-					<property name="AITask-3" value="BreedingApproach, CHHusbandry"/>
-					<property name="AITask-4" value="TroughApproach, CHHusbandry"/>
-					<property name="AITask-5" value="FearResponse, CHHusbandry"/>
-					<property name="AITask-6" value="FollowOwner, CHHusbandry"/>
-					<property name="AITask-7"
-							  value="ApproachAndAttackTarget"
-							  data="class=EntityPlayer,15,EntityBandit,15,EntityAnimalStag,20,EntityZombie,20"/>
+					<property name="AITask-3" value="FollowOwner, CHHusbandry"/>
+					<property name="AITask-4" value="BreedingApproach, CHHusbandry"/>
+					<property name="AITask-5" value="TroughApproach, CHHusbandry"/>
+					<property name="AITask-6" value="FearResponse, CHHusbandry"/>
+					<property name="AITask-7" value="ApproachAndAttackTarget" data="class=EntityZombie,50,EntityBandit,30"/>
 					<property name="AITask-8" value="ApproachSpot"/>
 					<property name="AITask-9" value="Look"/>
 					<property name="AITask-10" value="Wander"/>

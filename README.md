@@ -61,7 +61,7 @@ Any sandbox options in grey are disabled and cannot be changed. 90% of the mod's
 
 At night, the Darkseekers will spawn, and there will be a LOT of them; 5x more than the vanilla game. Staying inside and staying hidden at night is advisable.
 
-Skills are a hybrid system of perk points and action skills. 50% of your skills come from your perks, and the other 50% from your skill. The more you use certain tools and weapons, the more adept you are at using them.
+Skills use a Learn By Doing system (IzPLearnByDoing). The more you use certain tools and weapons, the more adept you are at using them.
 
 You will spawn with a companion - a German Shepherd dog. Your dog must be fed, watered, and kept safe. Keep a close eye on the dog's stats, especially in combat.
 Your companion will level up the same way you do and will earn perk points over time. Use these points to increase things like:
@@ -79,7 +79,7 @@ However, if Samantha should die ... she'll be **gone for good**. There is a **re
 >You are free to change any settings that are not greyed out, but doing so may affect the way the mod is meant to be experienced.
 
 >[!TIP]
->The mod comes with a 'Configs.txt' file in the 'I Am Legend' folder. You can edit this file to change the multiplier applied to POI and biome spawns, and also change the range at which you are detected.
+>The mod comes with a 'Config.txt' file in the 'I Am Legend' folder. You can edit this file to change the multiplier applied to POI and biome spawns, and also change the range at which you are detected.
 
 >[!IMPORTANT]
 > **DO NOT** delete this file. It is required for the mod's functionality.
@@ -106,4 +106,4 @@ The mod has been tested with AGF's HUD mod and with POI Scourge Lite. Compatibil
 
 ## CREDITS
 
-JoeSloMo for the Hybrid Action Skills mod, Shavick for the companion mod, and WookieNookie for the inspiration for increased entity levels.
+IzPrebuilt for the Learn By Doing (LBD) skill system, Shavick for the companion mod, and WookieNookie for the inspiration for increased entity levels.

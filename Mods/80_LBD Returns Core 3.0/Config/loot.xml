@@ -1,0 +1,1038 @@
+<configs>
+<insertAfter xpath = "/lootcontainers/lootgroup[1]">
+
+<lootgroup name="schematicsVehiclePartsT0">
+	<item name="vehicleBicycleChassisSchematic"/>
+	<item name="vehicleBicycleHandlebarsSchematic"/>
+</lootgroup>
+<lootgroup name="schematicsVehiclePartsT1">
+	<item name="vehicleMinibikeChassisSchematic"/>
+	<item name="vehicleMinibikeHandlebarsSchematic"/>
+</lootgroup>
+<lootgroup name="schematicsVehiclePartsT2">
+	<item name="vehicleMotorcycleChassisSchematic"/>
+	<item name="vehicleMotorcycleHandlebarsSchematic"/>
+</lootgroup>
+<lootgroup name="schematicsVehiclePartsT3">
+	<item name="vehicleTruck4x4ChassisSchematic"/>
+	<item name="vehicleTruck4x4AccessoriesSchematic"/>
+	<item name="vehicleGyroCopterAccessoriesSchematic"/>
+	<item name="vehicleGyroCopterChassisSchematic"/>
+</lootgroup>	
+<lootgroup name ="schematicsT0Medical">
+		<item name="medicalFirstAidBandageSchematic"/>
+</lootgroup>
+<lootgroup name ="schematicsT1Medical">
+		<item name="medicalPlasterCastSchematic"/>
+		<item name="drugHerbalAntibioticsSchematic"/>
+</lootgroup>
+<lootgroup name ="schematicsT2Medical">
+		<item name="drugAntibioticsSchematic"/>
+		<item name="medicalFirstAidKitSchematic"/>
+</lootgroup>
+
+<lootgroup name ="schematicsMedical">
+		<item group="schematicsT0Medical"/>
+		<item group="schematicsT1Medical" loot_prob_template="ProbT1"/>
+		<item group="schematicsT2Medical" loot_prob_template="ProbT2"/>
+</lootgroup>
+
+<lootgroup name="schematicsT1Guns">
+	<item name="thrownAmmoPipeBombSchematic"/>
+	<item name="mineCookingPotSchematic"/>
+	<item name="ammo9mmBulletBallSchematic"/>
+	<item name="ammoJunkTurretRegularSchematic"/>
+	<item name="ammo44MagnumBulletBallSchematic"/>
+	<item name="ammoArrowSteelAPSchematic"/>
+	<item name="ammoCrossbowBoltSteelAPSchematic"/>
+	<item name="gunBowT1WoodenBowSchematic"/>
+	<item name="gunBowT1IronCrossbowSchematic"/>
+	<item name="gunHandgunT1PistolSchematic"/>
+	<item name="gunShotgunT1DoubleBarrelSchematic"/>
+	<item name="gunRifleT1HuntingRifleSchematic"/>
+	<item name="gunMGT1AK47Schematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT2Guns">
+	<item name="thrownDynamiteSchematic"/>
+	<item name="mineHubcapSchematic"/>
+	<item name="ammoJunkTurretShellSchematic"/>
+	<item name="ammo9mmBulletHPSchematic"/>
+	<item name="ammo44MagnumBulletHPSchematic"/>
+	<item name="ammoShotgunShellSchematic"/>
+	<item name="ammo762mmBulletBallSchematic"/>
+	<item name="gunBowT3CompoundBowSchematic"/>
+	<item name="gunBowT3CompoundCrossbowSchematic"/>
+	<item name="gunHandgunT2Magnum44Schematic"/>
+	<item name="gunShotgunT2PumpShotgunSchematic"/>
+	<item name="gunRifleT2LeverActionRifleSchematic"/>
+	<item name="gunMGT2TacticalARSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT3Guns">
+	<item name="thrownGrenadeSchematic"/>
+	<item name="thrownGrenadeContactSchematic"/>
+	<item name="mineAirFilterSchematic"/>
+	<item name="ammoShotgunSlugSchematic"/>
+	<item name="ammoShotgunBreachingSlugSchematic"/>
+	<item name="ammo762mmBulletHPSchematic"/>
+	<item name="ammo762mmBulletAPSchematic"/>
+	<item name="ammo44MagnumBulletAPSchematic"/>
+	<item name="ammo9mmBulletAPSchematic"/>
+	<item name="ammoJunkTurretAPSchematic"/>
+	<item name="ammoArrowFlamingSchematic"/>
+	<item name="ammoArrowExplodingSchematic"/>
+	<item name="ammoCrossbowBoltFlamingSchematic"/>
+	<item name="ammoCrossbowBoltExplodingSchematic"/>
+	<item name="ammoRocketSchematic"/>
+	<item name="gunHandgunT3SMG5Schematic"/>
+	<item name="gunHandgunT3DesertVultureSchematic"/>
+	<item name="gunShotgunT3AutoShotgunSchematic"/>
+	<item name="gunRifleT3SniperRifleSchematic"/>
+	<item name="gunMGT3M60Schematic"/>
+	<item name="gunExplosivesT3RocketLauncherSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsGuns">
+	<item group="schematicsT1Guns" loot_prob_template="ProbT1Cap"/>
+	<item group="schematicsT2Guns" loot_prob_template="ProbT2Cap"/>
+	<item group="schematicsT3Guns" loot_prob_template="ProbT3"/>
+</lootgroup>
+
+
+<lootgroup name="schematicsT1Tools">
+	<item name="forgeSchematic"/>
+	<item name="cntDewCollectorSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT2Tools">
+	<item name="workbenchSchematic"/>
+	<item name="ammoGasCanSchematic"/>
+	<item name="resourceOilSchematic"/>
+	<item name="toolBellowsSchematic"/>
+	<item name="toolAnvilSchematic"/>
+	<item name="meleeToolAxeT2SteelAxeSchematic"/>
+	<item name="meleeToolPickT2SteelPickaxeSchematic"/>
+	<item name="meleeToolShovelT2SteelShovelSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT3Tools">
+	<item name="meleeToolAxeT3ChainsawSchematic"/>
+	<item name="meleeToolPickT3AugerSchematic"/>
+	<item name="meleeToolSalvageT3ImpactDriverSchematic"/>
+	<item name="meleeWpnSledgeT3SteelSledgehammerSchematic"/>
+	<item name="meleeToolRepairT3NailgunSchematic"/>
+	<item name="toolForgeCrucibleSchematic"/>
+	<item name="cntApiarySchematic"/>
+	<item name="cementMixerSchematic"/>
+	<item name="chemistryStationSchematic"/>
+	<item name="cntChickenCoopSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsTool">
+	<item group="schematicsT1Tools" loot_prob_template="ProbT1Cap"/>
+	<item group="schematicsT2Tools" loot_prob_template="ProbT2Cap"/>
+	<item group="schematicsT3Tools" loot_prob_template="ProbT3"/>
+</lootgroup>
+
+
+<lootgroup name="schematicsT2MeleeWeapons">
+	<item name="meleeWpnBladeT3MacheteSchematic"/>
+	<item name="meleeWpnClubT3SteelClubSchematic"/>
+	<item name="meleeWpnSpearT3SteelSpearSchematic"/>
+	<item name="meleeWpnKnucklesT3SteelKnucklesSchematic"/>
+	<item name="meleeWpnSledgeT3SteelSledgehammerSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsMeleeWeapons">
+	<item group="schematicsT2MeleeWeapons" loot_prob_template="ProbT2"/>
+</lootgroup>
+
+
+<lootgroup name="schematicsT1Robotics">
+	<item name="meleeWpnBatonT2StunBatonSchematic"/>
+	<item name="gunBotT1JunkSledgeSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT2Robotics">
+	<item name="gunBotT2JunkTurretSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT3Robotics">
+	<item name="gunBotT3JunkDroneSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsRobotics">
+	<item group="schematicsT1Robotics" loot_prob_template="ProbT1Cap"/>
+	<item group="schematicsT2Robotics" loot_prob_template="ProbT2Cap"/>
+	<item group="schematicsT3Robotics" loot_prob_template="ProbT3"/>
+</lootgroup>
+	
+<lootgroup name="schematicsT1Food">
+	<item name="foodCornBreadSchematic"/>
+	<item name="foodPumpkinBreadSchematic"/>
+	<item name="foodBlueberryPieSchematic"/>
+	<item name="foodPumpkinPieSchematic"/>
+	<item name="foodPumpkinCheesecakeSchematic"/>
+	<item name="drinkJarHoneyTea"/>
+	<item name="drinkJarHoneyTeaSchematic"/>
+	<item name="foodChickenNuggetsSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT2Food"> 
+	<item name="foodVegetableStewSchematic"/>
+	<item name="foodMeatStewSchematic"/>
+	<item name="drinkYuccaJuiceSmoothie"/>
+	<item name="drinkYuccaJuiceSmoothieSchematic"/>
+	<item name="drinkJarBeerSchematic"/>
+	<item name="foodSteakAndPotatoSchematic"/>
+	<item name="foodFishTacosSchematic"/>
+	<item name="foodChiliDogSchematic"/>
+	<item name="foodHoneyGlazedSham"/>
+	<item name="foodRoadrunnerChickenJerkySchematic"/>
+	<item name="foodChickenWingsSchematic"/>
+	<item name="foodHoneyGlazedShamSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT3Food">
+	<item name="foodHoboStewSchematic"/>
+	<item name="foodTunaFishGravyToastSchematic"/>
+	<item name="foodSpaghettiSchematic"/>
+	<item name="foodShepardsPieSchematic"/>
+	<item name="foodGumboStewSchematic"/>
+	<item name="drinkJarGrandpasMoonshineSchematic"/>
+	<item name="drinkJarGrandpasLearningElixirSchematic"/>
+	<item name="drinkJarGrandpasAwesomeSauceSchematic"/>
+	<item name="foodHoneyBrisket"/>
+	<item name="foodHoneyBrisketSchematic"/>
+	<item name="foodAshChickenStewSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsFood">
+	<item group="schematicsT1Food" loot_prob_template="ProbT1Cap"/>
+	<item group="schematicsT2Food" loot_prob_template="ProbT2Cap"/>
+	<item group="schematicsT3Food" loot_prob_template="ProbT3"/>
+</lootgroup>
+
+<lootgroup name="schematicsT1Electrical">
+	<item name="generatorbankSchematic"/>
+	<item name="pressureplateSchematic"/>
+	<item name="switchSchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT2Electrical">
+	<item name="poweredDoorsSchematic"/>
+	<item name="motionsensorSchematic"/>
+	<item name="speakerSchematic"/>
+	<item name="spotlightPlayerSchematic"/>
+	<item name="batterybankSchematic"/>
+	<item name="electrictimerrelaySchematic"/>
+</lootgroup>
+
+<lootgroup name="schematicsT3Electrical">
+	<item name="bladeTrapSchematic"/>
+	<item name="dartTrapSchematic"/>
+	<item name="electricfencepostSchematic"/>
+	<item name="shotgunTurretSchematic"/>
+	<item name="autoTurretSchematic"/>
+
+</lootgroup>
+
+<lootgroup name="schematicsElectrical">
+	<item group="schematicsT1Electrical" loot_prob_template="ProbT1Cap"/>
+	<item group="schematicsT2Electrical" loot_prob_template="ProbT2Cap"/>
+	<item group="schematicsT3Electrical" loot_prob_template="ProbT3"/>
+</lootgroup>
+
+
+</insertAfter>
+
+<set xpath ="lootcontainers/lootgroup[@name='skillMagazines']">
+	<item name="harvestingToolsSkillMagazine"/>
+	<item name="repairToolsSkillMagazine"/>
+	<item name="salvageToolsSkillMagazine"/>
+	<item name="workstationSkillMagazine"/>
+	<item name="bowsSkillMagazine"/>
+	<item name="spearsSkillMagazine"/>
+	<item name="bladesSkillMagazine"/>
+	<item name="clubsSkillMagazine"/>
+	<item name="handgunsSkillMagazine"/>
+	<item name="shotgunsSkillMagazine"/>
+	<item name="riflesSkillMagazine"/>
+	<item name="machineGunsSkillMagazine"/>
+	<item name="armorSkillMagazine"/>
+	<item name="medicalSkillMagazine"/>
+	<item name="foodSkillMagazine"/>
+	<item name="seedSkillMagazine"/>
+	<item name="electricianSkillMagazine"/>
+	<item name="speechSkillMagazine"/>
+	<item name="athleticsSkillMagazine"/>
+	<item name="scavengingSkillMagazine"/>
+</set>
+
+<!--quest rewards-->
+<set xpath ="lootcontainers/lootgroup[@name='groupQuestRewardSkillMagazinesAll01']">
+	<item name="bowsSkillMagazine" count="1"/>
+	<item name="spearsSkillMagazine" count="1"/>
+	<item name="clubsSkillMagazine" count="1"/>
+	<item name="harvestingToolsSkillMagazine" count="1"/>
+	<item name="bladesSkillMagazine" count="1"/>
+	<item name="repairToolsSkillMagazine" count="1"/>
+	<item name="salvageToolsSkillMagazine" count="1"/>
+	<item name="handgunsSkillMagazine" count="1"/>
+	<item name="shotgunsSkillMagazine" count="1"/>
+	<item name="riflesSkillMagazine" count="1"/>
+	<item name="machineGunsSkillMagazine" count="1"/>
+	<item name="armorSkillMagazine" count="1"/>
+	<item name="workstationSkillMagazine" count="1"/>
+	<item name="medicalSkillMagazine" count="1"/>
+	<item name="foodSkillMagazine" count="1"/>
+	<item name="seedSkillMagazine" count="1"/>
+	<item name="electricianSkillMagazine" count="1"/>
+	<item name="speechSkillMagazine" count="1"/>
+	<item name="athleticsSkillMagazine" count="1"/>
+	<item name="scavengingSkillMagazine" count="1"/>
+</set>
+
+<set xpath="lootcontainers/lootgroup[@name='groupQuestRewardSkillMagazinesAll01']/@count">1</set>
+
+<!--challenge rewards-->
+<set xpath ="lootcontainers/lootgroup[@name='groupChallengeRewardSkillMagazinesAll01']">
+	<item name="bowsSkillMagazine" count="1"/>
+	<item name="spearsSkillMagazine" count="1"/>
+	<item name="clubsSkillMagazine" count="1"/>
+	<item name="harvestingToolsSkillMagazine" count="1"/>
+	<item name="bladesSkillMagazine" count="1"/>
+	<item name="repairToolsSkillMagazine" count="1"/>
+	<item name="salvageToolsSkillMagazine" count="1"/>
+	<item name="handgunsSkillMagazine" count="1"/>
+	<item name="shotgunsSkillMagazine" count="1"/>
+	<item name="riflesSkillMagazine" count="1"/>
+	<item name="machineGunsSkillMagazine" count="1"/>
+	<item name="armorSkillMagazine" count="1"/>
+	<item name="workstationSkillMagazine" count="1"/>
+	<item name="medicalSkillMagazine" count="1"/>
+	<item name="foodSkillMagazine" count="1"/>
+	<item name="seedSkillMagazine" count="1"/>
+	<item name="electricianSkillMagazine" count="1"/>
+	<item name="speechSkillMagazine" count="1"/>
+	<item name="athleticsSkillMagazine" count="1"/>
+	<item name="scavengingSkillMagazine" count="1"/>
+</set>
+<!--weapon skill books-->
+<set xpath ="lootcontainers/lootgroup[@name='weaponSkillMagazinesOnly']">
+	<item name="bowsSkillMagazine"/>
+	<item name="spearsSkillMagazine"/>
+	<item name="bladesSkillMagazine"/>
+	<item name="clubsSkillMagazine"/>
+	<item name="handgunsSkillMagazine"/>
+	<item name="shotgunsSkillMagazine"/>
+	<item name="riflesSkillMagazine"/>
+	<item name="machineGunsSkillMagazine"/>
+</set>
+
+<!--T0 schematics-->
+<set xpath ="lootcontainers/lootgroup[@name='schematicsModsAndGeneralT0']">
+	<item name="modArmorImprovedFittingsSchematic"/>
+	<item name="modArmorMuffledConnectorsSchematic"/>
+	<item name="modArmorPlatingBasicSchematic"/>
+	<item name="modArmorStoragePocketSchematic"/>
+	<item name="modGunBarrelExtenderSchematic"/>
+	<item name="modGunDuckbillSchematic"/>
+	<item name="modGunFlashlightSchematic"/>
+	<item name="modGunForegripSchematic"/>
+	<item name="modGunMeleeTheHunterSchematic"/>
+	<item name="modGunRetractingStockSchematic"/>
+	<item name="modGunScopeSmallSchematic"/>
+	<item name="modGunTriggerGroupSemiSchematic"/>
+	<item name="modMeleeClubBurningShaftSchematic"/>
+	<item name="modMeleeErgonomicGripSchematic"/>
+	<item name="modMeleeGraveDiggerSchematic"/>
+	<item name="modMeleeStructuralBraceSchematic"/>
+	<item name="modMeleeTemperedBladeSchematic"/>
+	<item name="modMeleeWeightedHeadSchematic"/>
+	<item name="modMeleeWoodSplitterSchematic"/>
+	<item name="modShotgunSawedOffBarrelSchematic"/>
+</set>
+
+<!--T1 schematics-->
+<set xpath ="lootcontainers/lootgroup[@name='schematicsModsAndGeneralT1']">
+	<item name="modArmorBandolierSchematic"/>
+	<item name="modArmorDoubleStoragePocketSchematic"/>
+	<item name="modArmorHelmetLightSchematic"/>
+	<item name="modFuelTankSmallSchematic"/>
+	<item name="modGunBipodSchematic"/>
+	<item name="modGunBowArrowRestSchematic"/>
+	<item name="modGunChokeSchematic"/>
+	<item name="modGunCrippleEmSchematic"/>
+	<item name="modGunMagazineExtenderSchematic"/>
+	<item name="modGunMuzzleBrakeSchematic"/>
+	<item name="modGunReflexSightSchematic"/>
+	<item name="modGunScopeMediumSchematic"/>
+	<item name="modGunTriggerGroupBurst3Schematic"/>
+	<item name="modMeleeBunkerBusterSchematic"/>
+	<item name="modMeleeClubBarbedWireSchematic"/>
+	<item name="modMeleeFortifyingGripSchematic"/>
+	<item name="modMeleeIronBreakerSchematic"/>
+	<item name="modMeleeSerratedBladeSchematic"/>
+</set>
+
+<!--T2 schematics-->
+<set xpath ="lootcontainers/lootgroup[@name='schematicsModsAndGeneralT2']">
+	<item name="modArmorAdvancedMuffledConnectorsSchematic"/>
+	<item name="modArmorCustomizedFittingsSchematic"/>
+	<item name="modArmorImpactBracingSchematic"/>
+	<item name="modArmorPlatingReinforcedSchematic"/>
+	<item name="modArmorTripleStoragePocketSchematic"/>
+	<item name="modArmorQuadStoragePocketSchematic" loot_prob_template="low" force_prob="true"/>
+	<item name="modArmorWaterPurifierSchematic"/>
+	<item name="modFuelTankLargeSchematic"/>
+	<item name="modGunBowPolymerStringSchematic"/>
+	<item name="modGunLaserSightSchematic"/>
+	<item name="modGunMeleeRadRemoverSchematic"/>
+	<item name="modGunScopeLargeSchematic"/>
+	<item name="modGunSoundSuppressorSilencerSchematic"/>
+	<item name="modGunTriggerGroupAutomaticSchematic"/>
+	<item name="modMeleeClubMetalSpikesSchematic"/>
+	<item name="modRoboticDroneCargoModSchematic" loot_prob_template="med" force_prob="true"/>
+	<item name="modRoboticDroneMedicModSchematic" loot_prob_template="med" force_prob="true"/>
+	<item name="modRoboticDroneHeadlampModSchematic" loot_prob_template="med" force_prob="true"/>
+	<item name="modRoboticDroneArmorPlatingModSchematic" loot_prob_template="med" force_prob="true"/>
+	<item name="modRoboticDroneMoraleBoosterModSchematic" loot_prob_template="med" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='schematicsVehiclesT0']">
+	<item group="vehicleModSchematics01"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='schematicsVehiclesT1']">
+	<item group="vehicleModSchematics02"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='schematicsVehiclesT2']">
+	<item group="vehicleModSchematics03"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='booksAllScaled']">
+	<item group="perkBooks" loot_prob_template="high"/>
+	<item group="schematicsModsAndGeneralCommon" loot_prob_template="medHigh" force_prob="true"/>
+	<item group="schematicsVehiclesCommon" loot_prob_template="low" force_prob="true"/>
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='booksRareOnlyScaled']">
+	<item group="schematicsModsAndGeneralRare" loot_prob_template="med" force_prob="true"/>
+	<item group="schematicsVehiclesRare" loot_prob_template="low" force_prob="true"/>
+	<item name="plantedGraceCorn1Schematic" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupSchematicsAll']">
+	<item group="schematicsModsAndGeneralCommon" loot_prob_template="med" force_prob="true"/>
+	<item group="schematicsVehiclesCommon" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupElectricalDevices']">
+	<item name="resourceElectricParts" count="5,10" loot_prob_template="high"/>
+	<item name="electricwirerelay" count="5,15" loot_prob_template="med"/>
+	<item name="electrictimerrelay" count="1,3" loot_prob_template="med"/>
+	<item name="ceilingLight01_player" count="1,6" loot_prob_template="med"/>
+	<item name="switch" count="1,3" loot_prob_template="med"/>
+	<item name="speaker" count="1" loot_prob_template="low"/>
+	<item name="motionsensor" count="1,2" loot_prob_template="low"/>
+	<item name="pressureplate" count="1,5" loot_prob_template="low"/>
+	<item name="batterybank" loot_prob_template="veryLow"/>
+	<item name="generatorbank" loot_prob_template="veryLow"/>
+	<item name="electricianSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="schematicsRobotics" loot_prob_template="low" force_prob="true"/>
+	<item group="schematicsElectrical" loot_prob_template="low" force_prob="true"/>
+
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupWorkingStiffsBooks']">
+	<item name="harvestingToolsSkillMagazine"/>
+	<item name="repairToolsSkillMagazine"/>
+	<item name="salvageToolsSkillMagazine"/>
+	<item name="workstationSkillMagazine"/>
+	<item name="bookArtOfMiningLuckyStrike"/>
+	<item name="bookArtOfMiningDiamondTools"/>
+	<item name="bookArtOfMiningCoffee"/>
+	<item name="bookArtOfMiningBlackStrap"/>
+	<item name="bookArtOfMiningPallets"/>
+	<item name="bookArtOfMiningAvalanche"/>
+	<item name="bookArtOfMiningDamage"/>
+	<item name="bookSledgeSagaKnockdown"/>
+	<item name="bookSledgeSagaDegradation"/>
+	<item name="bookSledgeSagaCrippledMorale"/>
+	<item name="bookSledgeSagaPulverizingFinishers"/>
+	<item name="bookSledgeSagaSavageReaper"/>
+	<item name="bookSledgeSagaConcussiveStrike"/>
+	<item name="bookSledgeSagaArmorCrusher"/>
+	<item name="bookWasteTreasuresAcid"/>
+	<item name="bookWasteTreasuresCloth"/>
+	<item name="bookWasteTreasuresCoffins"/>
+	<item name="bookWasteTreasuresDoors"/>
+	<item name="bookWasteTreasuresHoney"/>
+	<item name="bookWasteTreasuresSinks"/>
+	<item name="bookWasteTreasuresWater"/>
+	<item name="bookFiremansAlmanacSpeed"/>
+	<item name="bookFiremansAlmanacAxes"/>
+	<item name="bookFiremansAlmanacEquipment"/>
+	<item name="bookFiremansAlmanacPrevention"/>
+	<item name="bookFiremansAlmanacHarvest"/>
+	<item name="bookFiremansAlmanacHeat"/>
+	<item name="bookFiremansAlmanacMolotov"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupWorkingStiffsMagazines']">
+	<item name="harvestingToolsSkillMagazine"/>
+	<item name="repairToolsSkillMagazine"/>
+	<item name="salvageToolsSkillMagazine"/>
+	<item name="workstationSkillMagazine"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupQuestSchematics']">
+	<item group="perkBooks" loot_prob_template="medHigh"/>
+	<item group="schematicsModsAndGeneralCommon" loot_prob_template="med"/>
+	<item name="foodCanShamSchematic" loot_prob_template="veryLow"/>
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupSmallWeaponBag']">
+	<item group="groupWeaponsLowHighMed" count="1"/>
+	<item group="weaponSkillMagazinesOnly" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupWeaponsHighMedLow" loot_prob_template="med" force_prob="true"/>
+	<item group="groupSmallAmmoMedMed" loot_prob_template="low" force_prob="true"/>
+	<item group="schematicsGuns" loot_prob_template="low" force_prob="true"/>
+	<item group="schematicsMeleeWeapons" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+<set xpath ="lootcontainers/lootgroup[@name='groupLargeWeaponBag']">
+	<item group="groupWeaponsMedMedHigh" count="1"/>
+	<item group="weaponSkillMagazinesOnly" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupWeaponsMedMedMed" loot_prob_template="high" force_prob="true"/>
+	<item group="groupSmallAmmoMedMed" loot_prob_template="high" force_prob="true"/>
+	<item group="schematicsGuns" loot_prob_template="medLow" force_prob="true"/>
+	<item group="schematicsMeleeWeapons" loot_prob_template="low" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupSafeBooksAndMagazines']">
+	<item group="groupWeaponsMedMedHigh" count="1"/>
+	<item group="weaponSkillMagazinesOnly" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupWeaponsMedMedMed" loot_prob_template="high" force_prob="true"/>
+	<item group="groupSmallAmmoMedMed" loot_prob_template="high" force_prob="true"/>
+	<item group="schematicsGuns" loot_prob_template="medLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupGunSafeSecure']">
+	<item group="groupWeaponsMedMedHigh" count="1"/>
+	<item group="groupWeaponsMedMedMed" loot_prob_template="high" force_prob="true"/>
+	<item group="groupWeaponsMedMedMed" loot_prob_template="med" force_prob="true"/>
+	<item group="groupMedAmmoHighMed" loot_prob_template="high" force_prob="true"/>
+	<item group="groupSafeBooks" loot_prob_template="low" force_prob="true"/>
+	<item group="weaponSkillMagazinesOnly" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="schematicsGuns" loot_prob_template="medLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupFoodPileSmall']">
+	<item group="groupFoodSmall01" count="1"/>
+	<item group="groupDrinksSmall01" loot_prob_template="med" force_prob="true"/>
+	<item group="groupIngredientsSmall01" loot_prob_template="low" force_prob="true"/>
+	<item group="schematicsFood" count="1" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupFoodPileMed']">
+	<item group="groupFoodMed01" count="1"/>
+	<item group="groupDrinksMed01" loot_prob_template="high" force_prob="true"/>
+	<item group="groupIngredientsMed01" loot_prob_template="med" force_prob="true"/>
+	<item group="groupIngredientsMed02" loot_prob_template="low" force_prob="true"/>
+	<item name="foodSkillMagazine" count="1" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupFoodPileLarge']">
+	<item group="groupFoodLarge01" count="1"/>
+	<item group="groupDrinksLarge01" count="1"/>
+	<item group="groupFoodLarge02" loot_prob_template="med" force_prob="true"/>
+	<item group="groupDrinksLarge02" loot_prob_template="low" force_prob="true"/>
+	<item group="groupIngredientsLarge01" loot_prob_template="med" force_prob="true"/>
+	<item group="groupIngredientsLarge02" loot_prob_template="low" force_prob="true"/>
+	<item name="foodSkillMagazine" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="schematicsFood" count="1" loot_prob_template="medLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCupboard01']">
+	<item group="groupFoodTrashUncommon" loot_prob_template="high"/>
+	<item group="groupFoodCommon" loot_prob_template="veryLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCupboard02']">
+	<item group="groupCookingTools" loot_prob_template="low"/>
+	<item group="groupIngredientsCommon" loot_prob_template="high"/>
+	<item name="foodSkillMagazine" loot_prob_template="veryLow"/>
+	<item group="seeds" loot_prob_template="veryLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMedicalPileSmall']">
+	<item group="groupMedicalSmall01" count="1"/>
+	<item group="groupMedicalSmall02" loot_prob_template="med" force_prob="true"/>
+	<item group="groupMedicalSmall03" loot_prob_template="low" force_prob="true"/>
+	<item name="medicalSkillMagazine" count="1" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMedicalPileMed']">
+	<item group="groupMedicalMed01" count="1"/>
+	<item group="groupMedicalMed02" loot_prob_template="high" force_prob="true"/>
+	<item group="groupMedicalMed03" loot_prob_template="med" force_prob="true"/>
+	<item group="groupMedicalMed04" loot_prob_template="low" force_prob="true"/>
+	<item name="medicalSkillMagazine" count="1" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMedicalPileLarge']">
+	<item group="groupMedicalLarge01" count="1,2"/>
+	<item group="groupMedicalLarge02" loot_prob_template="high" force_prob="true"/>
+	<item group="groupMedicalLarge03" loot_prob_template="med" force_prob="true"/>
+	<item name="medicalSkillMagazine" count="1" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCars02']">
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupToolsT0" loot_prob_template="ProbT0"/>
+	<item group="groupToolsT1" loot_prob_template="ProbT1"/>
+	<item group="groupWeaponsT0_Melee" loot_prob_template="ProbT0"/>
+	<item group="groupWeaponsT1_Melee" loot_prob_template="ProbT1"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCars03']">
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupAmmoSmall" loot_prob_template="low"/>
+	<item group="groupAmmoMedium" loot_prob_template="veryLow"/>
+	<item group="groupWeaponsT0_Ranged" loot_prob_template="ProbT0"/>
+	<item group="groupWeaponsT1_Ranged" loot_prob_template="ProbT1"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupGarage02']">
+	<item group="dyes" loot_prob_template="veryLow"/>
+	<item name="resourceAcid" count="1"  loot_prob_template="veryLow"/>
+	<item group="groupElectricalDevices" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupFileCabinet01']">
+	<item name="resourcePaper" count="4,10" loot_prob_template="low"/>
+	<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupForge']">
+	<item name="forgeSchematic" loot_prob_template="low" force_prob="true"/>
+	<item group="groupForge01" count="1"/>
+	<item group="groupForge02" loot_prob_template="med" force_prob="true"/>
+	<item group="workstationToolsScaled" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="workstationSkillMagazine" loot_prob_template="veryLow" force_prob="true" />
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupWorkbenchLoot']">
+	<item name="workbenchSchematic" loot_prob_template="low" force_prob="true" />
+	<item group="groupWorkbenchLoot01" count="1"/>
+	<item group="groupWorkbenchLoot02" loot_prob_template="medLow" force_prob="true"/>
+	<item group="groupWorkbenchLoot03" loot_prob_template="low" force_prob="true"/>
+	<item group="groupWorkbenchLoot04" loot_prob_template="low" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCementMixerLoot02']">
+	<item name="cementMixerSchematic" loot_prob_template="ProbT3" force_prob="true" />
+	<item name="resourceCement" count="40,120"/>
+	<item name="resourceCobblestones" count="40,120"/>
+	<item name="resourceConcreteMix" count="20,80"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupChemistryStationLoot03']">
+	<item name="chemistryStationSchematic" loot_prob_template="ProbT3" force_prob="true"/>
+	<item name="toolBeaker" loot_prob_template="veryLow"/>
+	<item name="medicalSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupDewCollectorLoot02']">
+		<item name="drinkJarRiverWater" count="1" loot_prob_template="low"/>
+	<item name="workstationSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupDewCollectorLoot01']">
+	<item name="cntDewCollectorSchematic" loot_prob_template="low" force_prob="true"/>
+	<item name="resourceMetalPipe" count="1,3" loot_prob_template="med"/>
+	<item name="resourceScrapPolymers" count="3,5" loot_prob_template="med"/>
+	<item name="workstationSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupRollingToolbox03']">
+	<item name="meleeToolPaintTool" loot_prob_template="med"/>
+	<item name="harvestingToolsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="repairToolsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="salvageToolsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="workstationSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="electricianSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="meleeToolWireTool" loot_prob_template="medLow"/>
+	<item group="groupToolsT1Wrench" loot_prob_template="low"/>
+	<item group="schematicsTool" loot_prob_template="medLow"/>
+	<item group="groupToolsT1ClawHammer" loot_prob_template="veryLow"/>
+	<item name="resourceForgedSteel" count="1,4" loot_prob_template="veryLow"/>
+	
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupStunBaton']">
+	<item name="meleeWpnBatonT2StunBatonParts" loot_prob_template="med"/>
+	<item name="meleeWpnBatonT2StunBaton" loot_prob_template="ProbT1"/>
+	<item group="schematicsRobotics" loot_prob_template="medLow" force_prob="true"/>
+	<item group="schematicsElectrical" loot_prob_template="medLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupBotSchematics']">
+	<item name="modRoboticDroneCargoModSchematic" loot_prob_template="low"/>
+	<item name="modRoboticDroneMedicModSchematic" loot_prob_template="low"/>
+	<item name="modRoboticDroneHeadlampModSchematic" loot_prob_template="low"/>
+	<item name="modRoboticDroneArmorPlatingModSchematic" loot_prob_template="low"/>
+	<item name="modRoboticDroneMoraleBoosterModSchematic" loot_prob_template="low"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMoPowerShelvesBooks']">
+	<item name="electricianSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupBotSchematics" loot_prob_template="low"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMoPower02']">
+		<item name="electricianSkillMagazine" loot_prob_template="low" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMoPower04']">
+	<item group="groupElectricalDevices" loot_prob_template="med"/>
+	<item name="electricianSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="meleeToolWireTool" loot_prob_template="veryLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMoPower']">	
+	<item group="schematicsRobotics" loot_prob_template="low" force_prob="true"/>
+	<item group="schematicsElectrical" loot_prob_template="medLow" force_prob="true"/>
+	<item group="groupMoPowerA" count="1"/>
+	
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMoPowerShelves']">	
+	<item group="schematicsRobotics" loot_prob_template="low" force_prob="true"/>
+	<item group="schematicsElectrical" loot_prob_template="medLow" force_prob="true"/>
+	<item group="groupMoPowerShelves01" count="1,2"/>
+	<item group="groupMoPowerShelvesBooks" loot_prob_template="med" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupModAllT4']">	
+	<item name="modArmorTreasureHunter"/>
+	<item name="modArmorNightVision"/>
+	<item name="modArmorCigar"/>
+</set>
+	
+<set xpath ="lootcontainers/lootgroup[@name='groupFarmTruck02']">
+	<item group="groupToolbox" loot_prob_template="med"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupBookcase01']">
+	<item name="resourcePaper" count="1,5" loot_prob_template="low"/>
+	<item group="skillMagazines" count="1,3" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="booksAllScaled" loot_prob_template="med"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupBookcase02']">
+	<item name="resourcePaper" count="1,5" loot_prob_template="low"/>
+	<item group="skillMagazines" count="1,3" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="booksAllScaled" loot_prob_template="med"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMailbox01']">
+	<item group="perkBooks" loot_prob_template="high"/>
+	<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="resourcePaper" count="3,6" loot_prob_template="medLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupMailbox02']">
+	<item name="resourcePaper" count="3,6" loot_prob_template="medHigh"/>
+	<item group="booksAllScaled" loot_prob_template="med"/>
+	<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="plantedGraceCorn1Schematic" loot_prob_template="low">
+		<requirement class="Biome" biomes="wasteland"/>
+	</item>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupBookPile01']">
+	<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="booksAllScaled" loot_prob_template="med"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupSingleBooks01']">
+	<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="booksAllScaled" loot_prob_template="med"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCrackabookShelves01']">
+		<item name="resourcePaper" count="1,5" loot_prob_template="low"/>
+	<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="booksAllScaled" loot_prob_template="medLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCrackabookCrate01']">
+		<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="booksAllScaled"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCrackabookCrate02']">
+		<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="booksAllScaled"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCrackabookCrate03']">
+		<item group="skillMagazines" count="1" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="booksAllScaled"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupBackpacksBooks']">
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="perkBooks" loot_prob_template="low"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupBackpacks01']">
+	<item group="groupArmorParts"/>
+	<item group="groupCupboard"/>
+	<item group="survivalMedical"/>
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="drinkJarRiverWater" loot_prob_template="low"/>
+	<item name="resourceGlue" count="1,2" loot_prob_template="veryLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupCampingTents01']">
+	<item group="groupArmorParts"/>
+	<item group="groupCupboard"/>
+	<item group="survivalMedical"/>
+	<item group="skillMagazines" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="drinkJarRiverWater" loot_prob_template="veryLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupPassNGasMagazines']">
+	<item name="harvestingToolsSkillMagazine" loot_prob_template="med"/>
+	<item name="repairToolsSkillMagazine" loot_prob_template="med"/>
+	<item name="salvageToolsSkillMagazine" loot_prob_template="med"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupPassNGas01']">
+	<item group="schematicsTool" loot_prob_template="medLow" force_prob="true"/>
+	<item name="resourceRepairKit" count="2,5" loot_prob_template="medLow"/>
+	<item group="groupToolsTiered" loot_prob_template="med"/>
+	<item name="harvestingToolsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="repairToolsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="salvageToolsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupSavageCountryCrate02']">
+	<item group="schematicsMeleeWeapons" loot_prob_template="medLow"/>
+	<item group="groupSavageCountryBooks" loot_prob_template="medLow"/>
+	<item name="resourceSewingKit" count="1,2" loot_prob_template="low"/>
+	<item name="resourceCloth" count="3,5" loot_prob_template="high"/>
+	<item group="groupMedicalCommon" loot_prob_template="med"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupZpackReg02']">
+	<item group="booksAllScaled" loot_prob_template="medHigh"/>
+	<item group="groupChallengeRewardSkillMagazinesAll" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupZpackLab02']">
+	<item name="workstationSkillMagazine"/>
+	<item name="electricianSkillMagazine"/>
+	<item name="medicalSkillMagazine"/>
+	<item group="groupTechJunkieBooks" loot_prob_template="low" force_prob="true"/>
+	<item group="groupBotSchematics" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupZpackUtility02']">
+	<item name="harvestingToolsSkillMagazine"/>
+	<item name="repairToolsSkillMagazine"/>
+	<item name="salvageToolsSkillMagazine"/>
+	<item name="workstationSkillMagazine"/>
+	<item group="groupSledgeSagaBooks" loot_prob_template="low"/>
+	<item group="groupArtOfMiningBooks" loot_prob_template="low"/>
+	<item group="groupWasteTreasuresBooks" loot_prob_template="low"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupZpackSoldier02']">
+	<item name="handgunsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="shotgunsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="riflesSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="machineGunsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="armorSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupUrbanCombatBooks" loot_prob_template="low"/>
+	<item group="groupPistolBooks" loot_prob_template="low"/>
+	<item group="groupEnforcerBooks" loot_prob_template="low"/>
+	<item group="groupShotgunMessiahBooks" loot_prob_template="low"/>
+	<item group="groupSniperBooks" loot_prob_template="low"/>
+	<item group="groupAutoWeaponsBooks" loot_prob_template="low"/>
+</set>
+<set xpath ="lootcontainers/lootgroup[@name='groupWorkingStiffsCrate']">
+	<item group="schematicsTool" loot_prob_template="medLow" force_prob="true"/>
+	<item group="groupWorkingStiffs01" count="1"/>
+	<item group="groupWorkingStiffs02" loot_prob_template="medHigh" force_prob="true"/>
+	<item group="groupWorkingStiffs03" loot_prob_template="low" force_prob="true"/>
+	<item group="groupWorkingStiffs04" loot_prob_template="low" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupShamwayCrate']">
+	<item group="schematicsFood" loot_prob_template="medLow" force_prob="true"/>
+	<item group="groupShamwayCrate01" count="1"/>
+	<item group="groupShamwayCrate02" loot_prob_template="high" force_prob="true"/>
+	<item group="groupShamwayCrate03" loot_prob_template="med" force_prob="true"/>
+	<item group="groupShamwayCrate04" loot_prob_template="low" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupShamwayMagazines']">
+<item name="foodSkillMagazine" loot_prob_template="veryLow"/>
+<item name="seedSkillMagazine" loot_prob_template="veryLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupZpackThug02']">
+<item name="clubsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="bladesSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="handgunsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="shotgunsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="riflesSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="machineGunsSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="armorSkillMagazine" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupBatterUpBooks" loot_prob_template="low"/>
+	<item group="groupBarBrawlingBooks" loot_prob_template="low"/>
+	<item group="groupLuckyLooterBooks" loot_prob_template="low"/>
+	<item group="groupUrbanCombatBooks" loot_prob_template="low"/>
+	<item group="groupPistolBooks" loot_prob_template="low"/>
+	<item group="groupEnforcerBooks" loot_prob_template="low"/>
+	<item group="groupShotgunMessiahBooks" loot_prob_template="low"/>
+	<item group="groupSniperBooks" loot_prob_template="low"/>
+	<item group="groupAutoWeaponsBooks" loot_prob_template="low"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupZpackStrong02']">
+	<item group="booksAllScaled" loot_prob_template="medHigh"/>
+	<item group="groupChallengeRewardSkillMagazinesAll" loot_prob_template="veryLow" force_prob="true"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupShotgunMessiahCrate']">
+	<item group="schematicsGuns" loot_prob_template="medLow" force_prob="true"/>
+	<item group="groupShotgunMessiahCrate01" count="1"/>
+	<item group="groupShotgunMessiahCrate02" loot_prob_template="high" force_prob="true"/>
+	<item group="groupShotgunMessiahCrate03" loot_prob_template="med" force_prob="true"/>
+	<item group="groupShotgunMessiahCrate04" loot_prob_template="low" force_prob="true"/>
+</set>
+<set xpath ="lootcontainers/lootgroup[@name='groupShotgunMessiahCrateBooks']">
+	<item group="schematicsGuns" loot_prob_template="veryLow" force_prob="true"/>
+	<item name="handgunsSkillMagazine"/>
+	<item name="shotgunsSkillMagazine"/>
+	<item name="riflesSkillMagazine"/>
+	<item name="machineGunsSkillMagazine"/>
+	<item name="bookPistolPeteAPAmmo"/>
+	<item name="bookPistolPeteDamage"/>
+	<item name="bookPistolPeteHPAmmo"/>
+	<item name="bookPistolPeteMaintenance"/>
+	<item name="bookPistolPeteSteadyHand"/>
+	<item name="bookPistolPeteSwissKnees"/>
+	<item name="bookPistolPeteTakeAim"/>
+
+	<item name="bookEnforcerAPAmmo"/>
+	<item name="bookEnforcerApparel"/>
+	<item name="bookEnforcerCriminalPursuit"/>
+	<item name="bookEnforcerHPAmmo"/>
+	<item name="bookEnforcerDamage"/>
+	<item name="bookEnforcerIntimidation"/>
+	<item name="bookEnforcerPunks"/>
+	
+	<item name="bookShotgunMessiahBreachingSlugs"/>
+	<item name="bookShotgunMessiahDamage"/>
+	<item name="bookShotgunMessiahLimbShot"/>
+	<item name="bookShotgunMessiahMaintenance"/>
+	<item name="bookShotgunMessiahMagazine"/>
+	<item name="bookShotgunMessiahPartyStarter"/>
+	<item name="bookShotgunMessiahSlugs"/>
+
+	<item name="bookSniperAPAmmo"/>
+	<item name="bookSniperControlledBreathing"/>
+	<item name="bookSniperCripplingShot"/>
+	<item name="bookSniperDamage"/>
+	<item name="bookSniperHeadShot"/>
+	<item name="bookSniperReload"/>
+	<item name="bookSniperHPAmmo"/>
+	
+	<item name="bookAutoWeaponsDamage"/>
+	<item name="bookAutoWeaponsRagdoll"/>
+	<item name="bookAutoWeaponsMaintenance"/>
+	<item name="bookAutoWeaponsRecoil"/>
+	<item name="bookAutoWeaponsDrumMag"/>
+	<item name="bookAutoWeaponsUncontrolledBurst"/>
+	<item name="bookAutoWeaponsMachineGuns"/>
+
+	<item name="bookUrbanCombatAdrenalineRush"/>
+	<item name="bookUrbanCombatCigar"/>
+	<item name="bookUrbanCombatRoomClearing"/>
+	<item name="bookUrbanCombatJumping"/>
+	<item name="bookUrbanCombatLandMines"/>
+	<item name="bookUrbanCombatLanding"/>
+	<item name="bookUrbanCombatSneaking"/>
+	
+	
+</set>
+<set xpath ="lootcontainers/lootgroup[@name='groupPopNPillsBooks']">
+	<item name="medicalSkillMagazine"/>
+	<item name="bookBarBrawling1BasicMoves"/>
+	<item name="bookBarBrawling2DropABomb"/>
+	<item name="bookBarBrawling3KillerInstinct"/>
+	<item name="bookBarBrawling4FinishingMoves"/>
+	<item name="bookBarBrawling5AdrenalineHealing"/>
+	<item name="bookBarBrawling6RageMode"/>
+	<item name="bookBarBrawling7BoozedUp"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupPopNPillsCrate02']">
+	<item name="medicalSkillMagazine" loot_prob_template="high"/>
+	<item group="groupMedicalCommon" loot_prob_template="med"/>
+	<item group="groupMedicalUncommon" loot_prob_template="high"/>
+	<item group="groupMedicalRare" loot_prob_template="low"/>
+	<item group="groupPopNPillsBooks" loot_prob_template="medLow"/>
+</set>
+
+<set xpath ="lootcontainers/lootgroup[@name='groupHardenedChestT5_07']">
+	<item name="oldCash" count="100,500" loot_prob_template="high"/>
+	<item name="casinoCoin" count="200,600" loot_prob_template="medHigh"/>
+	<item name="resourceSilverNugget" count="6,14" loot_prob_template="med"/>
+	<item name="resourceGoldNugget" count="3,6" loot_prob_template="medLow"/>
+	<item name="resourceRawDiamond" count="2,3" loot_prob_template="low"/>
+</set>
+
+<append xpath ="lootcontainers/lootgroup[@name='schematicsVehiclesRare']">
+	<item group="schematicsVehiclePartsT3" loot_prob_template="ProbT3"/>
+</append>
+
+<append xpath ="lootcontainers/lootgroup[@name='schematicsVehiclesT0']">
+	<item group="schematicsVehiclePartsT0"/>
+</append>
+
+<append xpath ="lootcontainers/lootgroup[@name='schematicsVehiclesT1']">
+	<item group="schematicsVehiclePartsT1" loot_prob_template="ProbT1"/>
+</append>
+
+<append xpath ="lootcontainers/lootgroup[@name='schematicsVehiclesT2']">
+	<item group="schematicsVehiclePartsT2" loot_prob_template="ProbT2Cap"/>
+</append>
+
+<insertAfter xpath="lootcontainers/lootgroup[@name='survivalMedical']/item[1]">
+	<item group="schematicsT0Medical"/>
+</insertAfter>
+<insertAfter xpath="lootcontainers/lootgroup[@name='groupMedicalCommon']/item[1]">
+	<item group="schematicsT0Medical"/>
+</insertAfter>
+
+<insertAfter xpath="lootcontainers/lootgroup[@name='groupMedicalUncommon']/item[1]">
+	<item group="schematicsT1Medical" loot_prob_template="ProbT1" force_prob="true"/>
+</insertAfter>
+
+<insertAfter xpath="lootcontainers/lootgroup[@name='groupMedicalRare']/item[1]">
+	<item group="schematicsT2Medical" loot_prob_template="ProbT2" force_prob="true"/>
+</insertAfter>
+</configs>

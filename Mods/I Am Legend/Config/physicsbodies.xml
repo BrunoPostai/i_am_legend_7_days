@@ -4,8 +4,8 @@
 		<if cond="mod_loaded('0-XNPCCore') == 'false'">
 			<append xpath="/bodies">
 				<!-- Zombie Rigs  -->
-		// Courtesy of NPCCore - renamed to avoid conflicts
-		<body name="mixamoConvertedStandardZombie">
+				<!-- Courtesy of NPCCore - renamed to avoid conflicts -->
+				<body name="mixamoConvertedStandardZombie">
 					<collider>
 						<property name="tag" value="E_BP_Body"/>
 						<property name="path" value="Hips"/>

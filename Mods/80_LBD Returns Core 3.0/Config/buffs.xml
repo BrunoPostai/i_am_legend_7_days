@@ -1,0 +1,977 @@
+<configs>
+	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
+		   <effect_group name="ActionSkills">
+            <triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="ActionSkillActivation" >
+                <requirement name="CVarCompare" cvar="$actionXPBlunt" operation="LTE" value="0"/>
+            </triggered_effect>
+            <triggered_effect trigger="onSelfEnteredGame" action="LogMessage" message="Action Skills Active"/>
+        </effect_group>
+    </append>
+
+
+
+ <append xpath="/buffs">
+        <buff name="ActionSkillActivation" hidden="true">
+            <stack_type value="ignore"/>
+            <duration value="1"/>
+            <effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPCurve" operation="set" value="1.019"/>
+                <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBluntTick" operation="set" value="20"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBladeTick" operation="set" value="20"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPierceTick" operation="set" value="20"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArcheryTick" operation="set" value="15"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArcheryHitTick" operation="set" value="5"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPistolsTick" operation="set" value="10"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPistolsHitTick" operation="set" value="3"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPShotgunsTick" operation="set" value="10"/>	
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPShotgunsHitTick" operation="set" value=".2"/>	
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPRiflesTick" operation="set" value="10"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPRiflesHitTick" operation="set" value="2"/>	
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAutoRiflesTick" operation="set" value="10"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAutoRiflesHitTick" operation="set" value="1"/>	
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechTick" operation="set" value="1"/> <!--debug-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech20DukesTick" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech50DukesTick" operation="set" value="2"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech100DukesTick" operation="set" value="4"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech200DukesTick" operation="set" value="8"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech400DukesTick" operation="set" value="16"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech800DukesTick" operation="set" value="32"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech1600DukesTick" operation="set" value="64"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech3200DukesTick" operation="set" value="128"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechQuestT1CompleteTick" operation="set" value="200"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechQuestT2CompleteTick" operation="set" value="400"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechQuestT3CompleteTick" operation="set" value="800"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechQuestT4CompleteTick" operation="set" value="1600"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechQuestT5CompleteTick" operation="set" value="3200"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechQuestT6CompleteTick" operation="set" value="6400"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPEngineeringTick" operation="set" value="6"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScienceTick" operation="set" value="33"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArmorTick" operation="set" value="4"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAthleticsTick" operation="set" value="3"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSurvivalismTick" operation="set" value="5"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPMiningTick" operation="set" value="2"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSalvagingTick" operation="set" value="7"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScavengingTick" operation="set" value="9"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSalvagingScienceTick" operation="set" value="2"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSalvagingEngineeringTick" operation="set" value="2"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillBluntInit">
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBlunt" operation="set" value="0"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBluntToNextLevel" operation="set" value="100"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillBluntManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillBladeInit">
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBlade" operation="set" value="0"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBladeToNextLevel" operation="set" value="100"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillBladeManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillPierceInit">
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPierce" operation="set" value="0"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPierceToNextLevel" operation="set" value="100"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillPierceManager"/>
+			</effect_group>
+			<effect_group name = "ActionSkillArcheryInit">
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArchery" operation="set" value="0"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArcheryToNextLevel" operation="set" value="100"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillArcheryManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillPistolsInit">
+			<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPistols" operation="set" value="0"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPistolsToNextLevel" operation="set" value="100"/>
+			 <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillPistolsManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillShotgunsInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPShotguns" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPShotgunsToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillShotgunsManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillRiflesInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPRifles" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPRiflesToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillRiflesManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillAutoRiflesInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAutoRifles" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAutoRiflesToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillAutoRiflesManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillSpeechInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechToNextLevel" operation="set" value="400"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillSpeechManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillEngineeringInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPEngineering" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPEngineeringToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillEngineeringManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillScienceInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScience" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScienceToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillScienceManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillAthleticsInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAthletics" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAthleticsToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillAthleticsManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillSurvivalismInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSurvivalism" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSurvivalismToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillSurvivalismManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillArmorInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArmor" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArmorToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillArmorManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillMiningInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPMining" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPMiningToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillMiningManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillSalvagingInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSalvaging" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSalvagingToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillSalvagingManager"/>
+			</effect_group>
+			
+			<effect_group name = "ActionSkillScavengingInit">
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScavenging" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScavengingToNextLevel" operation="set" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="actionSkillScavengingManager"/>
+			</effect_group>
+			
+		</buff>
+		
+		<!--BLUNT WEAPONS SKILL-->
+		<buff name="actionSkillBluntManager" hidden="true" remove_on_death="false">
+            <stack_type value="ignore"/>
+			
+			   <effect_group name="bluntSkill">
+				   <triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$actionXPBlunt" operation="add" value="@$actionXPBluntTick">
+						<requirement name="ItemHasTags" tags="blunt"/>
+						<requirement name="ProgressionLevel" progression_name="izpActionBluntWeaponsSkill" operation="LT" value="100"/>
+					</triggered_effect>	
+					
+		
+					<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="actionSkillBuffBluntLevelCheck">
+						<requirement name="ItemHasTags" tags="blunt"/>
+						<requirement name="CVarCompare" cvar="$actionXPBlunt" operation="GTE" value="@$actionXPBluntToNextLevel"/>
+				</triggered_effect>
+					
+			   </effect_group>
+        </buff>
+				
+		<buff name="actionSkillBuffBluntLevelCheck" hidden="true">
+            <stack_type value="replace"/>
+            <effect_group>
+				<requirement name="ProgressionLevel" progression_name="izpActionBluntWeaponsSkill" operation="LT" value="100"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionBluntWeaponsSkill" level="1"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBlunt" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBluntToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Blunt Weapons Increased"/>
+					<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>   
+					<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffBluntLevelCheck"/>
+            </effect_group>
+        </buff>
+		
+		<!--BLADE SKILL-->
+		<buff name="actionSkillBladeManager" hidden="true" remove_on_death="false">
+            <stack_type value="ignore"/>
+			
+			   <effect_group name="bladeSkill">
+				   <triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$actionXPBlade" operation="add" value="@$actionXPBladeTick">
+						<requirement name="ItemHasTags" tags="perkDeepCuts,knife,bladeSkill,axe,chainsaw"/>
+						<requirement name="ProgressionLevel" progression_name="izpActionBladeWeaponsSkill" operation="LT" value="100"/>
+					</triggered_effect>		
+				
+					<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="actionSkillBuffBladeLevelCheck">
+						<requirement name="ItemHasTags" tags="perkDeepCuts,knife,bladeSkill,axe,chainsaw"/>
+						<requirement name="CVarCompare" cvar="$actionXPBlade" operation="GTE" value="@$actionXPBladeToNextLevel"/>
+				</triggered_effect>
+					
+			   </effect_group>
+        </buff>
+				
+		<buff name="actionSkillBuffBladeLevelCheck" hidden="true">
+            <stack_type value="replace"/>
+            <effect_group>
+				<requirement name="ProgressionLevel" progression_name="izpActionBladeWeaponsSkill" operation="LT" value="100"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionBladeWeaponsSkill" level="1"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBlade" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPBladeToNextLevel" operation="multiply" value="@$actionXPCurve"/>	
+					<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Blade Weapons Increased"/>
+					<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>   
+					<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffBladeLevelCheck"/>
+            </effect_group>
+        </buff>
+		
+		<!--Piercing Skill-->
+		<buff name="actionSkillPierceManager" hidden="true" remove_on_death="false">
+            <stack_type value="ignore"/>
+               <effect_group name="pierceSkill">
+                   <triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$actionXPPierce" operation="add" value="@$actionXPPierceTick">
+                        <requirement name="ItemHasTags" tags="pierceMelee"/>
+                        <requirement name="ProgressionLevel" progression_name="izpActionPiercingWeaponsSkill" operation="LT" value="100"/>
+                    </triggered_effect>        
+ 
+                    <triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="actionSkillBuffPierceLevelCheck">
+                        <requirement name="ItemHasTags" tags="pierceMelee"/>
+                        <requirement name="CVarCompare" cvar="$actionXPPierce" operation="GTE" value="@$actionXPPierceToNextLevel"/>
+                </triggered_effect> 
+               </effect_group>
+        </buff>
+										
+		<buff name="actionSkillBuffPierceLevelCheck" hidden="true" >
+            <stack_type value="replace"/>
+            <effect_group>
+                <requirement name="ProgressionLevel" progression_name="izpActionPiercingWeaponsSkill" operation="LT" value="100"/>
+                    <triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionPiercingWeaponsSkill" level="1"/>
+                    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPierce" operation="set" value="0"/>
+                    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPierceToNextLevel" operation="multiply" value="@$actionXPCurve"/>   
+                    <triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Pierce Weapons Increased"/>
+                    <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>   
+                    <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffPierceLevelCheck"/>
+            </effect_group>
+        </buff>
+
+		<!--Arhcery Skill-->
+		<buff name="actionSkillArcheryManager" hidden="true" remove_on_death="false">
+				<stack_type value="ignore"/>
+				<effect_group>
+				<requirement name="IsAlive" target="other"/>
+					<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" cvar="$actionXPArchery" operation="add" value="@$actionXPArcheryHitTick">
+						<requirement name="ItemHasTags" tags="archery,crossbow"/>
+						<requirement name="ProgressionLevel" progression_name="izpActionArcherySkill" operation="LT" value="100"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" buff="actionSkillBuffArcheryLevelCheck">
+						<requirement name="ItemHasTags" tags="archery,crossbow"/>
+						<requirement name="CVarCompare" cvar="$actionXPArchery" operation="GTE" value="@$actionXPArcheryToNextLevel"/>
+					</triggered_effect>
+				</effect_group>
+				<effect_group>
+					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$actionXPArchery" operation="add" value="@$actionXPArcheryTick">
+						<requirement name="ItemHasTags" tags="archery,crossbow"/>
+						<requirement name="ProgressionLevel" progression_name="izpActionArcherySkill" operation="LT" value="100"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="actionSkillBuffArcheryLevelCheck">
+						<requirement name="ItemHasTags" tags="archery,crossbow"/>
+						<requirement name="CVarCompare" cvar="$actionXPArchery" operation="GTE" value="@$actionXPArcheryToNextLevel"/>
+					</triggered_effect>
+				</effect_group>
+			</buff>
+		<buff name="actionSkillBuffArcheryLevelCheck" hidden="true">
+				<stack_type value="replace"/>
+				<effect_group>
+					<requirement name="ProgressionLevel" progression_name="izpActionArcherySkill" operation="LT" value="100"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionArcherySkill" level="1"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArchery" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArcheryToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Archery Increased"/>
+					<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+					<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffArcheryLevelCheck"/>
+				</effect_group>
+			</buff>
+		
+		
+		<!--Pistol skill-->
+		<buff name="actionSkillPistolsManager" hidden="true" remove_on_death="false">
+		 <stack_type value="ignore"/>
+		 <effect_group>
+		 <requirement name="IsAlive" target="other"/>
+			<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" cvar="$actionXPPistols" operation="add" value="@$actionXPPistolsHitTick">
+			<requirement name="ItemHasTags" tags="pistol,9mmGun,revolver"/>
+			<requirement name="ProgressionLevel" progression_name="izpActionPistolsSkill" operation="LT" value="100"/>
+		</triggered_effect>
+
+		<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" buff="actionSkillBuffPistolsLevelCheck">
+			<requirement name="ItemHasTags" tags="pistol,9mmGun,revolver"/>
+			<requirement name="CVarCompare" cvar="$actionXPPistols" operation="GTE" value="@$actionXPPistolsToNextLevel"/>
+			</triggered_effect> 
+		</effect_group>
+		<effect_group>
+			<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$actionXPPistols" operation="add" value="@$actionXPPistolsTick">
+			<requirement name="ItemHasTags" tags="pistol,9mmGun,revolver"/>
+			<requirement name="ProgressionLevel" progression_name="izpActionPistolsSkill" operation="LT" value="100"/>
+		</triggered_effect>
+
+		<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="actionSkillBuffPistolsLevelCheck">
+			<requirement name="ItemHasTags" tags="pistol,9mmGun,revolver"/>
+			<requirement name="CVarCompare" cvar="$actionXPPistols" operation="GTE" value="@$actionXPPistolsToNextLevel"/>
+			</triggered_effect> 
+		</effect_group>
+
+</buff>
+						
+		<buff name="actionSkillBuffPistolsLevelCheck" hidden="true">
+            <stack_type value="replace"/>
+            <effect_group>
+                <requirement name="ProgressionLevel" progression_name="izpActionPistolsSkill" operation="LT" value="100"/>
+                    <triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionPistolsSkill" level="1"/>
+                    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPistols" operation="set" value="0"/>
+                    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPPistolsToNextLevel" operation="multiply" value="@$actionXPCurve"/>   
+                    <triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Pistols Increased"/>
+                    <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>   
+                    <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffPistolsLevelCheck"/>
+            </effect_group>
+        </buff>
+
+
+		<!--Shotguns Skill-->
+		<buff name="actionSkillShotgunsManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>
+			<requirement name="IsAlive" target="other"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" cvar="$actionXPShotguns" operation="add" value="@$actionXPShotgunsHitTick">
+					<requirement name="ItemHasTags" tags="shotgun"/>
+					<requirement name="ProgressionLevel" progression_name="izpActionShotgunsSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" buff="actionSkillBuffShotgunsLevelCheck">
+					<requirement name="ItemHasTags" tags="shotgun"/>
+					<requirement name="CVarCompare" cvar="$actionXPShotguns" operation="GTE" value="@$actionXPShotgunsToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$actionXPShotguns" operation="add" value="@$actionXPShotgunsTick">
+					<requirement name="ItemHasTags" tags="shotgun"/>
+					<requirement name="ProgressionLevel" progression_name="izpActionShotgunsSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="actionSkillBuffShotgunsLevelCheck">
+					<requirement name="ItemHasTags" tags="shotgun"/>
+					<requirement name="CVarCompare" cvar="$actionXPShotguns" operation="GTE" value="@$actionXPShotgunsToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		<buff name="actionSkillBuffShotgunsLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+				<requirement name="ProgressionLevel" progression_name="izpActionShotgunsSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionShotgunsSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPShotguns" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPShotgunsToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Shotguns Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffShotgunsLevelCheck"/>
+			</effect_group>
+		</buff>
+		
+		
+		<!--Rifle Skill-->
+		<buff name="actionSkillRiflesManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>
+			<requirement name="IsAlive" target="other"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" cvar="$actionXPRifles" operation="add" value="@$actionXPRiflesHitTick">
+					<requirement name="ItemHasTags" tags="rifleSkill"/>
+					<requirement name="ProgressionLevel" progression_name="izpActionRiflesSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" buff="actionSkillBuffRiflesLevelCheck">
+					<requirement name="ItemHasTags" tags="rifleSkill"/>
+					<requirement name="CVarCompare" cvar="$actionXPRifles" operation="GTE" value="@$actionXPRiflesToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$actionXPRifles" operation="add" value="@$actionXPRiflesTick">
+					<requirement name="ItemHasTags" tags="rifleSkill"/>
+					<requirement name="ProgressionLevel" progression_name="izpActionRiflesSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="actionSkillBuffRiflesLevelCheck">
+					<requirement name="ItemHasTags" tags="rifleSkill"/>
+					<requirement name="CVarCompare" cvar="$actionXPRifles" operation="GTE" value="@$actionXPRiflesToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		<buff name="actionSkillBuffRiflesLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+				<requirement name="ProgressionLevel" progression_name="izpActionRiflesSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionRiflesSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPRifles" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPRiflesToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Rifles Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffRiflesLevelCheck"/>
+			</effect_group>
+		</buff>
+		
+		<!--Auto Rifle Skill-->
+		<buff name="actionSkillAutoRiflesManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>
+			<requirement name="IsAlive" target="other"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" cvar="$actionXPAutoRifles" operation="add" value="@$actionXPAutoRiflesHitTick">
+					<requirement name="ItemHasTags" tags="machinegunSkill"/>
+					<requirement name="ProgressionLevel" progression_name="izpActionAutomaticRiflesSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" buff="actionSkillBuffAutoRiflesLevelCheck">
+					<requirement name="ItemHasTags" tags="machinegunSkill"/>
+					<requirement name="CVarCompare" cvar="$actionXPAutoRifles" operation="GTE" value="@$actionXPAutoRiflesToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$actionXPAutoRifles" operation="add" value="@$actionXPAutoRiflesTick">
+					<requirement name="ItemHasTags" tags="machinegunSkill"/>
+					<requirement name="ProgressionLevel" progression_name="izpActionAutomaticRiflesSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="actionSkillBuffAutoRiflesLevelCheck">
+					<requirement name="ItemHasTags" tags="machinegunSkill"/>
+					<requirement name="CVarCompare" cvar="$actionXPAutoRifles" operation="GTE" value="@$actionXPAutoRiflesToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		<buff name="actionSkillBuffAutoRiflesLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+				<requirement name="ProgressionLevel" progression_name="izpActionAutomaticRiflesSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionAutomaticRiflesSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAutoRifles" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAutoRiflesToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Automatic Rifles Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffAutoRiflesLevelCheck"/>
+			</effect_group>
+		</buff>
+		
+		<!--Speech Skill, Barely Functional, Thanks TFP for unhooked events.-->
+		<buff name="actionSkillSpeechManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			
+			<effect_group> 
+								
+				<triggered_effect trigger="onSelfItemSold" action="ModifyCVar" cvar="$actionXPSpeech" operation="add" value="@$actionXPSpeechTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionBarterSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onSelfItemSold" action="AddBuff" buff="actionSkillBuffSpeechLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionBarterSkill" operation="LT" value="100"/>
+					<requirement name="CVarCompare" cvar="$actionXPSpeech" operation="GTE" value="@$actionXPSpeechToNextLevel"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onSelfItemBought" action="ModifyCVar" cvar="$actionXPSpeech" operation="add" value="@$actionXPSpeechTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionBarterSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onSelfItemBought" action="AddBuff" buff="actionSkillBuffSpeechLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionBarterSkill" operation="LT" value="100"/>
+					<requirement name="CVarCompare" cvar="$actionXPSpeech" operation="GTE" value="@$actionXPSpeechToNextLevel"/>
+				</triggered_effect>
+								
+			</effect_group>
+			
+		</buff>
+		<buff name="actionSkillBuffSpeechLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+				<requirement name="ProgressionLevel" progression_name="izpActionBarterSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionBarterSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeech" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSpeechToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Speech Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffSpeechLevelCheck"/>
+			</effect_group>
+		</buff>
+			
+		<!--Engineering Skill-->	
+		<buff name="actionSkillEngineeringManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			
+			<effect_group>         
+				<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="$actionXPEngineering" operation="add" value="@$actionXPSalvagingEngineeringTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionEngineeringSkill" operation="LT" value="100"/>
+					<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+				</triggered_effect>
+	
+				<triggered_effect trigger="onSelfHarvestBlock" action="AddBuff" buff="actionSkillBuffEngineeringLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionEngineeringSkill" operation="LT" value="100"/>
+					<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+					<requirement name="CVarCompare" cvar="$actionXPEngineering" operation="GTE" value="@$actionXPEngineeringToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<effect_group> 
+				<triggered_effect trigger="onSelfUpgradedBlock" action="ModifyCVar" cvar="$actionXPEngineering" operation="add" value="@$actionXPEngineeringTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionEngineeringSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onSelfUpgradedBlock" action="AddBuff" buff="actionSkillBuffEngineeringLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionEngineeringSkill" operation="LT" value="100"/>
+					<requirement name="CVarCompare" cvar="$actionXPEngineering" operation="GTE" value="@$actionXPEngineeringToNextLevel"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onSelfRepairBlock" action="ModifyCVar" cvar="$actionXPEngineering" operation="add" value="1">
+					<requirement name="ProgressionLevel" progression_name="izpActionEngineeringSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onSelfRepairBlock" action="AddBuff" buff="actionSkillBuffEngineeringLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionEngineeringSkill" operation="LT" value="100"/>
+					<requirement name="CVarCompare" cvar="$actionXPEngineering" operation="GTE" value="@$actionXPEngineeringToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+			</buff>
+						
+		<buff name="actionSkillBuffEngineeringLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+				<requirement name="ProgressionLevel" progression_name="izpActionEngineeringSkill" operation="LT" value="100"/>
+				
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionEngineeringSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPEngineering" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPEngineeringToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Engineering Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffEngineeringLevelCheck"/>
+			</effect_group>
+		</buff>
+		
+		<!--Science Skill-->
+		<buff name="actionSkillScienceManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>         
+				<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="$actionXPScience" operation="add" value="@$actionXPSalvagingScienceTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionScienceSkill" operation="LT" value="100"/>
+					<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+				</triggered_effect>
+	
+				<triggered_effect trigger="onSelfHarvestBlock" action="AddBuff" buff="actionSkillBuffScienceLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionScienceSkill" operation="LT" value="100"/>
+					<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+					<requirement name="CVarCompare" cvar="$actionXPScience" operation="GTE" value="@$actionXPScienceToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+						
+		</buff>
+		
+		<buff name="actionSkillBuffScienceLevelCheck" hidden="true">
+			<stack_type value="ignore"/>
+			<effect_group>
+			<requirement name="ProgressionLevel" progression_name="izpActionScienceSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionScienceSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScience" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScienceToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Science Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffScienceLevelCheck"/>
+			</effect_group>
+	</buff>
+				
+		<!--Athletics-->		
+		<buff name="actionSkillAthleticsManager" hidden="true" remove_on_death="false">
+			<stack_type value="replace"/>
+			<effect_group>
+					<triggered_effect trigger="onSelfRun" action="ModifyCVar" cvar="$actionXPAthletics" operation="add" value="@$actionXPAthleticsTick">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffAthleticsRunXPCooldown"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfJump" action="ModifyCVar" cvar="$actionXPAthletics" operation="add" value="@$actionXPAthleticsTick">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffAthleticsRunXPCooldown"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfCrouchRun" action="ModifyCVar" cvar="$actionXPAthletics" operation="add" value="@$actionXPAthleticsTick">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffAthleticsRunXPCooldown"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfSwimRun" action="ModifyCVar" cvar="$actionXPAthletics" operation="add" value="@$actionXPAthleticsTick">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffAthleticsRunXPCooldown"/>
+					</triggered_effect>
+					
+					<triggered_effect trigger="onSelfRun" action="AddBuff" buff="actionSkillBuffAthleticsLevelCheck">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+						<requirement name="CVarCompare" cvar="$actionXPAthletics" operation="GTE" value="@$actionXPAthleticsToNextLevel"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfJump" action="AddBuff" buff="actionSkillBuffAthleticsLevelCheck">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+						<requirement name="CVarCompare" cvar="$actionXPAthletics" operation="GTE" value="@$actionXPAthleticsToNextLevel"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfCrouchRun" action="AddBuff" buff="actionSkillBuffAthleticsLevelCheck">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+						<requirement name="CVarCompare" cvar="$actionXPAthletics" operation="GTE" value="@$actionXPAthleticsToNextLevel"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfSwimRun" action="AddBuff" buff="actionSkillBuffAthleticsLevelCheck">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+						<requirement name="CVarCompare" cvar="$actionXPAthletics" operation="GTE" value="@$actionXPAthleticsToNextLevel"/>
+					</triggered_effect>
+					
+					<triggered_effect trigger="onSelfRun" action="AddBuff" buff="actionSkillBuffAthleticsRunXPCooldown">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfJump" action="AddBuff" buff="actionSkillBuffAthleticsRunXPCooldown">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfCrouchRun" action="AddBuff" buff="actionSkillBuffAthleticsRunXPCooldown">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfSwimRun" action="AddBuff" buff="actionSkillBuffAthleticsRunXPCooldown">
+						<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+					</triggered_effect>
+
+			
+					
+			</effect_group>
+		</buff>
+		
+		<buff name="actionSkillBuffAthleticsLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+			<requirement name="ProgressionLevel" progression_name="izpActionAthleticsSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionAthleticsSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAthletics" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPAthleticsToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Athletics Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffAthleticsLevelCheck"/>
+			</effect_group>
+		</buff>	
+	
+		<buff name ="actionSkillBuffAthleticsRunXPCooldown" hidden="true">  <!--Athletics needs a limiter to stop you just spamming shift and levelling really quickly, an annoying work around-->
+		<stack_type value="ignore"/>
+		<duration value="1"/>
+		</buff>
+		
+		<!--Survivalism-->		
+		<buff name="actionSkillSurvivalismManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>
+				<requirement name="ItemHasTags" tags="food,drinks"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$actionXPSurvivalism" operation="add" value="@$actionXPSurvivalismTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionSurvivalismSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="actionSkillBuffSurvivalismLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionSurvivalismSkill" operation="LT" value="100"/>
+					<requirement name="CVarCompare" cvar="$actionXPSurvivalism" operation="GTE" value="@$actionXPSurvivalismToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+				
+			<effect_group>
+			<requirement name="TriggerHasTags" tags="challenge_farming"/>	
+			<requirement name="ProgressionLevel" progression_name="izpActionSurvivalismSkill" operation="LT" value="100"/>
+			
+			<triggered_effect trigger="onSelfDestroyedBlock" action="ModifyCVar" cvar="$actionXPSurvivalism" operation="add" value="@$actionXPSurvivalismTick">
+				</triggered_effect>
+	
+				<triggered_effect trigger="onSelfDestroyedBlock" action="AddBuff" buff="actionSkillBuffSurvivalismLevelCheck">
+					<requirement name="CVarCompare" cvar="$actionXPSurvivalism" operation="GTE" value="@$actionXPSurvivalismToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<effect_group>
+			<requirement name="EntityTagCompare" target="other" tags="animal"/>	
+			<requirement name="!IsAlive" target="other"/>	
+			<requirement name="HoldingItemHasTags" tags="perkTheHuntsman"/>
+			<requirement name="ProgressionLevel" progression_name="izpActionSurvivalismSkill" operation="LT" value="100"/>
+			
+			<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" cvar="$actionXPSurvivalism" operation="add" value="@$actionXPSurvivalismTick">
+				</triggered_effect>
+	
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" buff="actionSkillBuffSurvivalismLevelCheck">
+					<requirement name="CVarCompare" cvar="$actionXPSurvivalism" operation="GTE" value="@$actionXPSurvivalismToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="actionSkillBuffSurvivalismLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+			<requirement name="ProgressionLevel" progression_name="izpActionSurvivalismSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionSurvivalismSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSurvivalism" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSurvivalismToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Survivalism Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffSurvivalismLevelCheck"/>
+			</effect_group>
+		</buff>	
+		
+		<!--Armor Skill-->		
+		<buff name="actionSkillArmorManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>         
+				<triggered_effect trigger="onOtherAttackedSelf" action="ModifyCVar" cvar="$actionXPArmor" operation="add" value="@$actionXPArmorTick">
+					<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+					<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" buff="actionSkillBuffArmorLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+				<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+					<requirement name="CVarCompare" cvar="$actionXPArmor" operation="GTE" value="@$actionXPArmorToNextLevel"/>
+				</triggered_effect>
+			
+				<triggered_effect trigger="onSelfRun" action="ModifyCVar" cvar="$actionXPArmor" operation="add" value=".7">
+						<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+						<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffArmorRunXPCooldown"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onSelfJump" action="ModifyCVar" cvar="$actionXPArmor" operation="add" value=".7">
+						<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+						<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffArmorRunXPCooldown"/>
+				</triggered_effect>
+				
+				<triggered_effect trigger="onSelfCrouchRun" action="ModifyCVar" cvar="$actionXPArmor" operation="add" value=".7">
+						<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+						<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffArmorRunXPCooldown"/>
+				</triggered_effect>
+					
+				<triggered_effect trigger="onSelfSwimRun" action="ModifyCVar" cvar="$actionXPArmor" operation="add" value=".7">
+						<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+						<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffArmorRunXPCooldown"/>
+				</triggered_effect>
+									
+				<triggered_effect trigger="onSelfRun" action="AddBuff" buff="actionSkillBuffArmorLevelCheck">
+						<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+						<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+						<requirement name="CVarCompare" cvar="$actionXPArmor" operation="GTE" value="@$actionXPArmorToNextLevel"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffArmorRunXPCooldown"/>
+				</triggered_effect>
+					
+				<triggered_effect trigger="onSelfJump" action="AddBuff" buff="actionSkillBuffArmorLevelCheck">
+						<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+						<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+						<requirement name="CVarCompare" cvar="$actionXPArmor" operation="GTE" value="@$actionXPArmorToNextLevel"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffArmorRunXPCooldown"/>
+				</triggered_effect>
+					
+				<triggered_effect trigger="onSelfCrouchRun" action="AddBuff" buff="actionSkillBuffArmorLevelCheck">
+						<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+						<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+						<requirement name="CVarCompare" cvar="$actionXPArmor" operation="GTE" value="@$actionXPArmorToNextLevel"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffArmorRunXPCooldown"/>
+				</triggered_effect>
+					
+				<triggered_effect trigger="onSelfSwimRun" action="AddBuff" buff="actionSkillBuffArmorLevelCheck">
+						<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+						<requirement name="WornItems" tags="armor" operation="GT" value="0"/>
+						<requirement name="CVarCompare" cvar="$actionXPArmor" operation="GTE" value="@$actionXPArmorToNextLevel"/>
+						<requirement name="NotHasBuff" buff="actionSkillBuffArmorRunXPCooldown"/>
+				</triggered_effect>
+					
+				
+			</effect_group>
+		</buff>
+		
+		<buff name="actionSkillBuffArmorLevelCheck" hidden="true">
+			<stack_type value="ignore"/>
+			<effect_group>
+			<requirement name="ProgressionLevel" progression_name="izpActionArmorSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionArmorSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArmor" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPArmorToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Armor Skill Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffArmorLevelCheck"/>
+			</effect_group>
+		</buff>	
+		
+		<buff name ="actionSkillBuffArmorRunXPCooldown" hidden="true">  <!--Armor needs a limiter to stop you just spamming shift and levelling really quickly, an annoying work around-->
+		<stack_type value="ignore"/>
+		<duration value="1"/>
+		</buff>
+		
+		<!--Mining Skill-->		
+		<buff name="actionSkillMiningManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>         
+				<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="$actionXPMining" operation="add" value="@$actionXPMiningTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionMiningSkill" operation="LT" value="100"/>
+					<requirement name="HoldingItemHasTags" tags="perkMiner69r"/>
+				</triggered_effect>
+	
+				<triggered_effect trigger="onSelfHarvestBlock" action="AddBuff" buff="actionSkillBuffMiningLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionMiningSkill" operation="LT" value="100"/>
+					<requirement name="HoldingItemHasTags" tags="perkMiner69r"/>
+					<requirement name="CVarCompare" cvar="$actionXPMining" operation="GTE" value="@$actionXPMiningToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="actionSkillBuffMiningLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+			<requirement name="ProgressionLevel" progression_name="izpActionMiningSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionMiningSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPMining" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPMiningToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Mining Skill Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffMiningLevelCheck"/>
+			</effect_group>
+		</buff>	
+
+		<!--Salvaging Skill-->		
+		<buff name="actionSkillSalvagingManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>         
+				<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="$actionXPSalvaging" operation="add" value="@$actionXPSalvagingTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionSalvagingSkill" operation="LT" value="100"/>
+					<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+				</triggered_effect>
+	
+				<triggered_effect trigger="onSelfHarvestBlock" action="AddBuff" buff="actionSkillBuffSalvagingLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionSalvagingSkill" operation="LT" value="100"/>
+					<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+					<requirement name="CVarCompare" cvar="$actionXPSalvaging" operation="GTE" value="@$actionXPSalvagingToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="actionSkillBuffSalvagingLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+			<requirement name="ProgressionLevel" progression_name="izpActionSalvagingSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionSalvagingSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSalvaging" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPSalvagingToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Salvaging Skill Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffSalvagingLevelCheck"/>
+			</effect_group>
+		</buff>	
+		
+		<!--Salvaging Skill-->		
+		<buff name="actionSkillScavengingManager" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<effect_group>         
+				<triggered_effect trigger="onSelfOpenLootContainer" action="ModifyCVar" cvar="$actionXPScavenging" operation="add" value="@$actionXPScavengingTick">
+					<requirement name="ProgressionLevel" progression_name="izpActionScavengingSkill" operation="LT" value="100"/>
+				</triggered_effect>
+		
+				<triggered_effect trigger="onSelfOpenLootContainer" action="AddBuff" buff="actionSkillBuffScavengingLevelCheck">
+					<requirement name="ProgressionLevel" progression_name="izpActionScavengingSkill" operation="LT" value="100"/>
+					<requirement name="CVarCompare" cvar="$actionXPScavenging" operation="GTE" value="@$actionXPScavengingToNextLevel"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+		
+		<buff name="actionSkillBuffScavengingLevelCheck" hidden="true">
+			<stack_type value="replace"/>
+			<effect_group>
+			<requirement name="ProgressionLevel" progression_name="izpActionScavengingSkill" operation="LT" value="100"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="izpActionScavengingSkill" level="1"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScavenging" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$actionXPScavengingToNextLevel" operation="multiply" value="@$actionXPCurve"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Scavenging Increased"/>
+				<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="levelup" play_in_head="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="actionSkillBuffScavengingLevelCheck"/>
+			</effect_group>
+		</buff>	
+		
+		<buff name="buffMauledHands1" name_key="buffMauledHands1Name" description_key="buffMauledHands1Desc" icon="ui_game_symbol_sledge" icon_color="255,128,0">
+		<damage_type value="slashing"/>
+		<stack_type value="ignore"/>
+		<duration value="10"/>
+
+		<effect_group>
+			<passive_effect name="EntityDamage" operation="perc_add" value="-.1"/>
+		</effect_group>
+		</buff>
+		
+		<buff name="buffMauledHands2" name_key="buffMauledHands2Name" description_key="buffMauledHands2Desc" icon="ui_game_symbol_sledge" icon_color="255,128,0">
+		<damage_type value="slashing"/>
+		<stack_type value="ignore"/>
+		<duration value="10"/>
+
+		<effect_group>
+			<passive_effect name="EntityDamage" operation="perc_add" value="-.15"/>
+		</effect_group>
+		</buff>
+		
+		<buff name="buffMauledHands3" name_key="buffMauledHands3Name" description_key="buffMauledHands3Desc" icon="ui_game_symbol_sledge" icon_color="255,128,0">
+		<damage_type value="slashing"/>
+		<stack_type value="ignore"/>
+		<duration value="10"/>
+
+		<effect_group>
+			<passive_effect name="EntityDamage" operation="perc_add" value="-.2"/>
+		</effect_group>
+		</buff>
+	
+</append>	
+
+
+	<set xpath ="/buffs/buff[@name= 'buffReloadMovementPenalty']">
+		<stack_type value="ignore"/>
+		<damage_type value="stun"/>
+		<duration value="7"/>
+		<effect_group>
+				<triggered_effect trigger="onReloadStop" action="RemoveBuff" buff="buffReloadMovementPenalty"/>
+				<triggered_effect trigger="onSelfEnteredGame" action="RemoveBuff" buff="buffReloadMovementPenalty"/>
+		</effect_group>
+		
+	</set>
+	
+	<set xpath="/buffs/buff[@name='buffPerkCharismaticNature']">
+		<stack_type value="replace"/>
+		<duration value="10"/>
+
+		<!-- Allies regenerate lost health 50% faster. -->
+		<effect_group>
+			<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="1"/>
+			<requirement name="NotHasBuff" buff="buffStatusHungry03"/>
+			<requirement name="NotHasBuff" buff="buffStatusThirsty03"/>
+				<passive_effect name="HealthChangeOT" operation="base_add" level="1,2,3,4,5" value=".5,.5,.5,.5,.5"/>
+		</effect_group>
+		<!-- Block and Melee Damage are increased by 20% for allies. -->
+		<effect_group>
+			<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="2"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".2"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value=".2" tags="melee"/>
+		</effect_group>
+		<!-- Allies take 10% less damage from all sources, take half damage from bleeding and stop bleeding twice as fast. -->
+		<!-- Bleeding handled in buffInjuryBleeding -->
+		<effect_group>
+			<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="3"/>
+				<passive_effect name="GeneralDamageResist" operation="base_add" value="0.1"/>
+		</effect_group>
+		<!-- Partied allies find 10% better loot. -->
+		<effect_group>
+			<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="4"/>
+				<passive_effect name="LootStage" operation="perc_add" value=".1"/>
+		</effect_group>
+		<!-- Allies gain +1 to all attributes and find 20% better loot. -->
+		<effect_group>
+			<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="5"/>
+				<passive_effect name="StaminaMax" operation="base_add" value="25"/>
+				<passive_effect name="LootStage" operation="perc_add" value=".2"/>
+		</effect_group>
+
+		<effect_group>
+			<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="LTE" value="0"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPerkCharismaticNature"/>
+		</effect_group>
+
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="RefreshPerks"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="RefreshPerks"/>
+			
+			<triggered_effect trigger="onSelfBuffRemove" action="RemoveCVar" cvar="CharismaticNatureLevel"/>
+			
+			<triggered_effect trigger="onSelfLeaveGame" action="RemoveBuff" buff="buffPerkCharismaticNature"/>
+			<triggered_effect trigger="onSelfEnteredGame" action="RemoveBuff" buff="buffPerkCharismaticNature"/>
+		</effect_group>
+	</set>
+	
+	
+</configs>
+
+

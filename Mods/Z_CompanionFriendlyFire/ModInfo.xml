@@ -1,0 +1,8 @@
+<xml>
+    <Name value="CompanionFriendlyFireFix" />
+    <DisplayName value="Companion Friendly Fire Fix" />
+    <Description value="Tamed companions take no damage from their owner or the owner's friends." />
+    <Author value="HellsJanitor" />
+    <Version value="1.0.0.0" />
+    <Website value="" />
+</xml>

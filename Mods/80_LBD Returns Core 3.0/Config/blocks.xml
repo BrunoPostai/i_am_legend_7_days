@@ -1,0 +1,123 @@
+<configs>
+
+<append xpath ="blocks/block[@name='cntSedan01White']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25" tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntCar03SedanDamage1Master']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25" tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntSedan3Wide01White']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25" tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntFrontCrumpledSedan01White']">
+	<drop event="Harvest" name="vehicleWheels" count="1,4" prob =".25" tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntMinivan01White']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25" tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntMinivan3Wide01White']">	
+	<drop event="Harvest" name="vehicleWheels" count="1,4" prob =".25" tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntSUV01White']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25" tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntPickupTruck01White']">
+	<drop event="Harvest" name="vehicleWheels" count="1,4" prob =".25"  tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntPickupTruck3Wide01White']">
+	<drop event="Harvest" name="vehicleWheels" count="1,4" prob =".25" tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntSemiTruck01White']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25"  tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntPoliceCar01PickedLockBonus']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25"  tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntPoliceCar01AlarmUnlocked']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25"  tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntBusSchool']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25"  tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntArmyTruckOpen']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25"  tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath ="blocks/block[@name='cntFarmTruckClosed']">
+	<drop event="Harvest" name="vehicleWheels"  count="1,4" prob =".25"  tag="badMechanicWheelHarvest" tool_category="Disassemble"/>
+</append>
+
+<append xpath="blocks/block/drop[@name='ammoGasCan']/@tag">,perkBadMechanicGas</append>
+
+<remove xpath ="blocks/block[@name='plantedMushroom1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedCoffee1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedGoldenrod1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedAloe1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedBlueberry1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedPotato1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedChrysanthemum1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedCorn1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedHop1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedPumpkin1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedCotton1']/property[@name='UnlockedBy']"/>
+<remove xpath ="blocks/block[@name='plantedYucca1']/property[@name='UnlockedBy']"/>
+
+<!-- was converted from setattribute to set format to reflect Dev's move to simplify code visuals in later version (sansai) -->
+<set xpath="blocks/block[@name='generatorbank']/property[@name='UnlockedBy']/@value">generatorbankSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='ceilingLight01_player']/property[@name='UnlockedBy']/@value">generatorbankSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='electricwirerelay']/property[@name='UnlockedBy']/@value">generatorbankSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='pressureplate']/property[@name='UnlockedBy']/@value">pressureplateSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='pressureplateLong']/property[@name='UnlockedBy']/@value">pressureplateSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='tripwirepost']/property[@name='UnlockedBy']/@value">pressureplateSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='vaultDoor01_Powered']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='vaultDoor01Double_Powered']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='vaultHatch01_Powered']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='ironGarageDoor_PoweredWhite']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='woodenGarageDoor3x3_PoweredWhite']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='woodenGarageDoor4x3_PoweredWhite']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='woodenGarageDoor5x3_PoweredWhite']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='steelGarageDoor3x3_PoweredWhite']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='steelGarageDoor4x3_PoweredWhite']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='steelGarageDoor5x3_PoweredWhite']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='metalReinforcedWoodDrawBridgePowered']/property[@name='UnlockedBy']/@value">poweredDoorsSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='bladeTrap']/property[@name='UnlockedBy']/@value">bladeTrapSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='dartTrap']/property[@name='UnlockedBy']/@value">dartTrapSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='autoTurret']/property[@name='UnlockedBy']/@value">autoTurretSchematic,perkElectrician</set>
+
+<set xpath="blocks/block[@name='spotlightPlayer']/property[@name='UnlockedBy']/@value">spotlightPlayerSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='electrictimerrelay']/property[@name='UnlockedBy']/@value">electrictimerrelaySchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='electricfencepost']/property[@name='UnlockedBy']/@value">electricfencepostSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='switch']/property[@name='UnlockedBy']/@value">switchSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='batterybank']/property[@name='UnlockedBy']/@value">batteryBankSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='speaker']/property[@name='UnlockedBy']/@value">speakerSchematic,perkElectrician</set>
+<set xpath="blocks/block[@name='motionsensor']/property[@name='UnlockedBy']/@value">motionsensorSchematic,perkElectrician</set>
+
+<set xpath="blocks/block[@name='cntDewCollector']/property[@name='UnlockedBy']/@value">cntDewCollectorSchematic,perkAdvancedEngineering</set>
+<set xpath="blocks/block[@name='cntApiary']/property[@name='UnlockedBy']/@value">cntApiarySchematic,perkApiaryCrafting</set>
+<set xpath="blocks/block[@name='cntChickenCoop']/property[@name='UnlockedBy']/@value">cntChickenCoopSchematic,perkChickenCoopCrafting</set>
+<set xpath="blocks/block[@name='forge']/property[@name='UnlockedBy']/@value">forgeSchematic,perkBlacksmithCrafting</set>
+<set xpath="blocks/block[@name='workbench']/property[@name='UnlockedBy']/@value">workbenchSchematic,perkAdvancedEngineering</set>
+<set xpath="blocks/block[@name='cementMixer']/property[@name='UnlockedBy']/@value">cementMixerSchematic,perkAdvancedEngineering</set>
+<set xpath="blocks/block[@name='chemistryStation']/property[@name='UnlockedBy']/@value">chemistryStationSchematic,perkMedicalCrafting</set>
+<set xpath="blocks/block[@name='mineCookingPot']/property[@name='UnlockedBy']/@value">perkExplosivesCrafting,mineCookingPotSchematic</set>
+<set xpath="blocks/block[@name='mineHubcap']/property[@name='UnlockedBy']/@value">perkExplosivesCrafting,mineHubcapSchematic</set>
+<set xpath="blocks/block[@name='mineAirFilter']/property[@name='UnlockedBy']/@value">perkExplosivesCrafting,mineAirFilterSchematic</set>
+
+<insertAfter xpath="blocks/block[@name='shotgunTurret']/property[1]">
+	<property name="UnlockedBy" value="shotgunTurretSchematic,perkElectrician"/>
+</insertAfter>
+
+</configs>

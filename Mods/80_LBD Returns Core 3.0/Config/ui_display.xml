@@ -1,0 +1,43 @@
+<configs>
+
+
+	<set xpath="ui_display_info/item_display/item_display_info[@display_type='armorNerdOutfit']">
+		<display_entry name="dAttributeLevel" title_key="statMaxHealthBonus" display_leading_plus="true"/>
+	</set>
+	
+	<set xpath="ui_display_info/item_display/item_display_info[@display_type='armorNomadHelmet']">
+		<display_entry name="dCritResist" title_key="Infection Resistance" display_type="Percent"/>
+	</set>
+
+	<set xpath="ui_display_info/item_display/item_display_info[@display_type='clothingCigar']">
+    	<display_entry name="BarteringBuying" title_key="statBarteringSellBuy" display_type="Percent" display_leading_plus="true"/>
+    	<display_entry name="dLBDSkillsCigar" title_key="statLBDSkillsCigar" display_leading_plus="true"/>
+	</set>
+
+    <append xpath="/ui_display_info/item_display">
+        <item_display_info display_type="modArmorPerceptionPatch">
+            <display_entry name="dLBDSkillsPercPatch" title_key="statLBDSkillsPercPatch" display_leading_plus="true"/>
+            <display_entry name="dLootStage" title_key="statLootStagePatch" display_leading_plus="true"/>
+        </item_display_info>
+        
+        <item_display_info display_type="modArmorStrengthPatch">
+            <display_entry name="dLBDSkillsStrPatch" title_key="statLBDSkillsStrPatch" display_leading_plus="true"/>
+            <display_entry name="dCarryCapacity" title_key="statCarryCapacityPatch" display_leading_plus="true"/>
+        </item_display_info>
+
+        <item_display_info display_type="modArmorFortitudePatch">
+            <display_entry name="dLBDSkillsFortPatch" title_key="statLBDSkillsFortPatch" display_leading_plus="true"/>
+            <display_entry name="dHealthMaxPatch" title_key="statHealthMaxPatch" display_leading_plus="true"/>
+        </item_display_info>
+
+        <item_display_info display_type="modArmorAgilityPatch">
+            <display_entry name="dLBDSkillsAgiPatch" title_key="statLBDSkillsAgiPatch" display_leading_plus="true"/>
+            <display_entry name="dStaminaMaxPatch" title_key="statStaminaMaxPatch" display_leading_plus="true"/>
+        </item_display_info>
+
+        <item_display_info display_type="modArmorIntellectPatch">
+            <display_entry name="dLBDSkillsIntPatch" title_key="statLBDSkillsIntPatch" display_leading_plus="true"/>
+            <display_entry name="dPlayerExpGain" title_key="statPlayerExpGainPatch" display_type="Percent" display_leading_plus="true"/>
+        </item_display_info>
+    </append>
+</configs>
