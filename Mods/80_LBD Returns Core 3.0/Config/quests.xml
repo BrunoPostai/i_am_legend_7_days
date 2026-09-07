@@ -1,0 +1,15 @@
+<configs>
+	<set xpath = "quests/quest[@id='quest_reward_mutated_zombie_slayer']">
+		<variable name="name" value="zombie_slayer_name_mutated"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_mutated"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="modArmorTreasureHunter" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorNightVision" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorCigar" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorWaterPurifier" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorQuadStoragePocket" ischosen="true" isfixed="true" value="1"/>
+	</set>
+</configs>

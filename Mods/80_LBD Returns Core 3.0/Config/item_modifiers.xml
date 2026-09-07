@@ -1,0 +1,221 @@
+<configs>
+
+<append xpath="/item_modifiers/item_modifier[@name='modGunScopeSmall']">
+
+	<effect_group>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.6">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="1" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.2">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="1" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.4">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="2" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.4">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="2" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.2">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="3" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.6">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="3" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		</effect_group>
+</append>
+
+<append xpath="/item_modifiers/item_modifier[@name='modGunReflexSight']">
+
+	<effect_group>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.6">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="1" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.2">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="1" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.4">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="2" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.4">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="2" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.2">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="3" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.6">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="3" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		</effect_group>
+</append>
+
+<append xpath="/item_modifiers/item_modifier[@name='modGunScopeMedium']">
+
+	<effect_group>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.6">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="1" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.2">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="1" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.4">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="2" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.4">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="2" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="RoundsPerMinute" operation="perc_add" value="-0.2">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="3" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-0.6">
+			<requirement name="ProgressionLevel" progression_name="perkShortControlledBursts" operation="Equals" value="3" />
+			<requirement name="HasBuff" buff="buffHoldBreathAiming01"/>
+			<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+		</passive_effect>
+		</effect_group>
+</append>
+
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorCigar']/effect_group/passive_effect[@name='AttributeLevel']"/>
+<append xpath="/item_modifiers/item_modifier[@name='modArmorCigar']/effect_group[1]">
+    <passive_effect name="PerkLevel" tags="izpActionBluntWeaponsSkill,izpActionBladeWeaponsSkill,izpActionPiercingWeaponsSkill" operation="base_add" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+    <display_value name="dLBDSkillsCigar" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+</append>
+
+
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorPerception']"/>
+<append xpath="/item_modifiers">
+	<item_modifier name="modArmorPerception" installable_tags="armorHead" modifier_tags="boostTreasure" blocked_tags="noMods" type="attachment">
+        <property name="DisplayType" value="modArmorPerceptionPatch"/>
+		<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+		<property name="CustomIcon" value="modArmorPerception"/>
+		<property name="TraderStageTemplate" value="modsTier2"/>
+		<property name="Material" value="Msteel"/>
+		<property name="EconomicValue" value="1000"/>
+		<property name="ShowQuality" value="true"/>
+		<property name="QualityMin" value="1"/>
+		<effect_group>
+			<passive_effect name="PerkLevel" tags="izpActionArcherySkill,izpActionPistolsSkill,izpActionShotgunsSkill,izpActionRiflesSkill,izpActionAutomaticRiflesSkill" operation="base_add" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+            <display_value name="dLBDSkillsPercPatch" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+
+			<passive_effect name="LootStage" operation="base_add" value="1,2,3,4,5,6" tier="1,2,3,4,5,6"/>
+            <display_value name="dLootStage" value="1,2,3,4,5,6" tier="1,2,3,4,5,6"/>			
+		</effect_group>
+	</item_modifier>
+</append>
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorStrength']"/>
+<append xpath="/item_modifiers">
+	<item_modifier name="modArmorStrength" installable_tags="armorHead" modifier_tags="modArmorStrength" blocked_tags="noMods" type="attachment">
+        <property name="DisplayType" value="modArmorStrengthPatch"/>
+		<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+		<property name="CustomIcon" value="modArmorStrength"/>
+		<property name="TraderStageTemplate" value="modsTier2"/>
+		<property name="Material" value="Msteel"/>
+		<property name="EconomicValue" value="1000"/>
+		<property name="ShowQuality" value="true"/>
+		<property name="QualityMin" value="1"/>
+		<effect_group>
+			<passive_effect name="PerkLevel" tags="izpActionPiercingWeaponsSkill,izpActionBladeWeaponsSkill,izpActionBluntWeaponsSkill" operation="base_add" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+            <display_value name="dLBDSkillsStrPatch" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+
+			<passive_effect name="CarryCapacity" operation="base_add" value="1,2,3,4,5,6" tier="1,2,3,4,5,6"/>
+            <display_value name="dCarryCapacity" value="1,2,3,4,5,6" tier="1,2,3,4,5,6"/>
+		</effect_group>
+	</item_modifier>
+</append>
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorFortitude']"/>
+<append xpath="/item_modifiers">
+	<item_modifier name="modArmorFortitude" installable_tags="armorHead" modifier_tags="modArmorFortitude" blocked_tags="noMods" type="attachment">
+        <property name="DisplayType" value="modArmorFortitudePatch"/>
+		<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+		<property name="CustomIcon" value="modArmorFortitude"/>
+		<property name="TraderStageTemplate" value="modsTier2"/>
+		<property name="Material" value="Msteel"/>
+		<property name="EconomicValue" value="1000"/>
+		<property name="ShowQuality" value="true"/>
+		<property name="QualityMin" value="1"/>
+		<effect_group>
+			<passive_effect name="PerkLevel" tags="izpActionArmorSkill,izpActionSurvivalismSkill" operation="base_add" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+            <display_value name="dLBDSkillsFortPatch" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+
+			<passive_effect name="HealthMax" operation="base_add" value="5,10,15,20,25,30" tier="1,2,3,4,5,6"/>
+            <display_value name="dHealthMaxPatch" value="5,10,15,20,25,30" tier="1,2,3,4,5,6"/>
+		</effect_group>
+	</item_modifier>
+</append>
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorAgility']"/>
+<append xpath="/item_modifiers">
+	<item_modifier name="modArmorAgility" installable_tags="armorHead" modifier_tags="modArmorAgility" blocked_tags="noMods" type="attachment">
+        <property name="DisplayType" value="modArmorAgilityPatch"/>
+		<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+		<property name="CustomIcon" value="modArmorAgility"/>
+		<property name="TraderStageTemplate" value="modsTier2"/>
+		<property name="Material" value="Msteel"/>
+		<property name="EconomicValue" value="1000"/>
+		<property name="ShowQuality" value="true"/>
+		<property name="QualityMin" value="1"/>
+		<effect_group>
+			<passive_effect name="PerkLevel" tags="izpActionAthleticsSkill,izpActionScavengingSkill" operation="base_add" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+            <display_value name="dLBDSkillsAgiPatch" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+
+			<passive_effect name="StaminaMax" operation="base_add" value="5,10,15,20,25,30" tier="1,2,3,4,5,6"/>
+            <display_value name="dStaminaMaxPatch" value="5,10,15,20,25,30" tier="1,2,3,4,5,6"/>
+
+			<passive_effect name="StaminaChangeOT" operation="perc_add" value=".01,.02,.03,.04,.05,.06" tier="1,2,3,4,5,6" tags="running"/>
+            <display_value name="dStaminaChangeOT" value=".01,.02,.03,.04,.05,.06" tier="1,2,3,4,5,6"/>
+		</effect_group>
+	</item_modifier>
+</append>
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorIntellect']"/>
+<append xpath="/item_modifiers">
+	<item_modifier name="modArmorIntellect" installable_tags="armorHead" modifier_tags="modArmorIntellect" blocked_tags="noMods" type="attachment">
+        <property name="DisplayType" value="modArmorIntellectPatch"/>
+		<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+		<property name="CustomIcon" value="modArmorIntellect"/>
+		<property name="TraderStageTemplate" value="modsTier2"/>
+		<property name="Material" value="Msteel"/>
+		<property name="EconomicValue" value="1000"/>
+		<property name="ShowQuality" value="true"/>
+		<property name="QualityMin" value="1"/>
+		<effect_group>
+			<passive_effect name="PerkLevel" tags="izpActionScienceSkill,izpActionEngineeringSkill,izpActionBarterSkill" operation="base_add" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+            <display_value name="dLBDSkillsIntPatch" value="2,4,6,8,10,12" tier="1,2,3,4,5,6"/>
+
+			<passive_effect name="PlayerExpGain" operation="perc_add" value=".05,.1,.15,.2,.25,.3" tier="1,2,3,4,5,6"/>
+            <display_value name="dPlayerExpGain" value=".05,.1,.15,.2,.25,.3" tier="1,2,3,4,5,6"/>
+		</effect_group>
+	</item_modifier>
+</append>
+</configs>

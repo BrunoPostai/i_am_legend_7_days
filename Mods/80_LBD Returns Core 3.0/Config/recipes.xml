@@ -1,0 +1,57 @@
+<configs>
+<!--Locks the basic ammo types behind learnable-->
+<set xpath="recipes/recipe[@name='ammo9mmBulletBall']/@tags">workbenchCrafting, learnable</set>
+<set xpath="recipes/recipe[@name='ammo44MagnumBulletBall']/@tags">workbenchCrafting, learnable</set>
+<set xpath="recipes/recipe[@name='ammo762mmBulletBall']/@tags">workbenchCrafting, learnable</set>
+<set xpath="recipes/recipe[@name='ammoShotgunShell']/@tags">workbenchCrafting, learnable</set>
+<set xpath="recipes/recipe[@name='ammoJunkTurretRegular']/@tags">workbenchCrafting, learnable</set>
+<!--unlocks basic foods-->
+<set xpath="recipes/recipe[@name='drinkJarCoffee']/@tags">perkMasterChef,cookingPotFood</set>
+<set xpath="recipes/recipe[@name='drinkJarGoldenRodTea']/@tags">perkMasterChef,cookingPotFood</set>
+<set xpath="recipes/recipe[@name='drinkJarRedTea']/@tags">perkMasterChef,cookingPotFood</set>
+<set xpath="recipes/recipe[@name='drinkJarYuccaJuice']/@tags">perkMasterChef,cookingPotFood</set>
+<set xpath="recipes/recipe[@name='foodBaconAndEggs']/@tags">perkMasterChef,cookingPotFood</set>
+<set xpath="recipes/recipe[@name='foodBakedPotato']/@tags">perkMasterChef,cookingPotFood</set>
+<set xpath="recipes/recipe[@name='foodBoiledMeat']/@tags">perkMasterChef,cookingPotFood</set>
+<set xpath="recipes/recipe[@name='foodCornOnTheCob']/@tags">perkMasterChef,grill</set>
+<set xpath="recipes/recipe[@name='foodGrilledMeat']/@tags">perkMasterChef,grill</set>
+<!--unlocks basic iron tools but locks them behind the workbench-->
+<setattribute xpath="recipes/recipe[@name='gunBowT1WoodenBow']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='gunBowT1WoodenBow']/@tags">learnable,workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeWpnClubT1BaseballBat']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeWpnClubT1BaseballBat']/@tags">perkPummelPete,workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeToolRepairT1ClawHammer']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeToolRepairT1ClawHammer']/@tags">workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeToolAxeT1IronFireaxe']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeToolAxeT1IronFireaxe']/@tags">workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeWpnSpearT1IronSpear']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeWpnSpearT1IronSpear']/@tags">perkJavelinMaster,workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeWpnBladeT1HuntingKnife']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeWpnBladeT1HuntingKnife']/@tags">perkDeepCuts,workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeToolPickT1IronPickaxe']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeToolPickT1IronPickaxe']/@tags">workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeToolShovelT1IronShovel']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeToolShovelT1IronShovel']/@tags">workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeWpnSledgeT1IronSledgehammer']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeWpnSledgeT1IronSledgehammer']/@tags">workbenchCrafting</set>
+<!-- <setattribute xpath="recipes/recipe[@name='meleeToolSalvageT1Wrench']" name="craft_area">workbench</setattribute>-->
+<set xpath="recipes/recipe[@name='meleeToolSalvageT1Wrench']/@tags">workbenchCrafting</set>
+<setattribute xpath="recipes/recipe[@name='meleeWpnKnucklesT1IronKnuckles']" name="craft_area">workbench</setattribute>
+<set xpath="recipes/recipe[@name='meleeWpnKnucklesT1IronKnuckles']/@tags">workbenchCrafting</set>
+<set xpath="recipes/recipe[@name='armorPrimitiveHelmet']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='armorPrimitiveOutfit']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='armorPrimitiveGloves']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='armorPrimitiveBoots']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedAloe1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedBlueberry1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedChrysanthemum1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedCoffee1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedCorn1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedCotton1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedGoldenrod1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedHop1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedMushroom1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedPotato1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedYucca1']/@tags">packMuleCrafting</set>
+<set xpath="recipes/recipe[@name='plantedPumpkin1']/@tags">packMuleCrafting</set>
+</configs>

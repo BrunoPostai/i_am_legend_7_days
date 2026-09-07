@@ -1,0 +1,64 @@
+<configs>
+
+<set xpath="traders/trader_item_groups/trader_item_group[@name='skillMagazines']">
+			<item name="speechSkillMagazine" count="3,6"/>
+			<item name="harvestingToolsSkillMagazine" count="0,1"/>
+			<item name="repairToolsSkillMagazine" count="0,1"/>
+			<item name="salvageToolsSkillMagazine" count="0,1"/>
+			<item name="workstationSkillMagazine" count="0,1"/>
+			<item name="bowsSkillMagazine" count="0,1"/>
+			<item name="spearsSkillMagazine" count="0,1"/>
+			<item name="bladesSkillMagazine" count="0,1"/>
+			<item name="clubsSkillMagazine" count="0,1"/>
+			<item name="handgunsSkillMagazine" count="0,1"/>
+			<item name="shotgunsSkillMagazine" count="0,1"/>
+			<item name="riflesSkillMagazine" count="0,1"/>
+			<item name="machineGunsSkillMagazine" count="0,1"/>
+			<item name="armorSkillMagazine" count="0,1"/>
+			<item name="medicalSkillMagazine" count="0,1"/>
+			<item name="foodSkillMagazine" count="0,1"/>
+			<item name="seedSkillMagazine" count="0,1"/>
+			<item name="electricianSkillMagazine" count="0,1"/>
+			<item name="athleticsSkillMagazine" count="0,1"/>
+			<item name="scavengingSkillMagazine" count="0,1"/>
+</set>
+
+<set xpath="traders/trader_item_groups/trader_item_group[@name='groupArmorMods']">
+			<item name="modArmorHelmetLight"/>
+			<!-- <item name="modArmorInsulatedLiner"/> -->
+			<!-- <item name="modArmorCoolingMesh"/> -->
+			<item name="modArmorPlatingBasic"/>
+			<item name="modArmorStoragePocket"/>
+			<item name="modArmorImprovedFittings"/>
+			<item name="modArmorTreasureHunter"/>
+		<!-- *** T2_ARMOR_MODS -->
+			<item name="modArmorWaterPurifier"/>
+			<item name="modArmorImpactBracing"/>
+			<item name="modArmorPlatingReinforced"/>
+			<item name="modArmorMuffledConnectors"/>
+			<item name="modArmorDoubleStoragePocket"/>
+			<item name="modArmorCustomizedFittings"/>
+			<item name="modArmorCigar"/>
+		<!-- *** T3_ARMOR_MODS -->
+			<item name="modArmorBandolier"/>
+			<item name="modArmorTripleStoragePocket"/>
+			<item name="modArmorAdvancedMuffledConnectors"/>
+			<item name="modArmorNightVision"/>
+</set>
+
+<set xpath="traders/trader_item_groups/trader_item_group[@name='traderAlways']">
+	<item group="groupAllAmmo" count="2,4" />
+      <item name="resourcePotassiumNitratePowder" count="2,5" />
+      <item name="resourceGunPowder" count="25,25" />
+      <item group="ammoSupplies" count="2" />
+      <item name="ammoGasCan" count="5000,10000" />
+      <item group="thrownAmmo" count="2" />
+      <item name="drinkJarBoiledWater" count="2,4" />
+      <item group="groupFoodAll" count="1,3" />
+      <item name="cntVendingMachine" count="1" />
+      <item group="groupDyeMods" unique_only="true" count="5" />
+      <item name="medicalBandage" count="3,5" />
+      <item name="medicalSplint" count="3,5" />
+</set>
+
+</configs>
