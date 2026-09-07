@@ -157,7 +157,7 @@
                 <ingredient name="foodRawMeat" count="10"/>
             </recipe>
 
-            <recipe name="companionRevivalBandage" count="1" craft_area="workbench">
+            <recipe name="companionRevivalBandage" count="1" craft_area="workbench" craft_time="120">
                 <ingredient name="medicalFirstAidKit" count="5"/>
                 <ingredient name="drugAntibiotics" count="1"/>
                 <ingredient name="drugPainkillers" count="1"/>

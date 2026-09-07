@@ -173,7 +173,7 @@
 		<!-- *** FEMALE CHARGED DARKSEEKER -->
 		<entity_class name="zombieDarkseekerSlimFemaleCharged" extends="zombieDarkseekerSlimFemaleRadiated">
 			<property name="MatColor" value="charged"/>
-			<property name="PreviousTier" value="zombieArleneRadiated"/>
+			<property name="PreviousTier" value="zombieDarkseekerSlimFemaleRadiated"/>
 			<property name="Tags" value="entity,zombie,darkseeker,walker,allbiome,feral,charged"/>
 			<!-- <property name="Mesh" value="#@modfolder:Resources/darkseekers.unity3d?FemaleDarkseekerCharged"/> -->
 			<property name="ExperienceGain" value="^xpSlimCharged01"/><!-- Charged -->

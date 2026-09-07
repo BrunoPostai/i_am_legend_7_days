@@ -109,10 +109,10 @@
 			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Archery_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
 				<requirement name="CVarCompare" cvar="lbu_Archery_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement"/>
 			</triggered_effect>
-			<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Gunslinger_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_Gunslinger_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
 				<requirement name="CVarCompare" cvar="lbu_Gunslinger_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement"/>
 			</triggered_effect>
-			<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeepCuts_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DeepCuts_XPIncrement" operation="set" value="@lbu_DefaultInitialIncrement">
 				<requirement name="CVarCompare" cvar="lbu_DeepCuts_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement"/>
 			</triggered_effect>
 			<!--deep cuts also has a stamina bonus increase to intialise-->
@@ -133,6 +133,9 @@
 				<requirement name="CVarCompare" cvar="lbu_Robotics_XPIncrement" operation="LT" value="@lbu_DefaultInitialIncrement"/>
 			</triggered_effect>
 			<!--END perk increment vars intialisation-->
+
+			<!--add the manager buff that keeps the HUD *Equipped cvars in sync with the held item-->
+			<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="buffLBU_HUDManager"/>
 			
 		</effect_group>   
 	</append>
@@ -368,6 +371,142 @@
 			</effect_group>
 			<effect_group>
 				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffHiddenStrikeAction"/>
+			</effect_group>
+		</buff>
+
+		<!--HUD manager buff: keeps the *Equipped cvars used by the HUDLeftActionSkills window in sync with the held item.
+			Added once on game entry (see the buffStatusCheck01 init block above). -->
+		<buff name="buffLBU_HUDManager" hidden="true" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<update value="1"/>
+			<effect_group name="rifle">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="rifleEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkDeadEye"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="rifleEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkDeadEye"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="explosive">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="explosiveEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkDemolitionsExpert"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="explosiveEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkDemolitionsExpert"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="molotov">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="molotovEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="lbu_DemoMolotov"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="molotovEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="lbu_DemoMolotov"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="spear">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="spearEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkJavelinMaster"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="spearEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkJavelinMaster"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="salvage">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="salvageEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkSalvageOperations"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="salvageEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="shotgun">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="shotgunEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkBoomstick"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="shotgunEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkBoomstick"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="club">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="clubEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkPummelPete"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="clubEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkPummelPete"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="sledgehammer">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="sledgehammerEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkSkullCrusher"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="sledgehammerEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkSkullCrusher"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="mining">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="miningEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkMiner69r"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="miningEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkMiner69r"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="knuckles">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="knucklesEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkBrawler"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="knucklesEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkBrawler"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="machinegun">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="machinegunEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkMachineGunner"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="machinegunEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="bow">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="bowEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkArchery"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="bowEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkArchery"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="pistol">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="pistolEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkGunslinger"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="pistolEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkGunslinger"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="blade">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="bladeEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkDeepCuts"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="bladeEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="baton">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="batonEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkElectrocutioner"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="batonEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkElectrocutioner"/>
+				</triggered_effect>
+			</effect_group>
+			<effect_group name="turret">
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="turretEquipped" operation="set" value="0">
+					<requirement name="!HoldingItemHasTags" tags="perkTurrets"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="turretEquipped" operation="set" value="1">
+					<requirement name="HoldingItemHasTags" tags="perkTurrets"/>
+				</triggered_effect>
 			</effect_group>
 		</buff>
 	</append>

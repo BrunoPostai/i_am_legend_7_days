@@ -8,6 +8,7 @@
 
     <!-- Wolf -->
 
+    <remove xpath="//entity_class[@name='animalWolf']/property[contains(@name, 'AITask')]"/>
     <append xpath="//entity_class[@name='animalWolf']">
 
         <property name="MaxSedation" value="150"/>

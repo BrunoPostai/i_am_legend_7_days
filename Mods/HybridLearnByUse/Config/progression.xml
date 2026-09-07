@@ -396,7 +396,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_PummelPete_Lvl" operation="add" value="1"/> 
 					<!--each level adds 0.3 to Stamina for kills for a total of 15 at level 50 (half of Pummel Pete lvl 5)--> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_PP_StamIncrement" operation="add" value="0.3">
-							<requirement name="CVarCompare" cvar="@lbu_PP_StamIncrement" operation="LTE" value="15" />
+							<requirement name="CVarCompare" cvar="lbu_PP_StamIncrement" operation="LTE" value="15" />
 					</triggered_effect>		
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Pummel Pete Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
@@ -453,7 +453,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_SkullCrusher_Lvl" operation="add" value="1"/> 
 					<!--Kills return Stamina: +0.3% stamina for each level up to max of 15 at level 50 (half of Skull Crusher lvl 5)--> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_SC_StamIncrement" operation="add" value="0.3">
-							<requirement name="CVarCompare" cvar="@lbu_SC_StamIncrement" operation="LTE" value="15" />
+							<requirement name="CVarCompare" cvar="lbu_SC_StamIncrement" operation="LTE" value="15" />
 					</triggered_effect>		
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Skull Crusher Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
@@ -480,7 +480,7 @@
 					<passive_effect name="BlockDamage" operation="perc_add" value="0.01,0.75" level="1,50" tags="perkMiner69r"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,50" tags="perkMiner69r"/>
 					<passive_effect name="HarvestCount" operation="perc_add" value="0.01,0.5" level="1,50" tags="oreWoodHarvest" />
-					<passive_effect name="StaminaLoss" operation="perc_add" value="-.01,-.125" level="1,50"  tags="primary"/>/>
+					<passive_effect name="StaminaLoss" operation="perc_add" value="-.01,-.125" level="1,50"  tags="primary"/>
 					<passive_effect name="StaminaLoss" operation="perc_add" value="-.01,-.25" level="1,50" tags="secondary"/>
 			</effect_group>
 			
@@ -568,7 +568,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Brawler_Lvl" operation="add" value="1"/> 
 					<!--Kills return Stamina: +0.3% stamina for each level up to max of 15 at level 50 (half of Brawler Perk lvl 5)--> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Brawler_StamIncrement" operation="add" value="0.3">
-							<requirement name="CVarCompare" cvar="@lbu_Brawler_StamIncrement" operation="LTE" value="15" />
+							<requirement name="CVarCompare" cvar="lbu_Brawler_StamIncrement" operation="LTE" value="15" />
 					</triggered_effect>		
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Brawler Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
@@ -785,7 +785,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeepCuts_Lvl" operation="add" value="1"/> 
 					<!--Kills return Stamina: +0.3% stamina for each level up to max of 15 at level 50 (half of Deep Cuts lvl 5)--> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DCuts_StamIncrement" operation="add" value="0.3">
-							<requirement name="CVarCompare" cvar="@lbu_DCuts_StamIncrement" operation="LTE" value="15" />
+							<requirement name="CVarCompare" cvar="lbu_DCuts_StamIncrement" operation="LTE" value="15" />
 					</triggered_effect>		
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Deep Cuts Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
@@ -871,7 +871,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Electrocutioner_Lvl" operation="add" value="1"/> 
 					<!--Kills return Stamina: +0.3% stamina for each level up to max of 15 at level 50 (half of Electrocutioner lvl 5)--> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Elec_StamIncrement" operation="add" value="0.3">
-							<requirement name="CVarCompare" cvar="@lbu_Elec_StamIncrement" operation="LTE" value="15" />
+							<requirement name="CVarCompare" cvar="lbu_Elec_StamIncrement" operation="LTE" value="15" />
 					</triggered_effect>
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Electrocutioner Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
@@ -958,7 +958,7 @@
 	<remove xpath="/progression/perks/perk[@name='perkPummelPete']"/>
 	<!-- remove perkSkullCrusher -->
 	<remove xpath="/progression/perks/perk[@name='perkSkullCrusher']"/>
-	<!-- remove perkSkullCrusher -->
+	<!-- remove perkBrawler -->
 	<remove xpath="/progression/perks/perk[@name='perkBrawler']"/>
 	<!-- remove perkMachineGunner -->
 	<remove xpath="/progression/perks/perk[@name='perkMachineGunner']"/>
@@ -974,13 +974,17 @@
 	<remove xpath="/progression/perks/perk[@name='perkElectrocutioner']"/>
 	<!-- remove perkSalvageOperations -->
 	<remove xpath="/progression/perks/perk[@name='perkSalvageOperations']"/>
+	<!-- remove perkDemolitionsExpert -->
+	<remove xpath="/progression/perks/perk[@name='perkDemolitionsExpert']"/>
+	<!-- remove perkHiddenStrike -->
+	<remove xpath="/progression/perks/perk[@name='perkHiddenStrike']"/>
 	
 
 	<!--now put them all back - with modified stats -->
 	
 	<!--Modify existing miner69er and motherlode perks to halve stats increase per level-->
 	<insertAfter xpath="/progression/perks/perk[@name='perkMasterChef']">
-		<perk name="perkMiner69r" parent="skillStrengthConstruction" name_key="perkMiner69rName" desc_key="perkMiner69rDesc" icon="ui_game_symbol_mining">-->
+		<perk name="perkMiner69r" parent="skillStrengthConstruction" name_key="perkMiner69rName" desc_key="perkMiner69rDesc" icon="ui_game_symbol_mining">
 			<level_requirements level="1"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="1" desc_key="reqStrengthLevel01"/></level_requirements>
 			<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="2" desc_key="reqStrengthLevel02"/></level_requirements>
 			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="3" desc_key="reqStrengthLevel03"/></level_requirements>
