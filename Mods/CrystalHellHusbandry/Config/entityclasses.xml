@@ -813,4 +813,11 @@
       </append>
 -->
 
+    <!-- Follow-first AI for predator companions -->
+    <set xpath="//entity_class[property[@name='CompanionProfile'] and property[contains(@value, 'FollowOwner')]]/property[@name='AITask-3']/@value">FollowOwner, CHHusbandry</set>
+    <set xpath="//entity_class[property[@name='CompanionProfile'] and property[contains(@value, 'FollowOwner')]]/property[@name='AITask-4']/@value">BreedingApproach, CHHusbandry</set>
+    <set xpath="//entity_class[property[@name='CompanionProfile'] and property[contains(@value, 'FollowOwner')]]/property[@name='AITask-5']/@value">TroughApproach, CHHusbandry</set>
+    <set xpath="//entity_class[property[@name='CompanionProfile'] and property[contains(@value, 'FollowOwner')]]/property[@name='AITask-6']/@value">FearResponse, CHHusbandry</set>
+    <set xpath="//entity_class[property[@name='CompanionProfile'] and property[contains(@value, 'FollowOwner')]]/property[@name='AITask-7']/@data">class=EntityZombie,50,EntityBandit,30</set>
+
 </configs>
