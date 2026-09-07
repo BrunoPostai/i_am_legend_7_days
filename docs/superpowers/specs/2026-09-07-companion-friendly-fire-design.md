@@ -42,7 +42,9 @@ Mods/Z_CompanionFriendlyFire/
 
 ## 4. The patch logic (Prefix)
 
-`Prefix(EntityAlive __instance, ref bool __result, DamageResponse __0)`:
+### 4.1 Damage block (Prefix on `EntityAlive.ProcessDamageResponseLocal`)
+
+`Prefix(EntityAlive __instance, DamageResponse __0)`:
 
 1. `sourceId = __0.Source.getEntityId()`; if `0` → return true (no attacker, let original run).
 2. `if !EntityInfoManager.TryGetValue(__instance.entityId, out info)` → return true (not a CHH companion).
@@ -50,11 +52,19 @@ Mods/Z_CompanionFriendlyFire/
 4. `ownerId = info.OwnerId`; if `ownerId <= 0` → return true.
 5. `source = world.GetEntity(sourceId)`.
 6. If `source is EntityPlayer player`:
-   - if `player.entityId == ownerId` → `__result = false; return false` (owner blocked).
-   - `owner = world.GetEntity(ownerId) as EntityPlayer`; if `owner != null && player.IsFriendsWith(owner)` → `__result = false; return false` (friend blocked).
+   - if `player.entityId == ownerId` (owner) → return false (blocked).
+   - if `player.IsFriendsWith(owner)` (friend) → return false (blocked).
 7. Otherwise return true (zombies, animals, NPCs still damage the pet).
 
-Semantics: returning `false` from the Prefix skips the original method → no damage applied. `ref bool __result` is ignored for void returns, kept for clarity.
+Semantics: returning `false` from the Prefix skips the original method → no damage applied. (Note: for a `void` original, Harmony rejects `ref bool __result` — a returning-false Prefix alone skips the original.)
+
+### 4.2 Bond-penalty / "You hurt {pet}!" warning suppression
+
+CHH runs its own Prefix on the same damage method (it loads before `Z_CompanionFriendlyFire`), so it records the owner-damage bond penalty and emits the `"You hurt {pet}!"` warning *before* our damage-blocking Prefix runs. Because we now prevent owner/friend damage, that warning and bond penalty are misleading and are suppressed with a **second, manually-applied Harmony Prefix on CHH's internal method** `CrystalHellHusbandry.Patches.EntityAlive_ProcessDamageResponseLocal_Patches.TryApplyOwnerDamageBondPenalty(EntityAlive, int)`.
+
+- The target type is `internal` to CHHusbandry, so it is patched via **`AccessTools.Method`** + manual `harmony.Patch(prefix: ...)` in `InitMod` (not a compile-time `[HarmonyPatch(typeof(...))]`).
+- The Prefix returns `false` (no-op) when the attacker is the pet's owner or friend (same `IsOwnerOrFriend` helper as the damage block); otherwise returns `true` (CHH behavior unchanged for real enemies/zombies).
+- `InitMod` resolves the internal type by full name via an `AppDomain`-assembly scan; if resolution fails, it logs a warning and leaves the warning intact (fail-open).
 
 ## 5. Error handling / robustness
 
@@ -78,7 +88,8 @@ Semantics: returning `false` from the Prefix skips the original method → no da
 
 - [ ] Owner punches tamed wolf/shepherd → 0 damage.
 - [ ] Owner melee/ranged/grenade splash near tamed pet → pet takes 0 damage.
-- [ ] Steam friend punches the pet → 0 damage.
+- [ ] Owner attack does NOT trigger the "You hurt {pet}!" warning or any bond penalty.
+- [ ] Steam friend punches the pet → 0 damage and no warning.
 - [ ] Zombie attacks the tamed pet → still takes damage and can die.
 - [ ] Fresh wild animal (not yet tamed) → still takes owner damage (taming works).
 - [ ] All 52 mod XML still parse; mod loads with no errors in `output_log`.
