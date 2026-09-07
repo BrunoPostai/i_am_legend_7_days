@@ -6,6 +6,13 @@
         <property name="CompanionsDisabled" value="true"/>
     </append>
 
+    <!-- Companions never take fall damage (mountains/ledges) -->
+    <append xpath="//entity_class[property[@name='CompanionProfile']]">
+        <effect_group>
+            <passive_effect name="FallDamageReduction" operation="base_set" value="0"/>
+        </effect_group>
+    </append>
+
     <!-- Wolf -->
 
     <remove xpath="//entity_class[@name='animalWolf']/property[contains(@name, 'AITask')]"/>
