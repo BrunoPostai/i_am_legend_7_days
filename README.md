@@ -61,7 +61,21 @@ Any sandbox options in grey are disabled and cannot be changed. 90% of the mod's
 
 At night, the Darkseekers will spawn, and there will be a LOT of them; 5x more than the vanilla game. Staying inside and staying hidden at night is advisable.
 
+## THE SUN
+
+Dark Seekers are creatures of the dark — they cannot survive in daylight.
+
+If a Dark Seeker is caught outside in the open sun, it ignites and burns. The burn is slow enough that the very toughest variants (Charged and Infernal) have precious seconds to crawl for shade, but a normal Darkseeker caught mid-field is already dead; it just hasn't stopped moving yet.
+
+The burn scales per variant — the bigger the beast, the longer it takes to be consumed — but no variant survives an extended stay in direct sunlight.
+
+Radiated, Charged, and Infernal Dark Seekers regenerate their health — but even they cannot out-heal the sun.
+
+## SKILLS & PROGRESSION
+
 Skills use a Learn By Doing system (IzPLearnByDoing). The more you use certain tools and weapons, the more adept you are at using them.
+
+## THE COMPANION
 
 You will spawn with a companion - a German Shepherd dog. Your dog must be fed, watered, and kept safe. Keep a close eye on the dog's stats, especially in combat.
 Your companion will level up the same way you do and will earn perk points over time. Use these points to increase things like:
@@ -73,6 +87,14 @@ Your companion will level up the same way you do and will earn perk points over 
  - Health regen
 
 However, if Samantha should die ... she'll be **gone for good**. There is a **revival bandage** that can be used to save your fallen companion, as a last resort.
+
+The companion has been improved to be a smarter, safer partner:
+
+ - **Follows first**: it stays close to you instead of wandering off, and prioritises staying near its owner.
+ - **Hunts what you hunt**: when it fights, it targets zombies first — it will not harry random animals or chase strangers across the map.
+ - **Knows when to back off**: when seriously hurt, it disengages and recovers, then rejoins you after a short cooldown.
+ - **Immune to fall damage**: no more dying to an unlucky step off a mountain ledge.
+ - **No friendly fire**: neither you nor your Steam friends can hurt your own tamed companion — punches, bullets, and splash all pass through it. (Zombies can still hurt it, and untamed wild animals still behave normally.)
 
 >[!NOTE]
 >The mod comes with a built-in sandbox preset, which is the preferred and recommended way to play. The sandbox settings provided are a deliberate choice.
@@ -103,6 +125,13 @@ The mod comes pre-packaged in a "Mods" folder. Simply delete your existing mods 
 # MOD COMPATIBILITY
 
 The mod has been tested with AGF's HUD mod and with POI Scourge Lite. Compatibility with other mods is **not** guaranteed, so use other mods at your own risk.
+
+This pack depends on the following bundled mods and must ship with them:
+
+ - `0_TFP_Harmony` — Harmony patching framework (required).
+ - `80_LBD Returns Core 3.0` (IzPLearnByDoing) — Learn By Doing skill system.
+ - `CrystalHellHusbandry` (Companions) — the companion/taming system.
+ - `Z_CompanionFriendlyFire` — makes tamed companions immune to friendly fire from their owner and friends.
 
 ## CREDITS
 
