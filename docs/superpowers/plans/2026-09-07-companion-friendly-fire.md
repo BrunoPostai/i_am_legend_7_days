@@ -164,7 +164,7 @@ $ErrorActionPreference = 'Stop'
 
 $game    = "C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die"
 $managed = Join-Path $game "7DaysToDie_Data\Managed"
-$repoMods = Join-Path $PSScriptRoot "..\.\.."  # Mods/  (this script lives in Mods/Z_CompanionFriendlyFire/)
+$repoMods = Split-Path $PSScriptRoot -Parent  # Mods/  (this script lives in Mods/Z_CompanionFriendlyFire/)
 $harmony = Join-Path (Resolve-Path (Join-Path $repoMods "0_TFP_Harmony")).Path "0Harmony.dll"
 $chh     = Join-Path (Resolve-Path (Join-Path $repoMods "CrystalHellHusbandry")).Path "CHHusbandry.dll"
 $csc     = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
@@ -183,6 +183,7 @@ foreach ($p in @($managed, $harmony, $chh, $src)) { if (-not (Test-Path $p)) { t
   "/r:$managed\System.Runtime.dll" `
   "/r:$harmony" `
   "/r:$chh" `
+  $src
 
 if ($LASTEXITCODE -ne 0) { throw "csc failed (exit $LASTEXITCODE)" }
 Write-Output "Built $out ($((Get-Item $out).Length) bytes)"
