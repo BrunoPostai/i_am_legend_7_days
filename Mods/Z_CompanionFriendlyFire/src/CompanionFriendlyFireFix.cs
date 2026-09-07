@@ -26,7 +26,7 @@ namespace CompanionFriendlyFireFix
     [HarmonyPatch(typeof(EntityAlive), "ProcessDamageResponseLocal")]
     public static class FriendlyFirePatch
     {
-        private static bool Prefix(EntityAlive __instance, ref bool __result, DamageResponse __0)
+        private static bool Prefix(EntityAlive __instance, DamageResponse __0)
         {
             try
             {
@@ -49,18 +49,13 @@ namespace CompanionFriendlyFireFix
                 if (player == null) return true;                // zombie/animal/NPC still damages pet
 
                 if (player.entityId == ownerId)
-                {
-                    __result = false;                           // owner -> block
-                    return false;
-                }
+                    return false;                               // owner -> skip original (no damage)
 
                 Entity owner = world.GetEntity(ownerId);
                 EntityPlayer ownerPlayer = owner as EntityPlayer;
                 if (ownerPlayer != null && player.IsFriendsWith(ownerPlayer))
-                {
-                    __result = false;                           // Steam friend -> block
-                    return false;
-                }
+                    return false;                               // Steam friend -> skip original (no damage)
+
                 return true;                                    // not owner, not friend -> let damage run
             }
             catch (Exception ex)
