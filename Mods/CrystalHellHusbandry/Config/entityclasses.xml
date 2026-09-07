@@ -7,7 +7,7 @@
     </append>
 
     <!-- Companions never take fall damage (mountains/ledges) -->
-    <append xpath="//entity_class[property[@name='CompanionProfile']]">
+    <append xpath="//entity_class[property[@name='CompanionProfile'] or property[@class='AnimalTamingProfile']]">
         <effect_group>
             <passive_effect name="FallDamageReduction" operation="base_set" value="0"/>
         </effect_group>
