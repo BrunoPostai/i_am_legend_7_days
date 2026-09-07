@@ -181,4 +181,33 @@ namespace CompanionFriendlyFireFix
             }
         }
     }
+
+    // Fall damage for non-player entities is applied in EntityAlive.fallHitGround,
+    // which calls DamageEntity(DamageSource.fall, ...) directly — it does NOT go
+    // through the _fallSpeed / FallDamageReduction passive path (that is player-only).
+    // So tamed companions still took fall damage when clipping into terrain while
+    // following. Zero the damage when the source is a fall and the target is tamed.
+    [HarmonyPatch(typeof(EntityAlive), "DamageEntity")]
+    public static class FallDamagePatch
+    {
+        private static bool Prefix(EntityAlive __instance, DamageSource __0, ref int __result)
+        {
+            try
+            {
+                if (__instance == null) return true;
+                if (__0.damageType != EnumDamageTypes.Falling) return true;   // only fall damage
+                if (EntityInfoManager.Instance == null) return true;
+                EntityInfo info;
+                if (!EntityInfoManager.Instance.TryGetValue(__instance.entityId, out info)) return true;
+                if (info == null || !info.IsTamed) return true;
+                __result = 0;                                   // tamed companion: no fall damage
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("[CompanionFriendlyFireFix] FallDamage prefix exception (fail-open): " + ex);
+                return true;
+            }
+        }
+    }
 }
