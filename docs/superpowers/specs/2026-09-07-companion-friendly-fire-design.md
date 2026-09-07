@@ -42,9 +42,9 @@ Mods/Z_CompanionFriendlyFire/
 
 ## 4. The patch logic (Prefix)
 
-`Prefix(EntityAlive __instance, ref bool __result, DamageResponse ____0)`:
+`Prefix(EntityAlive __instance, ref bool __result, DamageResponse __0)`:
 
-1. `sourceId = dmgResponse.Source.getEntityId()`; if `0` → return true (no attacker, let original run).
+1. `sourceId = __0.Source.getEntityId()`; if `0` → return true (no attacker, let original run).
 2. `if !EntityInfoManager.TryGetValue(__instance.entityId, out info)` → return true (not a CHH companion).
 3. `if !info.IsTamed` → return true (wild animal unaffected).
 4. `ownerId = info.OwnerId`; if `ownerId <= 0` → return true.
