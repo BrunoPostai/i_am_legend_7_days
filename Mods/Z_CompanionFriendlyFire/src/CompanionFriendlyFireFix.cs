@@ -140,4 +140,45 @@ namespace CompanionFriendlyFireFix
             }
         }
     }
+
+    // DoT buffs like bleeding are applied through EntityBuffs.AddBuff, not through
+    // the damage method we already patch. It consults FriendlyFireCheck(instigator),
+    // which in v3.2.0 is a stub returning true — so owner/friend hits still apply
+    // bleeding and other buffs to the pet. No-op this for owner/friend instigators.
+    [HarmonyPatch(typeof(EntityBuffs), "AddBuff",
+        new Type[] { typeof(string), typeof(Vector3i), typeof(int), typeof(bool), typeof(bool), typeof(float) })]
+    public static class OwnerBuffPatch
+    {
+        private static bool Prefix(EntityBuffs __instance, int __2)
+        {
+            try
+            {
+                if (__instance == null) return true;
+                EntityAlive target = __instance.parent;
+                if (target == null) return true;
+                if (EntityInfoManager.Instance == null) return true;
+                EntityInfo info;
+                if (!EntityInfoManager.Instance.TryGetValue(target.entityId, out info)) return true;
+                if (info == null || !info.IsTamed) return true;
+                int ownerId = info.OwnerId;
+                if (ownerId <= 0) return true;
+
+                World world = GameManager.Instance != null ? GameManager.Instance.World : null;
+                if (world == null) return true;
+                Entity source = world.GetEntity(__2);
+                EntityPlayer player = source as EntityPlayer;
+                if (player == null) return true;
+
+                if (FriendlyFirePatch.IsOwnerOrFriend(player, ownerId, world))
+                    return false;                               // owner/friend buff on own pet -> skip
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("[CompanionFriendlyFireFix] Buff prefix exception (fail-open): " + ex);
+                return true;
+            }
+        }
+    }
 }
