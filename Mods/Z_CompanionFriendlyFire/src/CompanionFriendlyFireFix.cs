@@ -37,6 +37,28 @@ namespace CompanionFriendlyFireFix
                     Log.Warning("[CompanionFriendlyFireFix] Could not resolve CHH penalty type; owner-hit warning remains.");
                 }
 
+                // Needs system is internal to CHH. No-op the hunger/thirst drain loop so
+                // tamed companions never need food or water (and never starve/dehydrate).
+                Type needsServiceType = FindType("CHHusbandry.Services.CompanionNeedsService");
+                if (needsServiceType != null)
+                {
+                    System.Reflection.MethodInfo needsMethod = AccessTools.Method(needsServiceType, "TryUpdateNeeds");
+                    if (needsMethod != null)
+                    {
+                        System.Reflection.MethodInfo prefix = AccessTools.Method(typeof(NeedsPatch), "Prefix");
+                        harmony.Patch(needsMethod, prefix: new HarmonyMethod(prefix));
+                        Log.Out("[CompanionFriendlyFireFix] Needs-suppression patch applied.");
+                    }
+                    else
+                    {
+                        Log.Warning("[CompanionFriendlyFireFix] Could not find TryUpdateNeeds; companion needs remain.");
+                    }
+                }
+                else
+                {
+                    Log.Warning("[CompanionFriendlyFireFix] Could not resolve CHH needs service; companion needs remain.");
+                }
+
                 Log.Out("[CompanionFriendlyFireFix] Harmony patches applied.");
             }
             catch (Exception ex)
@@ -206,6 +228,26 @@ namespace CompanionFriendlyFireFix
             catch (Exception ex)
             {
                 Log.Error("[CompanionFriendlyFireFix] FallDamage prefix exception (fail-open): " + ex);
+                return true;
+            }
+        }
+    }
+
+    // Applied manually in InitMod to the internal CHH CompanionNeedsService.TryUpdateNeeds.
+    // No-op so tamed companions never drain hunger/thirst and never take
+    // starvation/dehydration damage.
+    public static class NeedsPatch
+    {
+        public static bool Prefix(EntityInfo info)
+        {
+            try
+            {
+                if (info == null) return false;                 // nothing to update anyway
+                return false;                                   // skip the needs update entirely
+            }
+            catch (Exception ex)
+            {
+                Log.Error("[CompanionFriendlyFireFix] Needs prefix exception (fail-open): " + ex);
                 return true;
             }
         }
