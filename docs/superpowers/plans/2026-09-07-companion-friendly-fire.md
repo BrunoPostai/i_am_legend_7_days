@@ -51,6 +51,7 @@
 using System;
 using HarmonyLib;
 using UnityEngine;
+using CHHusbandry.Data;
 
 namespace CompanionFriendlyFireFix
 {
@@ -91,7 +92,7 @@ namespace CompanionFriendlyFireFix
                 int ownerId = info.OwnerId;
                 if (ownerId <= 0) return true;
 
-                World world = GameManager.Instance?.World;
+                World world = GameManager.Instance != null ? GameManager.Instance.World : null;
                 if (world == null) return true;
                 Entity source = world.GetEntity(sourceId);
                 EntityPlayer player = source as EntityPlayer;
@@ -177,6 +178,9 @@ foreach ($p in @($managed, $harmony, $chh, $src)) { if (-not (Test-Path $p)) { t
   "/r:$managed\Assembly-CSharp.dll" `
   "/r:$managed\UnityEngine.dll" `
   "/r:$managed\UnityEngine.CoreModule.dll" `
+  "/r:$managed\LogLibrary.dll" `
+  "/r:$managed\netstandard.dll" `
+  "/r:$managed\System.Runtime.dll" `
   "/r:$harmony" `
   "/r:$chh" `
 
@@ -191,7 +195,7 @@ Write-Output "Built $out ($((Get-Item $out).Length) bytes)"
 ```powershell
 powershell -ExecutionPolicy Bypass -File "Mods/Z_CompanionFriendlyFire/build.ps1"
 ```
-Expected: `Built ...CompanionFriendlyFireFix.dll (... bytes)`, exit 0. If a compile error is reported (usually an ambiguity or missing namespace for one of the referenced types), fix the source/script and re-run until it compiles. The earlier smoke test proved `csc.exe` + these references work on this machine.
+Expected: `Built ...CompanionFriendlyFireFix.dll (... bytes)`, exit 0. If a compile error is reported (usually an ambiguity or missing namespace for one of the referenced types), fix the source/script and re-run until it compiles. The earlier smoke test proved `csc.exe` + these references work on this machine. Known required references beyond game+deps: `LogLibrary.dll` (the global `Log` type), `netstandard.dll` + `System.Runtime.dll` (avoid `System.Object defined in netstandard` errors). Keep C# to ≤ C# 5 syntax — Framework `csc.exe` rejects `?.` (use explicit null checks).
 
 - [ ] **Step 3: Sanity-inspect the DLL**
 
