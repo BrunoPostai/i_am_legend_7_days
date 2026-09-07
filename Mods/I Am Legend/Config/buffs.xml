@@ -35,6 +35,7 @@
 			</effect_group>
 			<effect_group>
 				<requirement name="EntityTagCompare" tags="feral"/>
+				<requirement name="!EntityTagCompare" tags="radiated,charged,infernal"/>
 				<passive_effect name="HealthChangeOT" operation="base_subtract" value="17.5"/>
 				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffIsOnFire"/>
 			</effect_group>
