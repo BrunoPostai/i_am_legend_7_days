@@ -820,4 +820,13 @@
     <set xpath="//entity_class[property[@name='CompanionProfile'] and property[contains(@value, 'FollowOwner')]]/property[@name='AITask-6']/@value">FearResponse, CHHusbandry</set>
     <set xpath="//entity_class[property[@name='CompanionProfile'] and property[contains(@value, 'FollowOwner')]]/property[@name='AITask-7']/@data">class=EntityZombie,50,EntityBandit,30</set>
 
+    <!-- Danger avoidance: flee only when seriously hurt, keep a defensive posture -->
+    <append xpath="//entity_class[property[@name='CompanionProfile'] and property[contains(@value, 'FollowOwner')]]">
+        <property name="CompanionTemperament" value="Defensive"/>
+        <property name="CompanionFearResponse" value="Defensive"/>
+        <property name="CompanionFleeFearThreshold" value="80"/>
+        <property name="CompanionFleeDurationSeconds" value="4"/>
+        <property name="CompanionFleeCooldownSeconds" value="10"/>
+    </append>
+
 </configs>
