@@ -59,6 +59,8 @@ namespace CompanionFriendlyFireFix
                     Log.Warning("[CompanionFriendlyFireFix] Could not resolve CHH needs service; companion needs remain.");
                 }
 
+                CorpseMarkerPatch.Register();
+
                 Log.Out("[CompanionFriendlyFireFix] Harmony patches applied.");
             }
             catch (Exception ex)
@@ -250,6 +252,69 @@ namespace CompanionFriendlyFireFix
                 Log.Error("[CompanionFriendlyFireFix] Needs prefix exception (fail-open): " + ex);
                 return true;
             }
+        }
+    }
+
+    // NavObjectManager public API used for the corpse marker.
+    // Handler registered via ModEvents.EntityKilled.RegisterHandler(...) — same pattern
+    // CHH uses (CHHusbandry.ModAPI.OnEntityKilled). Handler signature: void(SEntityKilledData&).
+    public static class CorpseMarkerPatch
+    {
+        private static readonly System.Collections.Generic.Dictionary<int, NavObject> _markers =
+            new System.Collections.Generic.Dictionary<int, NavObject>();
+
+        private static bool IsTamedCompanion(EntityAlive e, out int ownerId)
+        {
+            ownerId = 0;
+            if (e == null) return false;
+            if (EntityInfoManager.Instance == null) return false;
+            EntityInfo info;
+            if (!EntityInfoManager.Instance.TryGetValue(e.entityId, out info)) return false;
+            if (info == null || !info.IsTamed) return false;
+            ownerId = info.OwnerId;
+            return ownerId > 0;
+        }
+
+        // Registered handler (matches CHH's own OnEntityKilled signature).
+        // ModEventHandlerDelegate<SEntityKilledData> is void(SEntityKilledData&) — by ref.
+        public static void OnEntityKilled(ref ModEvents.SEntityKilledData args)
+        {
+            try
+            {
+                EntityAlive dead = args.KilledEntitiy as EntityAlive;
+                int ownerId;
+                if (!IsTamedCompanion(dead, out ownerId)) return;
+                if (NavObjectManager.Instance == null) return;
+
+                int id = dead.entityId;
+                NavObject old;
+                if (_markers.TryGetValue(id, out old) && old != null)
+                {
+                    NavObjectManager.Instance.UnRegisterNavObject(old);
+                    _markers.Remove(id);
+                }
+                NavObject marker = NavObjectManager.Instance.RegisterNavObject(
+                    "animaltracking_wolf", dead.position, dead.entityName, false, id, dead);
+                if (marker != null) { _markers[id] = marker; }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("[CompanionFriendlyFireFix] Corpse marker exception (fail-open): " + ex);
+            }
+        }
+
+        public static void Register()
+        {
+            // Same registration CHH uses: ModEvents.EntityKilled.RegisterHandler(handler)
+            // where handler is a ModEventHandlerDelegate<SEntityKilledData> (void, by-ref arg).
+            ModEvents.EntityKilled.RegisterHandler(OnEntityKilled);
+        }
+
+        public static void ClearAll()
+        {
+            if (NavObjectManager.Instance == null) return;
+            foreach (var kv in _markers) { if (kv.Value != null) NavObjectManager.Instance.UnRegisterNavObject(kv.Value); }
+            _markers.Clear();
         }
     }
 }
