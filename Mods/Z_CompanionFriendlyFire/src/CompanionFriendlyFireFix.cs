@@ -23,9 +23,8 @@ namespace CompanionFriendlyFireFix
                     System.Reflection.MethodInfo penaltyMethod = AccessTools.Method(penaltyTargetType, "TryApplyOwnerDamageBondPenalty");
                     if (penaltyMethod != null)
                     {
-                        System.Reflection.MethodInfo prefix = AccessTools.Method(typeof(OwnerDamagePenaltyPatch), "Prefix");
-                        harmony.Patch(penaltyMethod, prefix: new HarmonyMethod(prefix));
-                        Log.Out("[CompanionFriendlyFireFix] Bond-penalty suppression patch applied.");
+                        TryPatch(harmony, typeof(OwnerDamagePenaltyPatch), penaltyMethod,
+                            "[CompanionFriendlyFireFix] Bond-penalty suppression patch applied.");
                     }
                     else
                     {
@@ -45,9 +44,8 @@ namespace CompanionFriendlyFireFix
                     System.Reflection.MethodInfo needsMethod = AccessTools.Method(needsServiceType, "TryUpdateNeeds");
                     if (needsMethod != null)
                     {
-                        System.Reflection.MethodInfo prefix = AccessTools.Method(typeof(NeedsPatch), "Prefix");
-                        harmony.Patch(needsMethod, prefix: new HarmonyMethod(prefix));
-                        Log.Out("[CompanionFriendlyFireFix] Needs-suppression patch applied.");
+                        TryPatch(harmony, typeof(NeedsPatch), needsMethod,
+                            "[CompanionFriendlyFireFix] Needs-suppression patch applied.");
                     }
                     else
                     {
@@ -66,6 +64,24 @@ namespace CompanionFriendlyFireFix
             catch (Exception ex)
             {
                 Log.Error("[CompanionFriendlyFireFix] Failed to apply patches: " + ex);
+            }
+        }
+
+        // Applies a manual Harmony prefix; failures are logged and isolated so one
+        // broken patch cannot prevent the remaining registrations.
+        private static void TryPatch(Harmony harmony, Type patchType, System.Reflection.MethodInfo target,
+            string successMessage)
+        {
+            try
+            {
+                System.Reflection.MethodInfo prefix = AccessTools.Method(patchType, "Prefix");
+                if (prefix == null) { Log.Warning("[CompanionFriendlyFireFix] Prefix missing in " + patchType.Name); return; }
+                harmony.Patch(target, prefix: new HarmonyMethod(prefix));
+                Log.Out(successMessage);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("[CompanionFriendlyFireFix] Patch failed for " + target.Name + ": " + ex);
             }
         }
 
@@ -240,11 +256,12 @@ namespace CompanionFriendlyFireFix
     // starvation/dehydration damage.
     public static class NeedsPatch
     {
-        public static bool Prefix(EntityInfo info)
+        // Harmony binds prefix params to the original BY NAME — the original's first
+        // param is named "entityInfo", so this param must match (not "info").
+        public static bool Prefix(EntityInfo entityInfo)
         {
             try
             {
-                if (info == null) return false;                 // nothing to update anyway
                 return false;                                   // skip the needs update entirely
             }
             catch (Exception ex)
